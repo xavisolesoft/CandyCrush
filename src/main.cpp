@@ -17,6 +17,8 @@
 #include "GameLogic/PlayerActions.hpp"
 #include "GameLogic/LineMatcher.hpp"
 
+#include "Animation/Animation.hpp"
+
 #include "Util/EngineDebug.hpp"
 
 //**********************************************************************
@@ -50,18 +52,17 @@ public:
 
 		mEngine.Start(*this);
 	}
-#include <iostream>
+
 	void Update() {
-		static std::clock_t lastUpdate = std::clock();
-		
 		mEngine.Render(King::Engine::TEXTURE_BACKGROUND, 0.0f, 0.0f);
 
 		for (int i = 0; i < gameBoard.getNumXCells(); ++i) {
 			for (int j = 0; j < gameBoard.getNumYCells(); ++j) {
-				Geometry::BBox bBox = gameBoard.getCellBBox(i, j);
-				Geometry::Point topLeft = bBox.getTopLeft();
 				std::shared_ptr<Scene::Gem> gem = gameBoard.getGemFromCell(i, j);
 				if (gem) {
+					gem->animationUpdate();
+
+					Geometry::Point topLeft = gem->getWorldPos();
 					mEngine.Render(getGemTexture(gem->getGemType()),
 									topLeft.getX(),
 									topLeft.getY());
@@ -73,7 +74,7 @@ public:
 		}
 
 		playerActions.update(mEngine.GetMouseButtonDown(), mEngine.GetMouseX(), mEngine.GetMouseY());
-
+/*
 		if (mEngine.GetMouseButtonDown()) {
 			std::vector<std::vector<Geometry::Point> > lines = lineMatcher.getBoardLines();
 			for (const std::vector<Geometry::Point> line : lines) {
@@ -83,6 +84,7 @@ public:
 			}
 		}
 
+		static std::clock_t lastUpdate = std::clock();
 		if ((std::clock() - lastUpdate) / (double)CLOCKS_PER_SEC >= 1.0){
 			for (int i = 0; i < gameBoard.getNumXCells(); ++i) {
 				for (int j = gameBoard.getNumYCells() - 1; j > 0; --j) {
@@ -103,6 +105,7 @@ public:
 
 			lastUpdate = std::clock();
 		}
+		*/
 		
 
 /*

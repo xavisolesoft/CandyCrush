@@ -10,11 +10,14 @@
 
 #include "../GameLogic/LineMatcher.hpp"
 
+#include "../Animation/MoveGemAnimation.hpp"
+
 #include "../Util/Debug.hpp"
 
 using namespace GameLogic;
 using namespace Geometry;
 using namespace Scene;
+using namespace Animation;
 using namespace Util;
 
 PlayerActions::PlayerActions(GameBoard& gameBoard, const LineMatcher& lineMatcher) :
@@ -29,16 +32,18 @@ PlayerActions::PlayerActions(GameBoard& gameBoard, const LineMatcher& lineMatche
 
 void PlayerActions::update(bool mouseButtonDown, float mouseX, float mouseY)
 {
+	const Scene::Cell* currentCell = gameBoard.getCellFromWorldPos(mouseX, mouseY);
+	if(currentCell && currentCell->getGem() && currentCell->getGem()->isUserInteractionEnabled())
 	if (isDragStart(mouseButtonDown)) {
 		dragAborted = false;
-		updateDragStart(mouseX, mouseY);
+		updateDragStart(currentCell);
 	}
 	if (!dragAborted) {
 		if (isDragMove(mouseButtonDown)) {
-			updateDragMove(mouseX, mouseY);
+			updateDragMove(currentCell);
 		}
 		else if (isDragEnd(mouseButtonDown)) {
-			updateDragEnd(mouseX, mouseY);
+			updateDragEnd(currentCell);
 			dragAborted = false;
 		}
 	}
@@ -46,14 +51,13 @@ void PlayerActions::update(bool mouseButtonDown, float mouseX, float mouseY)
 	prevMouseButtonDown = mouseButtonDown;
 }
 
-void PlayerActions::updateDragStart(float mouseX, float mouseY)
+void PlayerActions::updateDragStart(const Scene::Cell* currentCell)
 {
-	dragStartCell = gameBoard.getCellFromWorldPos(mouseX, mouseY);
+	dragStartCell = currentCell;
 }
 
-void PlayerActions::updateDragMove(float mouseX, float mouseY)
+void PlayerActions::updateDragMove(const Scene::Cell* currentCell)
 {
-	const Scene::Cell* currentCell = gameBoard.getCellFromWorldPos(mouseX, mouseY);
 	if (!dragStartCell) {
 		dragStartCell = currentCell;
 	}
@@ -62,6 +66,7 @@ void PlayerActions::updateDragMove(float mouseX, float mouseY)
 		auto currentGem = currentCell->getGem();
 
 		auto dragStartGem = dragStartCell->getGem();
+		setSwapAnimations(currentGem, dragStartGem);
 		gameBoard.swap(dragStartGem, currentGem);
 		std::vector<std::vector<Point> > lines = lineMatcher.getBoardLines();
 		if (lines.empty()) {
@@ -79,9 +84,8 @@ void PlayerActions::updateDragMove(float mouseX, float mouseY)
 	}
 }
 
-void PlayerActions::updateDragEnd(float mouseX, float mouseY)
+void PlayerActions::updateDragEnd(const Scene::Cell* currentCell)
 {
-	const Scene::Cell* currentCell = gameBoard.getCellFromWorldPos(mouseX, mouseY);
 	if (currentCell) {
 		auto currentGem = currentCell->getGem();
 		Util::Debug() << "CLICKED_CELL(" << currentCell->getXCell() << ", " << currentCell->getYCell() << ")"
@@ -95,6 +99,7 @@ void PlayerActions::updateDragEnd(float mouseX, float mouseY)
 					<< "SWAP_CELL(" << currentCell->getXCell() << ", " << currentCell->getYCell() << ")"
 					<< ", GEM(" << currentGem->getId() << ")";
 
+				setSwapAnimations(currentGem, selectedCell->getGem());
 				gameBoard.swap(selectedCell->getGem(), currentGem);
 				selectedCell = nullptr;
 			}
@@ -104,10 +109,18 @@ void PlayerActions::updateDragEnd(float mouseX, float mouseY)
 			Util::Debug() << "SELECTED_CELL(" << selectedCell->getXCell() << ", " << selectedCell->getYCell() << ")"
 				<< ", GEM(" << selectedCell->getGem()->getId() << ")";
 		}
-		else {
-
-		}
 	}
+}
+
+void PlayerActions::setSwapAnimations(std::shared_ptr<Gem> gem1, std::shared_ptr<Gem> gem2)
+{
+	auto animation1 = new MoveGemAnimation();
+	animation1->start(gem1, gem2->getWorldPos(), 30, 0.01f);
+	gem1->setAnimation(*animation1);
+
+	auto animation2 = new MoveGemAnimation();
+	animation2->start(gem2, gem1->getWorldPos(), 30, 0.01f);
+	gem2->setAnimation(*animation2);
 }
 
 bool PlayerActions::isAllowedMovement(const Cell* originCell, const Cell* destinationCell)

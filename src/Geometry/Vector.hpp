@@ -24,15 +24,22 @@ namespace Geometry {
 
 		Vector& operator/=(float literal)
 		{
-			vector /= 2;
+			vector /= literal;
 			return *this;
 		}
 
 		Vector operator/(float literal) const
 		{
 			Vector ret(*this);
-			ret.vector /= 2;
-			return *this;
+			ret.vector /= literal;
+			return ret;
+		}
+
+		Vector operator*(float literal) const
+		{
+			Vector ret(*this);
+			ret.vector *= literal;
+			return ret;
 		}
 
 	private:

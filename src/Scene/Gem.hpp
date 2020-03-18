@@ -3,6 +3,11 @@
 #include "../Geometry/BBox.hpp"
 #include "../Geometry/Point.hpp"
 
+namespace Animation
+{
+	class IAnimation;
+}
+
 namespace Scene {
 	enum class GemType
 	{
@@ -27,9 +32,15 @@ namespace Scene {
 		void setY(float y);
 		const Geometry::Point& getWorldPos() const;
 
+		void setAnimation(Animation::IAnimation& value);
+		void animationUpdate();
+
+		bool isUserInteractionEnabled() const;
+
 	private:
 		long id;
 		GemType gemType;
 		Geometry::Point worldPos;
+		Animation::IAnimation* animation;
 	};
 }

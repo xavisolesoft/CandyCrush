@@ -43,6 +43,12 @@
     <Filter Include="Source Files\GameLogic">
       <UniqueIdentifier>{535cc97d-ff3c-49cd-8ed5-d9bc5d73ac23}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Animation">
+      <UniqueIdentifier>{123dc439-7e59-4dd9-b024-b6a4490fc900}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Animation">
+      <UniqueIdentifier>{e06e7bc8-20a7-4182-9aaa-b3ccc8e5a3c5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -99,6 +105,9 @@
     <ClCompile Include="..\src\GameLogic\LineMatcher.cpp">
       <Filter>Source Files\GameLogic</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Animation\MoveGemAnimation.cpp">
+      <Filter>Source Files\Animation</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\external\include\king\Engine.h">
@@ -154,6 +163,12 @@
     </ClInclude>
     <ClInclude Include="..\src\GameLogic\LineMatcher.hpp">
       <Filter>Header Files\GameLogic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Animation\Animation.hpp">
+      <Filter>Header Files\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Animation\MoveGemAnimation.hpp">
+      <Filter>Header Files\Animation</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

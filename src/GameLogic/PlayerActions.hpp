@@ -1,9 +1,12 @@
 #pragma once
 
+#include <memory>
+
 namespace Scene
 {
 	class GameBoard;
 	class Cell;
+	class Gem;
 }
 
 
@@ -18,9 +21,11 @@ namespace GameLogic {
 		void update(bool mouseButtonDown, float mouseX, float mouseY);
 
 	private:
-		void updateDragStart(float mouseX, float mouseY);
-		void updateDragMove(float mouseX, float mouseY);
-		void updateDragEnd(float mouseX, float mouseY);
+		void updateDragStart(const Scene::Cell* currentCell);
+		void updateDragMove(const Scene::Cell* currentCell);
+		void updateDragEnd(const Scene::Cell* currentCell);
+
+		static void setSwapAnimations(std::shared_ptr<Scene::Gem> gem1, std::shared_ptr<Scene::Gem> gem2);
 
 		static bool isAllowedMovement(const Scene::Cell* originCell, const Scene::Cell* destinationCell);
 		bool isDragStart(bool mouseButtonDown) const;
