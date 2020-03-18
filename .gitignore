@@ -30,3 +30,13 @@
 *.exe
 *.out
 *.app
+
+# Project Libs
+bin
+external
+
+#Visual Studio
+.vs
+msvc/Debug
+msvc/Release
+*.sdf

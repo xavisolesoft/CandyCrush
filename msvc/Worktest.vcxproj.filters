@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\kinglib">
+      <UniqueIdentifier>{71369e4a-8c3f-454a-bdba-5c82895475ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\kinglib">
+      <UniqueIdentifier>{6821ade4-45c6-4243-9e66-0f5cdb1a863b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Geomentry">
+      <UniqueIdentifier>{bd391d0d-bc15-4985-9fb0-27f411dbef5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Geometry">
+      <UniqueIdentifier>{b45eb4b4-7538-41fa-b920-92bf43103c4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Scene">
+      <UniqueIdentifier>{77e9c349-1ab7-47a7-b5b1-461c4ecf3aab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Scene">
+      <UniqueIdentifier>{be4772fd-1abb-4536-8032-1c036077b64f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Util">
+      <UniqueIdentifier>{ed730073-e900-4191-b441-fd6bcab322e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Util">
+      <UniqueIdentifier>{ff55aae7-2ccd-4fc2-bc30-27a6bdf7729e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameLogic">
+      <UniqueIdentifier>{5bc19bfc-20fa-4042-acc0-bdecb34a0977}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameLogic">
+      <UniqueIdentifier>{535cc97d-ff3c-49cd-8ed5-d9bc5d73ac23}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\external\include\king\SdlWindow.cpp">
+      <Filter>Source Files\kinglib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\external\include\king\Engine.cpp">
+      <Filter>Source Files\kinglib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\external\include\king\Font.cpp">
+      <Filter>Source Files\kinglib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\external\include\king\GlContext.cpp">
+      <Filter>Source Files\kinglib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\external\include\king\Sdl.cpp">
+      <Filter>Source Files\kinglib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\external\include\king\SdlSurface.cpp">
+      <Filter>Source Files\kinglib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Geometry\BBox.cpp">
+      <Filter>Source Files\Geomentry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Geometry\Point.cpp">
+      <Filter>Source Files\Geomentry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Geometry\Vector.cpp">
+      <Filter>Source Files\Geomentry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Scene\GameBoard.cpp">
+      <Filter>Source Files\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Scene\Cell.cpp">
+      <Filter>Source Files\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Scene\GemGenerator.cpp">
+      <Filter>Source Files\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Scene\Gem.cpp">
+      <Filter>Source Files\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Util\Debug.cpp">
+      <Filter>Source Files\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Util\EngineDebug.cpp">
+      <Filter>Source Files\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GameLogic\PlayerActions.cpp">
+      <Filter>Source Files\GameLogic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GameLogic\LineMatcher.cpp">
+      <Filter>Source Files\GameLogic</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\external\include\king\Engine.h">
+      <Filter>Header Files\kinglib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\include\king\Font.h">
+      <Filter>Header Files\kinglib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\include\king\GlContext.h">
+      <Filter>Header Files\kinglib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\include\king\Sdl.h">
+      <Filter>Header Files\kinglib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\include\king\SdlSurface.h">
+      <Filter>Header Files\kinglib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\include\king\SdlWindow.h">
+      <Filter>Header Files\kinglib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\external\include\king\Updater.h">
+      <Filter>Header Files\kinglib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Geometry\BBox.hpp">
+      <Filter>Header Files\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Geometry\Point.hpp">
+      <Filter>Header Files\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Geometry\Vector.hpp">
+      <Filter>Header Files\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Scene\GameBoard.hpp">
+      <Filter>Header Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Scene\Cell.hpp">
+      <Filter>Header Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Scene\Gem.hpp">
+      <Filter>Header Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Scene\GemGenerator.hpp">
+      <Filter>Header Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Util\Debug.hpp">
+      <Filter>Header Files\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Util\EngineDebug.hpp">
+      <Filter>Header Files\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GameLogic\PlayerActions.hpp">
+      <Filter>Header Files\GameLogic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GameLogic\LineMatcher.hpp">
+      <Filter>Header Files\GameLogic</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
