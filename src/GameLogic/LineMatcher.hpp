@@ -22,6 +22,8 @@ namespace GameLogic {
 		LineMatcher(const Scene::GameBoard& gameBoard);
 		
 		std::vector<std::vector<Geometry::Point> > getBoardLines() const;
+
+		static bool containsCell(const std::vector<std::vector<Geometry::Point> >& lines, const Geometry::Point& point);
 		
 	private:
 		void getVerticalBoardLines(std::vector<std::vector<Geometry::Point> >& outLines) const;

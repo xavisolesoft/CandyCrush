@@ -16,6 +16,11 @@ namespace Geometry {
 		void setX(float value);
 		void setY(float value);
 
+		bool operator==(const Point& other) const
+		{
+			return point == other.point;
+		}
+
 		Point& operator+=(const Vector& vector)
 		{
 			point += vector.vector;

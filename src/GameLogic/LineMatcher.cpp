@@ -34,6 +34,16 @@ std::vector<std::vector<Point> > LineMatcher::getBoardLines() const
 	return machedLines;
 }
 
+bool LineMatcher::containsCell(const std::vector<std::vector<Point> >& lines, const Point& point)
+{
+	for (const std::vector<Point>& line : lines) {
+		if (line.cend() != std::find(line.cbegin(), line.cend(), point)) {
+			return true;
+		}
+	}
+	return false;
+}
+
 void LineMatcher::getVerticalBoardLines(std::vector<std::vector<Geometry::Point>>& outLines) const
 {
 	for (int i = 0; i < gameBoard.getNumXCells(); ++i) {
