@@ -2,7 +2,7 @@
 
 #include <list>
 
-#include "Animation.hpp"
+#include "IAnimation.hpp"
 
 namespace Animation {
 	class ComposedSequentialAnimation :

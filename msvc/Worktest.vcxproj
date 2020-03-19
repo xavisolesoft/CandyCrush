@@ -88,6 +88,7 @@
     <ClCompile Include="..\src\Animation\MoveGemAnimation.cpp" />
     <ClCompile Include="..\src\GameLogic\LineMatcher.cpp" />
     <ClCompile Include="..\src\GameLogic\PlayerActions.cpp" />
+    <ClCompile Include="..\src\GameObject\IGameObject.cpp" />
     <ClCompile Include="..\src\Geometry\BBox.cpp" />
     <ClCompile Include="..\src\Geometry\Point.cpp" />
     <ClCompile Include="..\src\Geometry\Vector.cpp" />
@@ -107,15 +108,17 @@
     <ClInclude Include="..\external\include\king\SdlSurface.h" />
     <ClInclude Include="..\external\include\king\SdlWindow.h" />
     <ClInclude Include="..\external\include\king\Updater.h" />
-    <ClInclude Include="..\src\Animation\Animation.hpp" />
+    <ClInclude Include="..\src\Animation\IAnimation.hpp" />
     <ClInclude Include="..\src\Animation\ComposedSequentialAnimation.hpp" />
     <ClInclude Include="..\src\Animation\DestroyGemAnimation.hpp" />
     <ClInclude Include="..\src\Animation\MoveGemAnimation.hpp" />
     <ClInclude Include="..\src\GameLogic\LineMatcher.hpp" />
     <ClInclude Include="..\src\GameLogic\PlayerActions.hpp" />
+    <ClInclude Include="..\src\GameObject\IGameObject.hpp" />
     <ClInclude Include="..\src\Geometry\BBox.hpp" />
     <ClInclude Include="..\src\Geometry\Point.hpp" />
     <ClInclude Include="..\src\Geometry\Vector.hpp" />
+    <ClInclude Include="..\src\Renderer\IRenderer.hpp" />
     <ClInclude Include="..\src\Scene\Cell.hpp" />
     <ClInclude Include="..\src\Scene\GameBoard.hpp" />
     <ClInclude Include="..\src\Scene\Gem.hpp" />

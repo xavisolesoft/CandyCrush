@@ -4,7 +4,7 @@
 #include <ctime>
 #include <functional>
 
-#include "Animation.hpp"
+#include "IAnimation.hpp"
 #include "../Geometry/Point.hpp"
 
 namespace Scene

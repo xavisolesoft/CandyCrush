@@ -49,6 +49,15 @@
     <Filter Include="Source Files\Animation">
       <UniqueIdentifier>{e06e7bc8-20a7-4182-9aaa-b3ccc8e5a3c5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Renderer">
+      <UniqueIdentifier>{6c65401d-bedb-45bb-9f9e-a4611b9aea9a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameObject">
+      <UniqueIdentifier>{13a1a0d5-fa4a-4df9-8077-7465da9534ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameObject">
+      <UniqueIdentifier>{7f45aec5-3e5e-4b30-a06a-ed8daf3675fa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -114,6 +123,9 @@
     <ClCompile Include="..\src\Animation\DestroyGemAnimation.cpp">
       <Filter>Source Files\Animation</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\GameObject\IGameObject.cpp">
+      <Filter>Source Files\GameObject</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\external\include\king\Engine.h">
@@ -170,9 +182,6 @@
     <ClInclude Include="..\src\GameLogic\LineMatcher.hpp">
       <Filter>Header Files\GameLogic</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\Animation\Animation.hpp">
-      <Filter>Header Files\Animation</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\Animation\MoveGemAnimation.hpp">
       <Filter>Header Files\Animation</Filter>
     </ClInclude>
@@ -181,6 +190,15 @@
     </ClInclude>
     <ClInclude Include="..\src\Animation\DestroyGemAnimation.hpp">
       <Filter>Header Files\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Renderer\IRenderer.hpp">
+      <Filter>Header Files\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Animation\IAnimation.hpp">
+      <Filter>Header Files\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GameObject\IGameObject.hpp">
+      <Filter>Header Files\GameObject</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

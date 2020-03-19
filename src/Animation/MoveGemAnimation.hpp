@@ -3,7 +3,7 @@
 #include <memory>
 #include <ctime>
 
-#include "Animation.hpp"
+#include "IAnimation.hpp"
 #include "../Geometry/Point.hpp"
 
 namespace Scene

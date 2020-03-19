@@ -21,7 +21,7 @@
 #include "GameLogic/PlayerActions.hpp"
 #include "GameLogic/LineMatcher.hpp"
 
-#include "Animation/Animation.hpp"
+#include "Animation/IAnimation.hpp"
 #include "Animation/DestroyGemAnimation.hpp"
 
 #include "Util/Debug.hpp"
@@ -86,6 +86,9 @@ public:
 				}
 			}
 		}
+
+		Geometry::Point boardCenter = gameBoard.getBBox().getCenter();
+		mEngine.Write("1111111", boardCenter.getX(), boardCenter.getY());
 
 		playerActions.update(mEngine.GetMouseButtonDown(), mEngine.GetMouseX(), mEngine.GetMouseY());
 
