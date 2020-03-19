@@ -143,6 +143,32 @@ bool GameBoard::isValidCell(int i, int j) const
 		j < getNumYCells();
 }
 
+bool GameBoard::isAnyCellEmpty() const
+{
+	for (size_t i = 0; i < cells.size(); ++i) {
+		for (size_t j = 0; j < cells[i].size(); ++j) {
+			if (!cells[i][j].getGem()) {
+				return true;
+			}
+		}
+	}
+
+	return false;
+}
+
+bool GameBoard::isAnyGemAnimated() const
+{
+	for (size_t i = 0; i < cells.size(); ++i) {
+		for (size_t j = 0; j < cells[i].size(); ++j) {
+			if (cells[i][j].getGem() && cells[i][j].getGem()->getAnimation()) {
+				return true;
+			}
+		}
+	}
+
+	return false;
+}
+
 void GameBoard::calculateSceneBBox()
 {
 	bBox.setStartPoint(topLeft);

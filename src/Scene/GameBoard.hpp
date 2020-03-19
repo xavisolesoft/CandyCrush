@@ -39,6 +39,8 @@ namespace Scene {
 		const Cell* getCellFromWorldPos(float xWorld, float yWorld) const;
 
 		bool isValidCell(int i, int j) const;
+		bool isAnyCellEmpty() const;
+		bool isAnyGemAnimated() const;
 
 	private:
 		void calculateSceneBBox();

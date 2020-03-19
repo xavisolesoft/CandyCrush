@@ -19,6 +19,7 @@
 
 #include "Animation/Animation.hpp"
 
+#include "Util/Debug.hpp"
 #include "Util/EngineDebug.hpp"
 
 //**********************************************************************
@@ -77,14 +78,21 @@ public:
 
 		playerActions.update(mEngine.GetMouseButtonDown(), mEngine.GetMouseX(), mEngine.GetMouseY());
 
-//		if (mEngine.GetMouseButtonDown()) {
+		if (!gameBoard.isAnyCellEmpty() && !gameBoard.isAnyGemAnimated()) {
 			std::vector<std::vector<Geometry::Point> > lines = lineMatcher.getBoardLines();
 			for (const std::vector<Geometry::Point> line : lines) {
 				for (const Geometry::Point& point : line) {
+					auto gem = gameBoard.getGemFromCell((int)point.getX(), (int)point.getY());
+					long gemId = -1;
+					if (gem) {
+						gemId = gem->getId();
+					}
+					Util::Debug() << "REOVED_CELL(" << (int)point.getX() << ", " << (int)point.getY() << "), GEM(" << gemId << ")";
+
 					gameBoard.setGemToCell((int)point.getX(), (int)point.getY(), nullptr);
 				}
 			}
-//		}
+		}
 
 		static std::clock_t lastUpdate = std::clock();
 		if ((std::clock() - lastUpdate) / (double)CLOCKS_PER_SEC >= 1.0){
