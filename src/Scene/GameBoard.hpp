@@ -7,8 +7,12 @@
 #include "../Geometry/BBox.hpp"
 #include "../Geometry/Point.hpp"
 
-namespace Scene {
+namespace GemObject
+{
 	class Gem;
+}
+
+namespace Scene {
 	class GameBoard
 	{
 	public:
@@ -29,9 +33,9 @@ namespace Scene {
 
 		void setTopLeft(const Geometry::Point& point);
 
-		void setGemToCell(int x, int y, std::shared_ptr<Gem> gem);
-		std::shared_ptr<Gem> getGemFromCell(int x, int y) const;
-		void swap(std::shared_ptr<Gem> gem1, std::shared_ptr<Gem> gem2);
+		void setGemToCell(int x, int y, std::shared_ptr<GemObject::Gem> gem);
+		std::shared_ptr<GemObject::Gem> getGemFromCell(int x, int y) const;
+		void swap(std::shared_ptr<GemObject::Gem> gem1, std::shared_ptr<GemObject::Gem> gem2);
 		void swap(int xCell1, int yCell1, int xCell2, int yCell2);
 
 		void calculateBBoxes();

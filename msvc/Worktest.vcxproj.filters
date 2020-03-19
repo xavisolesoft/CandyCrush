@@ -58,6 +58,12 @@
     <Filter Include="Source Files\GameObject">
       <UniqueIdentifier>{7f45aec5-3e5e-4b30-a06a-ed8daf3675fa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\GemObject">
+      <UniqueIdentifier>{385b9b39-a10d-48b8-8764-d4f615623a17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GemObject">
+      <UniqueIdentifier>{77f9d889-6169-4af3-aa4a-d860ab077afe}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -96,12 +102,6 @@
     <ClCompile Include="..\src\Scene\Cell.cpp">
       <Filter>Source Files\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\Scene\GemGenerator.cpp">
-      <Filter>Source Files\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\Scene\Gem.cpp">
-      <Filter>Source Files\Scene</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\Util\Debug.cpp">
       <Filter>Source Files\Util</Filter>
     </ClCompile>
@@ -125,6 +125,12 @@
     </ClCompile>
     <ClCompile Include="..\src\GameObject\IGameObject.cpp">
       <Filter>Source Files\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GemObject\GemGenerator.cpp">
+      <Filter>Source Files\GemObject</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GemObject\Gem.cpp">
+      <Filter>Source Files\GemObject</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -164,12 +170,6 @@
     <ClInclude Include="..\src\Scene\Cell.hpp">
       <Filter>Header Files\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\Scene\Gem.hpp">
-      <Filter>Header Files\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\Scene\GemGenerator.hpp">
-      <Filter>Header Files\Scene</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\Util\Debug.hpp">
       <Filter>Header Files\Util</Filter>
     </ClInclude>
@@ -199,6 +199,12 @@
     </ClInclude>
     <ClInclude Include="..\src\GameObject\IGameObject.hpp">
       <Filter>Header Files\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GemObject\GemGenerator.hpp">
+      <Filter>Header Files\GemObject</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GemObject\Gem.hpp">
+      <Filter>Header Files\GemObject</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

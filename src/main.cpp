@@ -13,10 +13,10 @@
 #include <king/Engine.h>
 #include <king/Updater.h>
 
-#include "Scene/GemGenerator.hpp"
+#include "GemObject/GemGenerator.hpp"
 #include "Scene/GameBoard.hpp"
 #include "Scene/Cell.hpp"
-#include "Scene/Gem.hpp"
+#include "GemObject/Gem.hpp"
 
 #include "GameLogic/PlayerActions.hpp"
 #include "GameLogic/LineMatcher.hpp"
@@ -79,7 +79,7 @@ public:
 
 		for (int i = 0; i < gameBoard.getNumXCells(); ++i) {
 			for (int j = 0; j < gameBoard.getNumYCells(); ++j) {
-				std::shared_ptr<Scene::Gem> gem = gameBoard.getGemFromCell(i, j);
+				std::shared_ptr<GemObject::Gem> gem = gameBoard.getGemFromCell(i, j);
 				if (gem) {
 					gem->animationUpdate();
 					renderGem(gem);
@@ -162,7 +162,7 @@ public:
 		*/
 	}
 
-	void renderGem(std::shared_ptr<Scene::Gem> gem)
+	void renderGem(std::shared_ptr<GemObject::Gem> gem)
 	{
 		Geometry::Point pos = gem->getWorldPos();
 		King::Engine::Texture texture = getGemTexture(gem->getGemType());
@@ -192,17 +192,17 @@ public:
 										pos.getY());
 	}
 
-	static King::Engine::Texture getGemTexture(Scene::GemType gemType)
+	static King::Engine::Texture getGemTexture(GemObject::GemType gemType)
 	{
 		switch (gemType)
 		{
-		case Scene::GemType::BLUE:
+		case GemObject::GemType::BLUE:
 			return King::Engine::TEXTURE_BLUE;
-		case Scene::GemType::GREEN:
+		case GemObject::GemType::GREEN:
 			return King::Engine::TEXTURE_GREEN;
-		case Scene::GemType::PURPLE:
+		case GemObject::GemType::PURPLE:
 			return King::Engine::TEXTURE_PURPLE;
-		case Scene::GemType::RED:
+		case GemObject::GemType::RED:
 			return King::Engine::TEXTURE_RED;
 		default:
 			return King::Engine::TEXTURE_YELLOW;
@@ -217,7 +217,7 @@ private:
 	Scene::GameBoard gameBoard;
 	GameLogic::LineMatcher lineMatcher;
 	GameLogic::PlayerActions playerActions;
-	Scene::GemGenerator gemGenerator;
+	GemObject::GemGenerator gemGenerator;
 };
 
 //**********************************************************************

@@ -6,7 +6,7 @@
 
 #include "../Scene/GameBoard.hpp"
 #include "../Scene/Cell.hpp"
-#include "../Scene/Gem.hpp"
+#include "../GemObject/Gem.hpp"
 
 #include "../GameLogic/LineMatcher.hpp"
 
@@ -17,6 +17,7 @@
 
 using namespace GameLogic;
 using namespace Geometry;
+using namespace GemObject;
 using namespace Scene;
 using namespace Animation;
 using namespace Util;

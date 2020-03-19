@@ -1,12 +1,11 @@
 #pragma once
 
 #include <memory>
-#include <cstdlib>
 #include <atomic>
 
 #include "Gem.hpp"
 
-namespace Scene {
+namespace GemObject {
 	class GemGenerator
 	{
 	public:

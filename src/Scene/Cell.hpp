@@ -5,8 +5,12 @@
 #include "../Geometry/BBox.hpp"
 #include "../Geometry/Point.hpp"
 
-namespace Scene {
+namespace GemObject
+{
 	class Gem;
+}
+
+namespace Scene {
 	class Cell
 	{
 	public:
@@ -15,8 +19,8 @@ namespace Scene {
 		const Geometry::BBox& getBBox() const;
 		void setBBox(const Geometry::BBox& value);
 
-		std::shared_ptr<Gem> getGem() const;
-		void setGem(std::shared_ptr<Gem> value);
+		std::shared_ptr<GemObject::Gem> getGem() const;
+		void setGem(std::shared_ptr<GemObject::Gem> value);
 
 		void setXCell(int value);
 		int getXCell() const;
@@ -29,7 +33,7 @@ namespace Scene {
 	private:
 		int xCell;
 		int yCell;
-		std::shared_ptr<Gem> gem;
+		std::shared_ptr<GemObject::Gem> gem;
 		Geometry::BBox bBox;
 	};
 }

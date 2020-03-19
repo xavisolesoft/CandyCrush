@@ -89,14 +89,14 @@
     <ClCompile Include="..\src\GameLogic\LineMatcher.cpp" />
     <ClCompile Include="..\src\GameLogic\PlayerActions.cpp" />
     <ClCompile Include="..\src\GameObject\IGameObject.cpp" />
+    <ClCompile Include="..\src\GemObject\Gem.cpp" />
+    <ClCompile Include="..\src\GemObject\GemGenerator.cpp" />
     <ClCompile Include="..\src\Geometry\BBox.cpp" />
     <ClCompile Include="..\src\Geometry\Point.cpp" />
     <ClCompile Include="..\src\Geometry\Vector.cpp" />
     <ClCompile Include="..\src\main.cpp" />
     <ClCompile Include="..\src\Scene\Cell.cpp" />
     <ClCompile Include="..\src\Scene\GameBoard.cpp" />
-    <ClCompile Include="..\src\Scene\Gem.cpp" />
-    <ClCompile Include="..\src\Scene\GemGenerator.cpp" />
     <ClCompile Include="..\src\Util\Debug.cpp" />
     <ClCompile Include="..\src\Util\EngineDebug.cpp" />
   </ItemGroup>
@@ -115,14 +115,14 @@
     <ClInclude Include="..\src\GameLogic\LineMatcher.hpp" />
     <ClInclude Include="..\src\GameLogic\PlayerActions.hpp" />
     <ClInclude Include="..\src\GameObject\IGameObject.hpp" />
+    <ClInclude Include="..\src\GemObject\Gem.hpp" />
+    <ClInclude Include="..\src\GemObject\GemGenerator.hpp" />
     <ClInclude Include="..\src\Geometry\BBox.hpp" />
     <ClInclude Include="..\src\Geometry\Point.hpp" />
     <ClInclude Include="..\src\Geometry\Vector.hpp" />
     <ClInclude Include="..\src\Renderer\IRenderer.hpp" />
     <ClInclude Include="..\src\Scene\Cell.hpp" />
     <ClInclude Include="..\src\Scene\GameBoard.hpp" />
-    <ClInclude Include="..\src\Scene\Gem.hpp" />
-    <ClInclude Include="..\src\Scene\GemGenerator.hpp" />
     <ClInclude Include="..\src\Util\Debug.hpp" />
     <ClInclude Include="..\src\Util\EngineDebug.hpp" />
   </ItemGroup>

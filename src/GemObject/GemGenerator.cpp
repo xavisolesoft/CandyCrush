@@ -1,7 +1,8 @@
 #include "GemGenerator.hpp"
 
-using namespace Scene;
-using namespace Geometry;
+#include <cstdlib>
+
+using namespace GemObject;
 
 GemGenerator::GemGenerator() :
 	nextGemId(0)

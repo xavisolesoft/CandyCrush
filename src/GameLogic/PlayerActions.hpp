@@ -6,6 +6,10 @@ namespace Scene
 {
 	class GameBoard;
 	class Cell;
+}
+
+namespace GemObject
+{
 	class Gem;
 }
 
@@ -27,8 +31,8 @@ namespace GameLogic {
 
 		void trySwapGems(const Scene::Cell& cell1, const Scene::Cell& cell2);
 
-		static void setSwapAnimations(std::shared_ptr<Scene::Gem> gem1, std::shared_ptr<Scene::Gem> gem2);
-		static void appendSwapReturnAnimations(std::shared_ptr<Scene::Gem> gem1, std::shared_ptr<Scene::Gem> gem2);
+		static void setSwapAnimations(std::shared_ptr<GemObject::Gem> gem1, std::shared_ptr<GemObject::Gem> gem2);
+		static void appendSwapReturnAnimations(std::shared_ptr<GemObject::Gem> gem1, std::shared_ptr<GemObject::Gem> gem2);
 
 		static bool isAllowedMovement(const Scene::Cell* originCell, const Scene::Cell* destinationCell);
 		bool isDragStart(bool mouseButtonDown) const;

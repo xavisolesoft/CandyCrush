@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../Scene/Gem.hpp"
+#include "../GemObject/Gem.hpp"
 
 #include <vector>
 

@@ -7,7 +7,7 @@
 #include "IAnimation.hpp"
 #include "../Geometry/Point.hpp"
 
-namespace Scene
+namespace GemObject
 {
 	class Gem;
 }
@@ -20,12 +20,12 @@ namespace Animation {
 		DestroyGemAnimation();
 		~DestroyGemAnimation();
 
-		void setGem(std::shared_ptr<Scene::Gem> gem, std::function<void()> animationEndFunction);
+		void setGem(std::shared_ptr<GemObject::Gem> gem, std::function<void()> animationEndFunction);
 		
 		bool update() override;
 
 	private:
-		std::shared_ptr<Scene::Gem> gem;
+		std::shared_ptr<GemObject::Gem> gem;
 
 		std::clock_t lastUpdate;
 		static const int TOTAL_STEPS;

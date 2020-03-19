@@ -1,8 +1,9 @@
 #include "Cell.hpp"
 
-#include "Gem.hpp"
+#include "../GemObject/Gem.hpp"
 
 using namespace Scene;
+using namespace GemObject;
 using namespace Geometry;
 
 Cell::Cell()

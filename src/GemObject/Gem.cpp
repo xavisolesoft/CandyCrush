@@ -1,6 +1,6 @@
 #include "Gem.hpp"
 
-using namespace Scene;
+using namespace GemObject;
 
 Gem::Gem(long id, GemType gemType) :
 	gemType(gemType)

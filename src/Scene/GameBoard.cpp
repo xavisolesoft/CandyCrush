@@ -1,9 +1,10 @@
 #include "GameBoard.hpp"
 
 #include "../Geometry/Point.hpp"
-#include "Gem.hpp"
+#include "../GemObject/Gem.hpp"
 
 using namespace Scene;
+using namespace GemObject;
 using namespace Geometry;
 
 GameBoard::GameBoard()

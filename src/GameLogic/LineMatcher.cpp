@@ -9,6 +9,7 @@
 
 using namespace GameLogic;
 using namespace Scene;
+using namespace GemObject;
 using namespace Geometry;
 
 LineMatcher::LineMatcher(const GameBoard& gameBoard) :
@@ -44,7 +45,7 @@ bool LineMatcher::containsCell(const std::vector<std::vector<Point> >& lines, co
 	return false;
 }
 
-void LineMatcher::getVerticalBoardLines(std::vector<std::vector<Geometry::Point>>& outLines) const
+void LineMatcher::getVerticalBoardLines(std::vector<std::vector<Point>>& outLines) const
 {
 	for (int i = 0; i < gameBoard.getNumXCells(); ++i) {
 		int numConsecutive = 0;

@@ -2,7 +2,7 @@
 
 #include "../GameObject/IGameObject.hpp"
 
-namespace Scene {
+namespace GemObject {
 	enum class GemType
 	{
 		UNDEFINED,
