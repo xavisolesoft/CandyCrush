@@ -58,6 +58,18 @@ public:
 			}
 		}
 
+		std::vector<std::vector<Geometry::Point> > lines;
+		do {
+			lines = lineMatcher.getBoardLines();
+
+			for (const std::vector<Geometry::Point> line : lines) {
+				for (const Geometry::Point& point : line) {
+					auto gem = gemGenerator.createNextGem();
+					gameBoard.setGemToCell((int)point.getX(), (int)point.getY(), gem);
+				}
+			}
+		} while (!lines.empty());
+
 		mEngine.Start(*this);
 	}
 
@@ -98,7 +110,7 @@ public:
 		}
 
 		static std::clock_t lastUpdate = std::clock();
-		if ((std::clock() - lastUpdate) / (double)CLOCKS_PER_SEC >= 0.3){
+		if ((std::clock() - lastUpdate) / (double)CLOCKS_PER_SEC >= 0.1){
 			for (int i = 0; i < gameBoard.getNumXCells(); ++i) {
 				for (int j = gameBoard.getNumYCells() - 1; j > 0; --j) {
 					auto gem = gameBoard.getGemFromCell(i, j);
@@ -163,11 +175,11 @@ public:
 
 		float scale = gem->getScale();
 		if (scale != 1.0f) {
-			float transScaleX = mEngine.GetTextureWidth(texture)/2.0f;
-			float transScaleY = mEngine.GetTextureHeight(texture)/2.0f;
-			transformation = glm::translate(transformation, glm::vec3(transScaleX, transScaleY, 0.0f));
+			float transToOriginX = mEngine.GetTextureWidth(texture)/2.0f;
+			float transToOriginY = mEngine.GetTextureHeight(texture)/2.0f;
+			transformation = glm::translate(transformation, glm::vec3(transToOriginX, transToOriginY, 0.0f));
 			transformation = glm::scale(transformation, glm::vec3(scale));
-			transformation = glm::translate(transformation, glm::vec3(-transScaleX, -transScaleY, 0.0f));
+			transformation = glm::translate(transformation, glm::vec3(-transToOriginX, -transToOriginY, 0.0f));
 		}
 
 		mEngine.Render(texture, transformation);
