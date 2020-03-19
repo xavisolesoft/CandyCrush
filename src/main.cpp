@@ -6,6 +6,10 @@
 #include <iostream>
 #include <ctime>
 
+#include <glm/vec3.hpp>
+#include <glm/mat4x4.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+
 #include <king/Engine.h>
 #include <king/Updater.h>
 
@@ -18,6 +22,7 @@
 #include "GameLogic/LineMatcher.hpp"
 
 #include "Animation/Animation.hpp"
+#include "Animation/DestroyGemAnimation.hpp"
 
 #include "Util/Debug.hpp"
 #include "Util/EngineDebug.hpp"
@@ -65,13 +70,7 @@ public:
 				if (gem) {
 					gem->animationUpdate();
 
-					Geometry::Point topLeft = gem->getWorldPos();
-					mEngine.Render(getGemTexture(gem->getGemType()),
-									topLeft.getX(),
-									topLeft.getY());
-					Util::EngineDebug(mEngine).Write(std::to_string(gem->getId()).c_str(),
-													topLeft.getX(),
-													topLeft.getY());
+					renderGem(gem);
 				}
 			}
 		}
@@ -86,10 +85,14 @@ public:
 					long gemId = -1;
 					if (gem) {
 						gemId = gem->getId();
+						auto destroyGemAnimation = new Animation::DestroyGemAnimation();
+						destroyGemAnimation->setGem(gem,
+													[this, point](){
+														gameBoard.setGemToCell((int)point.getX(), (int)point.getY(), nullptr);
+													});
+						gem->setAnimation(*destroyGemAnimation);
 					}
 					Util::Debug() << "REOVED_CELL(" << (int)point.getX() << ", " << (int)point.getY() << "), GEM(" << gemId << ")";
-
-					gameBoard.setGemToCell((int)point.getX(), (int)point.getY(), nullptr);
 				}
 			}
 		}
@@ -142,6 +145,31 @@ public:
 		mEngine.Write("move me!", mYellowDiamondX, mYellowDiamondY + 70.0f);
 
 		*/
+	}
+
+	void renderGem(std::shared_ptr<Scene::Gem> gem)
+	{
+		Geometry::Point pos = gem->getWorldPos();
+		glm::mat4 transformation;
+
+		transformation = glm::translate(transformation, glm::vec3(pos.getX(), pos.getY(), 0.0f));
+
+		float rotation = gem->getRotation();
+		if (rotation) {
+			transformation = glm::rotate(transformation, rotation, glm::vec3(0.0f, 0.0f, 1.0f));
+		}
+
+		float scale = gem->getScale();
+		if (scale != 1.0f) {
+			glm::mat4 transScale = glm::scale(glm::mat4(20.0f), glm::vec3(scale));
+			transformation *= transScale;
+		}
+
+		mEngine.Render(getGemTexture(gem->getGemType()), transformation);
+
+		Util::EngineDebug(mEngine).Write(std::to_string(gem->getId()).c_str(),
+										pos.getX(),
+										pos.getY());
 	}
 
 	static King::Engine::Texture getGemTexture(Scene::GemType gemType)

@@ -9,6 +9,8 @@ using namespace Animation;
 Gem::Gem(long id, GemType gemType) :
 	id(id),
 	gemType(gemType),
+	rotation(0.0f),
+	scale(1.0f),
 	animation(nullptr)
 {
 
@@ -42,6 +44,26 @@ void Gem::setY(float y)
 const Point& Gem::getWorldPos() const
 {
 	return worldPos;
+}
+
+float Gem::getRotation() const
+{
+	return rotation;
+}
+
+void Gem::setRotation(float value)
+{
+	rotation = value;
+}
+
+float Gem::getScale() const
+{
+	return scale;
+}
+
+void Gem::setScale(float value)
+{
+	scale = value;
 }
 
 void Gem::setAnimation(Animation::IAnimation& value)

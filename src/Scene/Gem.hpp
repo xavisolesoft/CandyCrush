@@ -32,6 +32,12 @@ namespace Scene {
 		void setY(float y);
 		const Geometry::Point& getWorldPos() const;
 
+		float getRotation() const;
+		void setRotation(float value);
+
+		float getScale() const;
+		void setScale(float value);
+
 		void setAnimation(Animation::IAnimation& value);
 		Animation::IAnimation* getAnimation() const;
 		void animationUpdate();
@@ -42,6 +48,8 @@ namespace Scene {
 		long id;
 		GemType gemType;
 		Geometry::Point worldPos;
+		float rotation;
+		float scale;
 		Animation::IAnimation* animation;
 	};
 }

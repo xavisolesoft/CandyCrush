@@ -118,25 +118,25 @@ void PlayerActions::updateDragEnd(const Scene::Cell* currentCell)
 void PlayerActions::setSwapAnimations(std::shared_ptr<Gem> gem1, std::shared_ptr<Gem> gem2)
 {
 	auto animation1 = new MoveGemAnimation();
-	animation1->start(gem1, gem1->getWorldPos(), gem2->getWorldPos(), 30, 0.01f);
+	animation1->start(gem1, gem1->getWorldPos(), gem2->getWorldPos(), 10, 0.01f);
 	gem1->setAnimation(*animation1);
 
 	auto animation2 = new MoveGemAnimation();
-	animation2->start(gem2, gem2->getWorldPos(), gem1->getWorldPos(), 30, 0.01f);
+	animation2->start(gem2, gem2->getWorldPos(), gem1->getWorldPos(), 10, 0.01f);
 	gem2->setAnimation(*animation2);
 }
 
 void PlayerActions::appendSwapReturnAnimations(std::shared_ptr<Gem> gem1, std::shared_ptr<Gem> gem2)
 {
 	auto swapReturnAnimtion1 = new MoveGemAnimation();
-	swapReturnAnimtion1->start(gem1, gem1->getWorldPos(), gem2->getWorldPos(), 30, 0.01f);
+	swapReturnAnimtion1->start(gem1, gem1->getWorldPos(), gem2->getWorldPos(), 10, 0.01f);
 	auto composedAnimation1 = new ComposedSequentialAnimation();
 	composedAnimation1->appendAnimation(*gem1->getAnimation());
 	composedAnimation1->appendAnimation(*swapReturnAnimtion1);
 	gem1->setAnimation(*composedAnimation1);
 
 	auto swapReturnAnimtion2 = new MoveGemAnimation();
-	swapReturnAnimtion2->start(gem2, gem2->getWorldPos(), gem1->getWorldPos(), 30, 0.01f);
+	swapReturnAnimtion2->start(gem2, gem2->getWorldPos(), gem1->getWorldPos(), 10, 0.01f);
 	auto composedAnimation2 = new ComposedSequentialAnimation();
 	composedAnimation2->appendAnimation(*gem2->getAnimation());
 	composedAnimation2->appendAnimation(*swapReturnAnimtion2);
