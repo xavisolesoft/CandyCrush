@@ -53,7 +53,8 @@ public:
 
 		for (int j = 0; j < gameBoard.getNumYCells(); ++j) {
 			for (int i = 0; i < gameBoard.getNumXCells(); ++i) {
-				gameBoard.setGemToCell(i, j, gemGenerator.createNextGem());
+				auto gem = gemGenerator.createNextGem();
+				gameBoard.setGemToCell(i, j, gem);
 			}
 		}
 
@@ -69,7 +70,6 @@ public:
 				std::shared_ptr<Scene::Gem> gem = gameBoard.getGemFromCell(i, j);
 				if (gem) {
 					gem->animationUpdate();
-
 					renderGem(gem);
 				}
 			}
@@ -98,7 +98,7 @@ public:
 		}
 
 		static std::clock_t lastUpdate = std::clock();
-		if ((std::clock() - lastUpdate) / (double)CLOCKS_PER_SEC >= 1.0){
+		if ((std::clock() - lastUpdate) / (double)CLOCKS_PER_SEC >= 0.3){
 			for (int i = 0; i < gameBoard.getNumXCells(); ++i) {
 				for (int j = gameBoard.getNumYCells() - 1; j > 0; --j) {
 					auto gem = gameBoard.getGemFromCell(i, j);
@@ -150,6 +150,7 @@ public:
 	void renderGem(std::shared_ptr<Scene::Gem> gem)
 	{
 		Geometry::Point pos = gem->getWorldPos();
+		King::Engine::Texture texture = getGemTexture(gem->getGemType());
 		glm::mat4 transformation;
 
 		transformation = glm::translate(transformation, glm::vec3(pos.getX(), pos.getY(), 0.0f));
@@ -159,13 +160,17 @@ public:
 			transformation = glm::rotate(transformation, rotation, glm::vec3(0.0f, 0.0f, 1.0f));
 		}
 
+
 		float scale = gem->getScale();
 		if (scale != 1.0f) {
-			glm::mat4 transScale = glm::scale(glm::mat4(20.0f), glm::vec3(scale));
-			transformation *= transScale;
+			float transScaleX = mEngine.GetTextureWidth(texture)/2.0f;
+			float transScaleY = mEngine.GetTextureHeight(texture)/2.0f;
+			transformation = glm::translate(transformation, glm::vec3(transScaleX, transScaleY, 0.0f));
+			transformation = glm::scale(transformation, glm::vec3(scale));
+			transformation = glm::translate(transformation, glm::vec3(-transScaleX, -transScaleY, 0.0f));
 		}
 
-		mEngine.Render(getGemTexture(gem->getGemType()), transformation);
+		mEngine.Render(texture, transformation);
 
 		Util::EngineDebug(mEngine).Write(std::to_string(gem->getId()).c_str(),
 										pos.getX(),
