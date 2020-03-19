@@ -1,8 +1,11 @@
 #include "LineMatcher.hpp"
 
+
 #include "../Scene/GameBoard.hpp"
 
 #include "../Geometry/Point.hpp"
+
+#include "../Util/Debug.hpp"
 
 using namespace GameLogic;
 using namespace Scene;
@@ -20,6 +23,14 @@ std::vector<std::vector<Point> > LineMatcher::getBoardLines() const
 	getVerticalBoardLines(machedLines);
 	getHoritzontalBoardLines(machedLines);
 	
+	for (const std::vector<Point>& line : machedLines) {
+		Util::Debug debug;
+		debug << "DETECTED_LINE ";
+		for (const Point& point : line) {
+			debug << "(" << point.getX() << ", " << point.getY() << ")  ";
+		}
+	}
+
 	return machedLines;
 }
 
@@ -40,8 +51,6 @@ void LineMatcher::getVerticalBoardLines(std::vector<std::vector<Geometry::Point>
 			auto gem = gameBoard.getGemFromCell(i, j);
 			if (gem && gem->getGemType() == gemType) {
 				numConsecutive++;
-			}
-			else {
 				if (numConsecutive >= 3) {
 					std::vector<Point> line;
 					for (int k = numConsecutive - 1; k >= 0; --k) {
@@ -49,10 +58,15 @@ void LineMatcher::getVerticalBoardLines(std::vector<std::vector<Geometry::Point>
 					}
 					outLines.push_back(line);
 				}
+			}
+			else {
 				if (gem) {
 					gemType = gem->getGemType();
-					numConsecutive = 1;
 				}
+				else {
+					gemType = GemType::UNDEFINED;
+				}
+				numConsecutive = 1;
 			}
 		}
 	}
@@ -75,19 +89,22 @@ void LineMatcher::getHoritzontalBoardLines(std::vector<std::vector<Geometry::Poi
 			auto gem = gameBoard.getGemFromCell(i, j);
 			if (gem && gem->getGemType() == gemType) {
 				numConsecutive++;
-			}
-			else {
 				if (numConsecutive >= 3) {
 					std::vector<Point> line;
 					for (int k = numConsecutive; k > 0; --k) {
-						line.push_back(Point((float)i - k, (float)j));
+						line.push_back(Point((float)i - k + 1, (float)j));
 					}
 					outLines.push_back(line);
 				}
+			}
+			else{
 				if (gem) {
 					gemType = gem->getGemType();
-					numConsecutive = 1;
 				}
+				else {
+					gemType = GemType::UNDEFINED;
+				}
+				numConsecutive = 1;
 			}
 		}
 	}
