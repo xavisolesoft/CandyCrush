@@ -10,7 +10,7 @@
 
 #include "../GameLogic/LineMatcher.hpp"
 
-#include "../Animation/MoveGemAnimation.hpp"
+#include "../GemObject/MoveGemAnimation.hpp"
 #include "../Animation/ComposedSequentialAnimation.hpp"
 
 #include "../Util/Debug.hpp"

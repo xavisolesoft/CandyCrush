@@ -22,7 +22,7 @@
 #include "GameLogic/LineMatcher.hpp"
 
 #include "Animation/IAnimation.hpp"
-#include "Animation/DestroyGemAnimation.hpp"
+#include "GemObject/DestroyGemAnimation.hpp"
 
 #include "Util/Debug.hpp"
 #include "Util/EngineDebug.hpp"

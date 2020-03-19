@@ -4,7 +4,7 @@
 #include <ctime>
 #include <functional>
 
-#include "IAnimation.hpp"
+#include "../Animation/IAnimation.hpp"
 #include "../Geometry/Point.hpp"
 
 namespace GemObject

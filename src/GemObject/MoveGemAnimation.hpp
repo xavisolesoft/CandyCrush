@@ -3,7 +3,7 @@
 #include <memory>
 #include <ctime>
 
-#include "IAnimation.hpp"
+#include "../Animation/IAnimation.hpp"
 #include "../Geometry/Point.hpp"
 
 namespace GemObject

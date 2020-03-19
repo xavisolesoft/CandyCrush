@@ -114,13 +114,7 @@
     <ClCompile Include="..\src\GameLogic\LineMatcher.cpp">
       <Filter>Source Files\GameLogic</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\Animation\MoveGemAnimation.cpp">
-      <Filter>Source Files\Animation</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\Animation\ComposedSequentialAnimation.cpp">
-      <Filter>Source Files\Animation</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\Animation\DestroyGemAnimation.cpp">
       <Filter>Source Files\Animation</Filter>
     </ClCompile>
     <ClCompile Include="..\src\GameObject\IGameObject.cpp">
@@ -130,6 +124,12 @@
       <Filter>Source Files\GemObject</Filter>
     </ClCompile>
     <ClCompile Include="..\src\GemObject\Gem.cpp">
+      <Filter>Source Files\GemObject</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GemObject\DestroyGemAnimation.cpp">
+      <Filter>Source Files\GemObject</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GemObject\MoveGemAnimation.cpp">
       <Filter>Source Files\GemObject</Filter>
     </ClCompile>
   </ItemGroup>
@@ -182,13 +182,7 @@
     <ClInclude Include="..\src\GameLogic\LineMatcher.hpp">
       <Filter>Header Files\GameLogic</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\Animation\MoveGemAnimation.hpp">
-      <Filter>Header Files\Animation</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\Animation\ComposedSequentialAnimation.hpp">
-      <Filter>Header Files\Animation</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\Animation\DestroyGemAnimation.hpp">
       <Filter>Header Files\Animation</Filter>
     </ClInclude>
     <ClInclude Include="..\src\Renderer\IRenderer.hpp">
@@ -204,6 +198,12 @@
       <Filter>Header Files\GemObject</Filter>
     </ClInclude>
     <ClInclude Include="..\src\GemObject\Gem.hpp">
+      <Filter>Header Files\GemObject</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GemObject\MoveGemAnimation.hpp">
+      <Filter>Header Files\GemObject</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GemObject\DestroyGemAnimation.hpp">
       <Filter>Header Files\GemObject</Filter>
     </ClInclude>
   </ItemGroup>
