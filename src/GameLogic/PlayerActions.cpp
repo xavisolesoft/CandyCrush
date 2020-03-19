@@ -34,6 +34,11 @@ PlayerActions::PlayerActions(GameBoard& gameBoard, const LineMatcher& lineMatche
 
 void PlayerActions::update(bool mouseButtonDown, float mouseX, float mouseY)
 {
+	std::shared_ptr<GemObject> prevSelectedGem = nullptr;
+	if (selectedCell) {
+		prevSelectedGem = selectedCell->getGem();
+	}
+
 	const Scene::Cell* currentCell = gameBoard.getCellFromWorldPos(mouseX, mouseY);
 	if(currentCell && currentCell->getGem() && currentCell->getGem()->isUserInteractionEnabled())
 	if (isDragStart(mouseButtonDown)) {
@@ -48,6 +53,14 @@ void PlayerActions::update(bool mouseButtonDown, float mouseX, float mouseY)
 			updateDragEnd(currentCell);
 			dragAborted = false;
 		}
+	}
+
+	if (prevSelectedGem) {
+		prevSelectedGem->setScale(1.0f);
+	}
+
+	if (selectedCell && selectedCell->getGem()) {
+		selectedCell->getGem()->setScale(1.3f);
 	}
 
 	prevMouseButtonDown = mouseButtonDown;
@@ -79,8 +92,11 @@ void PlayerActions::updateDragEnd(const Scene::Cell* currentCell)
 
 		if (selectedCell) {
 			if (currentCell != selectedCell && isAllowedMovement(selectedCell, currentCell)) {
-				trySwapGems(*dragStartCell, *currentCell);
+				trySwapGems(*selectedCell, *currentCell);
 				selectedCell = nullptr;
+			}
+			else {
+				selectedCell = dragStartCell;
 			}
 		}
 		else if (currentCell == dragStartCell) {
