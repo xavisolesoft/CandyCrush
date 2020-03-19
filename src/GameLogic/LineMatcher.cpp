@@ -9,7 +9,7 @@
 
 using namespace GameLogic;
 using namespace Scene;
-using namespace GemObject;
+using namespace Gem;
 using namespace Geometry;
 
 LineMatcher::LineMatcher(const GameBoard& gameBoard) :

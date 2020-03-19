@@ -6,18 +6,18 @@
 
 #include "../Scene/GameBoard.hpp"
 #include "../Scene/Cell.hpp"
-#include "../GemObject/Gem.hpp"
+#include "../Gem/GemObject.hpp"
 
 #include "../GameLogic/LineMatcher.hpp"
 
-#include "../GemObject/MoveGemAnimation.hpp"
+#include "../Gem/MoveGemAnimation.hpp"
 #include "../Animation/ComposedSequentialAnimation.hpp"
 
 #include "../Util/Debug.hpp"
 
 using namespace GameLogic;
 using namespace Geometry;
-using namespace GemObject;
+using namespace Gem;
 using namespace Scene;
 using namespace Animation;
 using namespace Util;
@@ -113,7 +113,7 @@ void PlayerActions::trySwapGems(const Cell& cell1, const Cell& cell2)
 	}
 }
 
-void PlayerActions::setSwapAnimations(std::shared_ptr<Gem> gem1, std::shared_ptr<Gem> gem2)
+void PlayerActions::setSwapAnimations(std::shared_ptr<GemObject> gem1, std::shared_ptr<GemObject> gem2)
 {
 	auto animation1 = new MoveGemAnimation();
 	animation1->start(gem1, gem1->getWorldPos(), gem2->getWorldPos(), 10, 0.01f);
@@ -124,7 +124,7 @@ void PlayerActions::setSwapAnimations(std::shared_ptr<Gem> gem1, std::shared_ptr
 	gem2->setAnimation(*animation2);
 }
 
-void PlayerActions::appendSwapReturnAnimations(std::shared_ptr<Gem> gem1, std::shared_ptr<Gem> gem2)
+void PlayerActions::appendSwapReturnAnimations(std::shared_ptr<GemObject> gem1, std::shared_ptr<GemObject> gem2)
 {
 	auto swapReturnAnimtion1 = new MoveGemAnimation();
 	swapReturnAnimtion1->start(gem1, gem1->getWorldPos(), gem2->getWorldPos(), 10, 0.01f);

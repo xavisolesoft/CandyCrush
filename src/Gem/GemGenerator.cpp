@@ -2,7 +2,7 @@
 
 #include <cstdlib>
 
-using namespace GemObject;
+using namespace Gem;
 
 GemGenerator::GemGenerator() :
 	nextGemId(0)
@@ -10,9 +10,9 @@ GemGenerator::GemGenerator() :
 	std::srand(60);
 }
 
-std::shared_ptr<Gem> GemGenerator::createNextGem()
+std::shared_ptr<GemObject> GemGenerator::createNextGem()
 {
-	return std::make_shared<Gem>(genereateNextId(),
+	return std::make_shared<GemObject>(genereateNextId(),
 								 generateNextGemType());
 }
 

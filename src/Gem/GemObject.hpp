@@ -2,7 +2,7 @@
 
 #include "../GameObject/IGameObject.hpp"
 
-namespace GemObject {
+namespace Gem {
 	enum class GemType
 	{
 		UNDEFINED,
@@ -13,11 +13,11 @@ namespace GemObject {
 		YELLOW
 	};
 
-	class Gem :
+	class GemObject :
 		public GameObject::IGameObject
 	{
 	public:
-		Gem(long id, GemType gemType);
+		GemObject(long id, GemType gemType);
 
 		GemType getGemType() const;
 

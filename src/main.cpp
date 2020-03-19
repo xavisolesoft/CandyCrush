@@ -13,16 +13,16 @@
 #include <king/Engine.h>
 #include <king/Updater.h>
 
-#include "GemObject/GemGenerator.hpp"
+#include "Gem/GemGenerator.hpp"
 #include "Scene/GameBoard.hpp"
 #include "Scene/Cell.hpp"
-#include "GemObject/Gem.hpp"
+#include "Gem/GemObject.hpp"
 
 #include "GameLogic/PlayerActions.hpp"
 #include "GameLogic/LineMatcher.hpp"
 
 #include "Animation/IAnimation.hpp"
-#include "GemObject/DestroyGemAnimation.hpp"
+#include "Gem/DestroyGemAnimation.hpp"
 
 #include "Util/Debug.hpp"
 #include "Util/EngineDebug.hpp"
@@ -79,7 +79,7 @@ public:
 
 		for (int i = 0; i < gameBoard.getNumXCells(); ++i) {
 			for (int j = 0; j < gameBoard.getNumYCells(); ++j) {
-				std::shared_ptr<GemObject::Gem> gem = gameBoard.getGemFromCell(i, j);
+				std::shared_ptr<Gem::GemObject> gem = gameBoard.getGemFromCell(i, j);
 				if (gem) {
 					gem->animationUpdate();
 					renderGem(gem);
@@ -162,7 +162,7 @@ public:
 		*/
 	}
 
-	void renderGem(std::shared_ptr<GemObject::Gem> gem)
+	void renderGem(std::shared_ptr<Gem::GemObject> gem)
 	{
 		Geometry::Point pos = gem->getWorldPos();
 		King::Engine::Texture texture = getGemTexture(gem->getGemType());
@@ -192,17 +192,17 @@ public:
 										pos.getY());
 	}
 
-	static King::Engine::Texture getGemTexture(GemObject::GemType gemType)
+	static King::Engine::Texture getGemTexture(Gem::GemType gemType)
 	{
 		switch (gemType)
 		{
-		case GemObject::GemType::BLUE:
+		case Gem::GemType::BLUE:
 			return King::Engine::TEXTURE_BLUE;
-		case GemObject::GemType::GREEN:
+		case Gem::GemType::GREEN:
 			return King::Engine::TEXTURE_GREEN;
-		case GemObject::GemType::PURPLE:
+		case Gem::GemType::PURPLE:
 			return King::Engine::TEXTURE_PURPLE;
-		case GemObject::GemType::RED:
+		case Gem::GemType::RED:
 			return King::Engine::TEXTURE_RED;
 		default:
 			return King::Engine::TEXTURE_YELLOW;
@@ -217,7 +217,7 @@ private:
 	Scene::GameBoard gameBoard;
 	GameLogic::LineMatcher lineMatcher;
 	GameLogic::PlayerActions playerActions;
-	GemObject::GemGenerator gemGenerator;
+	Gem::GemGenerator gemGenerator;
 };
 
 //**********************************************************************

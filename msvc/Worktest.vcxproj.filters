@@ -58,11 +58,11 @@
     <Filter Include="Source Files\GameObject">
       <UniqueIdentifier>{7f45aec5-3e5e-4b30-a06a-ed8daf3675fa}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\GemObject">
-      <UniqueIdentifier>{385b9b39-a10d-48b8-8764-d4f615623a17}</UniqueIdentifier>
+    <Filter Include="Source Files\Gem">
+      <UniqueIdentifier>{176faebf-68d5-4d7c-9255-5208e56a1a01}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\GemObject">
-      <UniqueIdentifier>{77f9d889-6169-4af3-aa4a-d860ab077afe}</UniqueIdentifier>
+    <Filter Include="Header Files\Gem">
+      <UniqueIdentifier>{d796a39d-6e65-40b0-959c-06359a620c76}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -120,17 +120,17 @@
     <ClCompile Include="..\src\GameObject\IGameObject.cpp">
       <Filter>Source Files\GameObject</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\GemObject\GemGenerator.cpp">
-      <Filter>Source Files\GemObject</Filter>
+    <ClCompile Include="..\src\Gem\GemGenerator.cpp">
+      <Filter>Source Files\Gem</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\GemObject\Gem.cpp">
-      <Filter>Source Files\GemObject</Filter>
+    <ClCompile Include="..\src\Gem\MoveGemAnimation.cpp">
+      <Filter>Source Files\Gem</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\GemObject\DestroyGemAnimation.cpp">
-      <Filter>Source Files\GemObject</Filter>
+    <ClCompile Include="..\src\Gem\DestroyGemAnimation.cpp">
+      <Filter>Source Files\Gem</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\GemObject\MoveGemAnimation.cpp">
-      <Filter>Source Files\GemObject</Filter>
+    <ClCompile Include="..\src\Gem\GemObject.cpp">
+      <Filter>Source Files\Gem</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -194,17 +194,17 @@
     <ClInclude Include="..\src\GameObject\IGameObject.hpp">
       <Filter>Header Files\GameObject</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\GemObject\GemGenerator.hpp">
-      <Filter>Header Files\GemObject</Filter>
+    <ClInclude Include="..\src\Gem\GemGenerator.hpp">
+      <Filter>Header Files\Gem</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\GemObject\Gem.hpp">
-      <Filter>Header Files\GemObject</Filter>
+    <ClInclude Include="..\src\Gem\MoveGemAnimation.hpp">
+      <Filter>Header Files\Gem</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\GemObject\MoveGemAnimation.hpp">
-      <Filter>Header Files\GemObject</Filter>
+    <ClInclude Include="..\src\Gem\DestroyGemAnimation.hpp">
+      <Filter>Header Files\Gem</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\GemObject\DestroyGemAnimation.hpp">
-      <Filter>Header Files\GemObject</Filter>
+    <ClInclude Include="..\src\Gem\GemObject.hpp">
+      <Filter>Header Files\Gem</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

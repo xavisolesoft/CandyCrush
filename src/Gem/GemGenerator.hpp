@@ -3,15 +3,15 @@
 #include <memory>
 #include <atomic>
 
-#include "Gem.hpp"
+#include "GemObject.hpp"
 
-namespace GemObject {
+namespace Gem {
 	class GemGenerator
 	{
 	public:
 		GemGenerator();
 
-		std::shared_ptr<Gem> createNextGem();
+		std::shared_ptr<GemObject> createNextGem();
 
 	private:
 		long genereateNextId();

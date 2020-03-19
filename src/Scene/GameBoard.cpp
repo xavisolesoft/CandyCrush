@@ -1,10 +1,10 @@
 #include "GameBoard.hpp"
 
 #include "../Geometry/Point.hpp"
-#include "../GemObject/Gem.hpp"
+#include "../Gem/GemObject.hpp"
 
 using namespace Scene;
-using namespace GemObject;
+using namespace Gem;
 using namespace Geometry;
 
 GameBoard::GameBoard()
@@ -77,7 +77,7 @@ void GameBoard::setTopLeft(const Point& point)
 	topLeft = point;
 }
 
-void GameBoard::setGemToCell(int x, int y, std::shared_ptr<Gem> gem)
+void GameBoard::setGemToCell(int x, int y, std::shared_ptr<GemObject> gem)
 {
 	if (isValidCell(x, y)) {
 		cells[x][y].setGem(gem);
@@ -87,7 +87,7 @@ void GameBoard::setGemToCell(int x, int y, std::shared_ptr<Gem> gem)
 	}
 }
 
-std::shared_ptr<Gem> GameBoard::getGemFromCell(int x, int y) const
+std::shared_ptr<GemObject> GameBoard::getGemFromCell(int x, int y) const
 {
 	if (isValidCell(x, y)) {
 		return cells[x][y].getGem();
@@ -96,7 +96,7 @@ std::shared_ptr<Gem> GameBoard::getGemFromCell(int x, int y) const
 	return nullptr;
 }
 
-void GameBoard::swap(std::shared_ptr<Gem> gem1, std::shared_ptr<Gem> gem2)
+void GameBoard::swap(std::shared_ptr<GemObject> gem1, std::shared_ptr<GemObject> gem2)
 {
 	const Point& worldPos1 = gem1->getWorldPos();
 	const Point& worldPos2 = gem2->getWorldPos();

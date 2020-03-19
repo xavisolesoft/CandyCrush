@@ -7,9 +7,9 @@
 #include "../Geometry/BBox.hpp"
 #include "../Geometry/Point.hpp"
 
-namespace GemObject
+namespace Gem
 {
-	class Gem;
+	class GemObject;
 }
 
 namespace Scene {
@@ -33,9 +33,9 @@ namespace Scene {
 
 		void setTopLeft(const Geometry::Point& point);
 
-		void setGemToCell(int x, int y, std::shared_ptr<GemObject::Gem> gem);
-		std::shared_ptr<GemObject::Gem> getGemFromCell(int x, int y) const;
-		void swap(std::shared_ptr<GemObject::Gem> gem1, std::shared_ptr<GemObject::Gem> gem2);
+		void setGemToCell(int x, int y, std::shared_ptr<Gem::GemObject> gem);
+		std::shared_ptr<Gem::GemObject> getGemFromCell(int x, int y) const;
+		void swap(std::shared_ptr<Gem::GemObject> gem1, std::shared_ptr<Gem::GemObject> gem2);
 		void swap(int xCell1, int yCell1, int xCell2, int yCell2);
 
 		void calculateBBoxes();

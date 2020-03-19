@@ -1,9 +1,9 @@
 #include "Cell.hpp"
 
-#include "../GemObject/Gem.hpp"
+#include "../Gem/GemObject.hpp"
 
 using namespace Scene;
-using namespace GemObject;
+using namespace Gem;
 using namespace Geometry;
 
 Cell::Cell()
@@ -21,12 +21,12 @@ void Cell::setBBox(const BBox& value)
 	bBox = value;
 }
 
-std::shared_ptr<Gem> Cell::getGem() const
+std::shared_ptr<GemObject> Cell::getGem() const
 {
 	return gem;
 }
 
-void Cell::setGem(std::shared_ptr<Gem> value)
+void Cell::setGem(std::shared_ptr<GemObject> value)
 {
 	gem = std::move(value);
 }

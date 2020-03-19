@@ -1,9 +1,9 @@
 #include "DestroyGemAnimation.hpp"
 
-#include "../GemObject/Gem.hpp"
+#include "../Gem/GemObject.hpp"
 
 using namespace Animation;
-using namespace GemObject;
+using namespace Gem;
 
 const int DestroyGemAnimation::TOTAL_STEPS = 30;
 const float DestroyGemAnimation::PERIODE_SECONDS = 0.01f;
@@ -19,7 +19,7 @@ DestroyGemAnimation::~DestroyGemAnimation()
 {
 }
 
-void DestroyGemAnimation::setGem(std::shared_ptr<Gem> gem, std::function<void()> animationEndFunction)
+void DestroyGemAnimation::setGem(std::shared_ptr<GemObject> gem, std::function<void()> animationEndFunction)
 {
 	this->gem = gem;
 	this->animationEndFunction = std::move(animationEndFunction);

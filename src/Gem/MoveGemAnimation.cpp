@@ -1,10 +1,10 @@
 #include "MoveGemAnimation.hpp"
 
-#include "../GemObject/Gem.hpp"
+#include "../Gem/GemObject.hpp"
 
 using namespace Animation;
 using namespace Geometry;
-using namespace GemObject;
+using namespace Gem;
 
 MoveGemAnimation::MoveGemAnimation() :
 	lastUpdate(0)
@@ -16,7 +16,7 @@ Animation::MoveGemAnimation::~MoveGemAnimation()
 {
 }
 
-void MoveGemAnimation::start(std::shared_ptr<Gem> gem, const Point& source, const Point& destination, int steps, float perideSeconds)
+void MoveGemAnimation::start(std::shared_ptr<GemObject> gem, const Point& source, const Point& destination, int steps, float perideSeconds)
 {
 	this->gem = gem;
 	this->source = source;
