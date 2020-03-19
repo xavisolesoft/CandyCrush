@@ -6,7 +6,8 @@ using namespace Animation;
 using namespace Geometry;
 using namespace Scene;
 
-MoveGemAnimation::MoveGemAnimation()
+MoveGemAnimation::MoveGemAnimation() :
+	lastUpdate(0)
 {
 
 }
@@ -22,6 +23,7 @@ void MoveGemAnimation::start(std::shared_ptr<Scene::Gem> gem, const Point& sourc
 	this->move = destination - source;
 	TOTAL_STEPS = steps;
 	PERIODE_SECONDS = perideSeconds;
+	lastUpdate = 0;
 
 	currentStep = 0;
 }

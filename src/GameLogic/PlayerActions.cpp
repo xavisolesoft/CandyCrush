@@ -64,24 +64,7 @@ void PlayerActions::updateDragMove(const Scene::Cell* currentCell)
 	}
 
 	if (currentCell != dragStartCell && isAllowedMovement(dragStartCell, currentCell)) {
-		auto currentGem = currentCell->getGem();
-
-		auto dragStartGem = dragStartCell->getGem();
-		setSwapAnimations(currentGem, dragStartGem);
-		gameBoard.swap(dragStartGem, currentGem);
-		std::vector<std::vector<Point> > lines = lineMatcher.getBoardLines();
-		if (lines.empty()) {
-			appendSwapReturnAnimations(dragStartGem, currentGem);
-			gameBoard.swap(dragStartGem, currentGem);
-
-		}
-		else {
-			Util::Debug() << "SWAP_CELL(" << dragStartCell->getXCell() << ", " << dragStartCell->getYCell() << ")"
-				<< ", GEM(" << dragStartCell->getGem()->getId() << ")"
-				<< "  ->  "
-				<< "SWAP_CELL(" << currentCell->getXCell() << ", " << currentCell->getYCell() << ")"
-				<< ", GEM(" << currentGem->getId() << ")";
-		}
+		trySwapGems(*dragStartCell, *currentCell);
 		selectedCell = nullptr;
 		dragAborted = true;
 	}
@@ -90,20 +73,12 @@ void PlayerActions::updateDragMove(const Scene::Cell* currentCell)
 void PlayerActions::updateDragEnd(const Scene::Cell* currentCell)
 {
 	if (currentCell) {
-		auto currentGem = currentCell->getGem();
 		Util::Debug() << "CLICKED_CELL(" << currentCell->getXCell() << ", " << currentCell->getYCell() << ")"
-			<< ", GEM(" << currentGem->getId() << ")";
+			<< ", GEM(" << currentCell->getGem()->getId() << ")";
 
 		if (selectedCell) {
 			if (currentCell != selectedCell && isAllowedMovement(selectedCell, currentCell)) {
-				Util::Debug() << "SWAP_CELL(" << selectedCell->getXCell() << ", " << selectedCell->getYCell() << ")"
-					<< ", GEM(" << selectedCell->getGem()->getId() << ")"
-					<< "  ->  "
-					<< "SWAP_CELL(" << currentCell->getXCell() << ", " << currentCell->getYCell() << ")"
-					<< ", GEM(" << currentGem->getId() << ")";
-
-				setSwapAnimations(currentGem, selectedCell->getGem());
-				gameBoard.swap(selectedCell->getGem(), currentGem);
+				trySwapGems(*dragStartCell, *currentCell);
 				selectedCell = nullptr;
 			}
 		}
@@ -112,6 +87,28 @@ void PlayerActions::updateDragEnd(const Scene::Cell* currentCell)
 			Util::Debug() << "SELECTED_CELL(" << selectedCell->getXCell() << ", " << selectedCell->getYCell() << ")"
 				<< ", GEM(" << selectedCell->getGem()->getId() << ")";
 		}
+	}
+}
+
+void PlayerActions::trySwapGems(const Cell& cell1, const Cell& cell2)
+{
+	auto gem1 = cell1.getGem();
+	auto gem2 = cell2.getGem();
+
+	setSwapAnimations(gem1, gem2);
+	gameBoard.swap(gem2, gem1);
+	std::vector<std::vector<Point> > lines = lineMatcher.getBoardLines();
+	if (lines.empty()) {
+		appendSwapReturnAnimations(gem2, gem1);
+		gameBoard.swap(gem2, gem1);
+
+	}
+	else {
+		Util::Debug() << "SWAP_CELL(" << cell1.getXCell() << ", " << cell1.getYCell() << ")"
+			<< ", GEM(" << gem1->getId() << ")"
+			<< "  ->  "
+			<< "SWAP_CELL(" << cell2.getXCell() << ", " << cell2.getYCell() << ")"
+			<< ", GEM(" << gem2->getId() << ")";
 	}
 }
 
@@ -145,7 +142,9 @@ void PlayerActions::appendSwapReturnAnimations(std::shared_ptr<Gem> gem1, std::s
 
 bool PlayerActions::isAllowedMovement(const Cell* originCell, const Cell* destinationCell)
 {
-	if (!originCell || !destinationCell) {
+	if (!originCell || !destinationCell ||
+		!originCell->getGem() || !destinationCell->getGem() ||
+		!originCell->getGem()->isUserInteractionEnabled() || !destinationCell->getGem()->isUserInteractionEnabled()) {
 		return false;
 	}
 
