@@ -95,6 +95,7 @@
     <ClCompile Include="..\src\Geometry\Point.cpp" />
     <ClCompile Include="..\src\Geometry\Vector.cpp" />
     <ClCompile Include="..\src\main.cpp" />
+    <ClCompile Include="..\src\Render\RenderController.cpp" />
     <ClCompile Include="..\src\Scene\Cell.cpp" />
     <ClCompile Include="..\src\Scene\GameBoard.cpp" />
     <ClCompile Include="..\src\Util\Debug.cpp" />
@@ -120,7 +121,8 @@
     <ClInclude Include="..\src\Geometry\BBox.hpp" />
     <ClInclude Include="..\src\Geometry\Point.hpp" />
     <ClInclude Include="..\src\Geometry\Vector.hpp" />
-    <ClInclude Include="..\src\Renderer\IRenderer.hpp" />
+    <ClInclude Include="..\src\Render\IRenderer.hpp" />
+    <ClInclude Include="..\src\Render\RenderController.hpp" />
     <ClInclude Include="..\src\Scene\Cell.hpp" />
     <ClInclude Include="..\src\Scene\GameBoard.hpp" />
     <ClInclude Include="..\src\Util\Debug.hpp" />

@@ -49,9 +49,6 @@
     <Filter Include="Source Files\Animation">
       <UniqueIdentifier>{e06e7bc8-20a7-4182-9aaa-b3ccc8e5a3c5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Renderer">
-      <UniqueIdentifier>{6c65401d-bedb-45bb-9f9e-a4611b9aea9a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\GameObject">
       <UniqueIdentifier>{13a1a0d5-fa4a-4df9-8077-7465da9534ad}</UniqueIdentifier>
     </Filter>
@@ -63,6 +60,12 @@
     </Filter>
     <Filter Include="Header Files\Gem">
       <UniqueIdentifier>{d796a39d-6e65-40b0-959c-06359a620c76}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Render">
+      <UniqueIdentifier>{6c65401d-bedb-45bb-9f9e-a4611b9aea9a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Render">
+      <UniqueIdentifier>{30ea8b99-6680-4f5c-a61c-c2348ff115e8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -132,6 +135,9 @@
     <ClCompile Include="..\src\Gem\GemObject.cpp">
       <Filter>Source Files\Gem</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Render\RenderController.cpp">
+      <Filter>Source Files\Render</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\external\include\king\Engine.h">
@@ -185,9 +191,6 @@
     <ClInclude Include="..\src\Animation\ComposedSequentialAnimation.hpp">
       <Filter>Header Files\Animation</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\Renderer\IRenderer.hpp">
-      <Filter>Header Files\Renderer</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\Animation\IAnimation.hpp">
       <Filter>Header Files\Animation</Filter>
     </ClInclude>
@@ -205,6 +208,12 @@
     </ClInclude>
     <ClInclude Include="..\src\Gem\GemObject.hpp">
       <Filter>Header Files\Gem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Render\IRenderer.hpp">
+      <Filter>Header Files\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Render\RenderController.hpp">
+      <Filter>Header Files\Render</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
