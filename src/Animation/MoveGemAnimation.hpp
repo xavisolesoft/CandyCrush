@@ -19,7 +19,7 @@ namespace Animation {
 		MoveGemAnimation();
 		~MoveGemAnimation();
 		
-		void start(std::shared_ptr<Scene::Gem> gem, const Geometry::Point& dest, int steps, float perideSeconds);
+		void start(std::shared_ptr<Scene::Gem> gem, const Geometry::Point& source, const Geometry::Point& destination, int steps, float perideSeconds);
 
 		bool update() override;
 

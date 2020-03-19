@@ -33,6 +33,7 @@ namespace Scene {
 		const Geometry::Point& getWorldPos() const;
 
 		void setAnimation(Animation::IAnimation& value);
+		Animation::IAnimation* getAnimation() const;
 		void animationUpdate();
 
 		bool isUserInteractionEnabled() const;

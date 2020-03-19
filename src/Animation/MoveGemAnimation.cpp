@@ -1,7 +1,6 @@
 #include "MoveGemAnimation.hpp"
 
 #include "../Scene/Gem.hpp"
-#include "../Geometry/Point.hpp"
 
 using namespace Animation;
 using namespace Geometry;
@@ -16,11 +15,11 @@ Animation::MoveGemAnimation::~MoveGemAnimation()
 {
 }
 
-void MoveGemAnimation::start(std::shared_ptr<Gem> gem, const Point& dest, int steps, float perideSeconds)
+void MoveGemAnimation::start(std::shared_ptr<Scene::Gem> gem, const Point& source, const Point& destination, int steps, float perideSeconds)
 {
 	this->gem = gem;
-	source = gem->getWorldPos();
-	this->move = dest - source;
+	this->source = source;
+	this->move = destination - source;
 	TOTAL_STEPS = steps;
 	PERIODE_SECONDS = perideSeconds;
 

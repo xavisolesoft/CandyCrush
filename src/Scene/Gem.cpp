@@ -49,6 +49,11 @@ void Gem::setAnimation(Animation::IAnimation& value)
 	animation = &value;
 }
 
+IAnimation* Gem::getAnimation() const
+{
+	return animation;
+}
+
 void Gem::animationUpdate()
 {
 	//TODO: When create a GameObject superClass move animated related functions there.

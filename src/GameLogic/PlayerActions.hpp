@@ -26,6 +26,7 @@ namespace GameLogic {
 		void updateDragEnd(const Scene::Cell* currentCell);
 
 		static void setSwapAnimations(std::shared_ptr<Scene::Gem> gem1, std::shared_ptr<Scene::Gem> gem2);
+		static void appendSwapReturnAnimations(std::shared_ptr<Scene::Gem> gem1, std::shared_ptr<Scene::Gem> gem2);
 
 		static bool isAllowedMovement(const Scene::Cell* originCell, const Scene::Cell* destinationCell);
 		bool isDragStart(bool mouseButtonDown) const;

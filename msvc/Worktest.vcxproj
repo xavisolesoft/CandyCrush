@@ -83,6 +83,7 @@
     <ClCompile Include="..\external\include\king\Sdl.cpp" />
     <ClCompile Include="..\external\include\king\SdlSurface.cpp" />
     <ClCompile Include="..\external\include\king\SdlWindow.cpp" />
+    <ClCompile Include="..\src\Animation\ComposedSequentialAnimation.cpp" />
     <ClCompile Include="..\src\Animation\MoveGemAnimation.cpp" />
     <ClCompile Include="..\src\GameLogic\LineMatcher.cpp" />
     <ClCompile Include="..\src\GameLogic\PlayerActions.cpp" />
@@ -106,6 +107,7 @@
     <ClInclude Include="..\external\include\king\SdlWindow.h" />
     <ClInclude Include="..\external\include\king\Updater.h" />
     <ClInclude Include="..\src\Animation\Animation.hpp" />
+    <ClInclude Include="..\src\Animation\ComposedSequentialAnimation.hpp" />
     <ClInclude Include="..\src\Animation\MoveGemAnimation.hpp" />
     <ClInclude Include="..\src\GameLogic\LineMatcher.hpp" />
     <ClInclude Include="..\src\GameLogic\PlayerActions.hpp" />

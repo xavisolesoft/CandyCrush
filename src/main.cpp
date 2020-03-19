@@ -37,7 +37,8 @@ public:
 		
 	}
 
-	void Start() {
+	void Start()
+	{
 		gameBoard.setNumCells(8, 8);
 		gameBoard.setCellHeight(45.0f);
 		gameBoard.setCellWidth(45.0f);
@@ -53,7 +54,8 @@ public:
 		mEngine.Start(*this);
 	}
 
-	void Update() {
+	void Update()
+	{
 		mEngine.Render(King::Engine::TEXTURE_BACKGROUND, 0.0f, 0.0f);
 
 		for (int i = 0; i < gameBoard.getNumXCells(); ++i) {
@@ -74,15 +76,15 @@ public:
 		}
 
 		playerActions.update(mEngine.GetMouseButtonDown(), mEngine.GetMouseX(), mEngine.GetMouseY());
-/*
-		if (mEngine.GetMouseButtonDown()) {
+
+//		if (mEngine.GetMouseButtonDown()) {
 			std::vector<std::vector<Geometry::Point> > lines = lineMatcher.getBoardLines();
 			for (const std::vector<Geometry::Point> line : lines) {
 				for (const Geometry::Point& point : line) {
 					gameBoard.setGemToCell((int)point.getX(), (int)point.getY(), nullptr);
 				}
 			}
-		}
+//		}
 
 		static std::clock_t lastUpdate = std::clock();
 		if ((std::clock() - lastUpdate) / (double)CLOCKS_PER_SEC >= 1.0){
@@ -105,7 +107,7 @@ public:
 
 			lastUpdate = std::clock();
 		}
-		*/
+		
 		
 
 /*

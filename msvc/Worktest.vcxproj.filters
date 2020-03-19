@@ -108,6 +108,9 @@
     <ClCompile Include="..\src\Animation\MoveGemAnimation.cpp">
       <Filter>Source Files\Animation</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Animation\ComposedSequentialAnimation.cpp">
+      <Filter>Source Files\Animation</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\external\include\king\Engine.h">
@@ -168,6 +171,9 @@
       <Filter>Header Files\Animation</Filter>
     </ClInclude>
     <ClInclude Include="..\src\Animation\MoveGemAnimation.hpp">
+      <Filter>Header Files\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Animation\ComposedSequentialAnimation.hpp">
       <Filter>Header Files\Animation</Filter>
     </ClInclude>
   </ItemGroup>
