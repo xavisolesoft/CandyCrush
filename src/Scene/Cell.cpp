@@ -11,12 +11,12 @@ Cell::Cell()
 	
 }
 
-const BBox& Cell::getBBox() const
+const BBox<float>& Cell::getBBox() const
 {
 	return bBox;
 }
 
-void Cell::setBBox(const BBox& value)
+void Cell::setBBox(const BBox<float>& value)
 {
 	bBox = value;
 }

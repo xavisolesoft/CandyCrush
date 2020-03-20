@@ -18,8 +18,8 @@ namespace Scene {
 	public:
 		GameBoard();
 
-		Geometry::BBox getBBox() const;
-		Geometry::BBox getCellBBox(int x, int y) const;
+		Geometry::BBox<float> getBBox() const;
+		Geometry::BBox<float> getCellBBox(int x, int y) const;
 
 		int getNumXCells() const;
 		int getNumYCells() const;
@@ -55,6 +55,6 @@ namespace Scene {
 		float cellWidth;
 		float cellHeight;
 		Geometry::Point<float> topLeft;
-		Geometry::BBox bBox;
+		Geometry::BBox<float> bBox;
 	};
 }

@@ -12,18 +12,18 @@ GameBoard::GameBoard()
 
 }
 
-BBox GameBoard::getBBox() const
+BBox<float> GameBoard::getBBox() const
 {
 	return bBox;
 }
 
-BBox GameBoard::getCellBBox(int x, int y) const
+BBox<float> GameBoard::getCellBBox(int x, int y) const
 {
 	if (isValidCell(x, y)) {
 		return cells[x][y].getBBox();
 	}
 
-	return BBox();
+	return BBox<float>();
 }
 
 int GameBoard::getNumXCells() const
@@ -186,7 +186,7 @@ void GameBoard::calculateSceneBBox()
 void GameBoard::calculateCellBox(int i, int j)
 {
 	if (isValidCell(i, j)) {
-		BBox bBox;
+		BBox<float> bBox;
 		Point<float> cellTopLeft(topLeft.getX() + i * cellWidth,
 								topLeft.getY() + j * cellHeight);
 

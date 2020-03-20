@@ -16,8 +16,8 @@ namespace Scene {
 	public:
 		Cell();
 
-		const Geometry::BBox& getBBox() const;
-		void setBBox(const Geometry::BBox& value);
+		const Geometry::BBox<float>& getBBox() const;
+		void setBBox(const Geometry::BBox<float>& value);
 
 		std::shared_ptr<Gem::GemObject> getGem() const;
 		void setGem(std::shared_ptr<Gem::GemObject> value);
@@ -34,6 +34,6 @@ namespace Scene {
 		int xCell;
 		int yCell;
 		std::shared_ptr<Gem::GemObject> gem;
-		Geometry::BBox bBox;
+		Geometry::BBox<float> bBox;
 	};
 }

@@ -96,9 +96,6 @@
     <ClCompile Include="..\external\include\king\SdlSurface.cpp">
       <Filter>Source Files\kinglib</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\Geometry\BBox.cpp">
-      <Filter>Source Files\Geomentry</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\Scene\GameBoard.cpp">
       <Filter>Source Files\Scene</Filter>
     </ClCompile>
