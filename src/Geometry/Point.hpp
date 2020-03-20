@@ -38,14 +38,14 @@ namespace Geometry {
 			return x == other.x && y == other.y;
 		}
 
-		Point<T>& operator+=(const Vector& vector)
+		Point<T>& operator+=(const Vector<T>& vector)
 		{
 			x += vector.x;
 			y += vector.y;
 			return *this;
 		}
 
-		Point<T> operator+(const Vector& vector) const
+		Point<T> operator+(const Vector<T>& vector) const
 		{
 			Point<T> ret(*this);
 			ret.x += vector.x;
@@ -53,9 +53,9 @@ namespace Geometry {
 			return ret;
 		}
 
-		Vector operator-(const Point<T>& other) const
+		Vector<T> operator-(const Point<T>& other) const
 		{
-			Vector ret;
+			Vector<T> ret;
 			ret.x = x - other.x;
 			ret.y = y - other.y;
 			return ret;

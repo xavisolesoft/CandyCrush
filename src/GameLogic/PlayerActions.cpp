@@ -163,11 +163,11 @@ bool PlayerActions::isAllowedMovement(const Cell* originCell, const Cell* destin
 		return false;
 	}
 
-	Geometry::Vector move = destinationCell->getBoardPos() - originCell->getBoardPos();
-	return move == Geometry::Vector(0, 1) ||
-		move == Geometry::Vector(0, -1) ||
-		move == Geometry::Vector(1, 0) ||
-		move == Geometry::Vector(-1, 0);
+	Geometry::Vector<int> move = destinationCell->getBoardPos() - originCell->getBoardPos();
+	return move == Geometry::Vector<int>(0, 1) ||
+		move == Geometry::Vector<int>(0, -1) ||
+		move == Geometry::Vector<int>(1, 0) ||
+		move == Geometry::Vector<int>(-1, 0);
 }
 
 bool PlayerActions::isDragStart(bool mouseButtonDown) const

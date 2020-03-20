@@ -29,6 +29,6 @@ namespace Geometry {
 
 	private:
 		Point<float> topLeft;
-		Vector diagonal;
+		Vector<float> diagonal;
 	};
 }

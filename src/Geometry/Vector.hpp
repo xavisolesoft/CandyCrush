@@ -1,51 +1,75 @@
 #pragma once
 
 namespace Geometry {
+	template<class T>
 	class Vector
 	{
 		template<class T>
 		friend class Point;
 
 	public:
-		Vector(float x = 0.0f, float y = 0.0f);
-		Vector(const Vector& other);
+		Vector(T x = 0, T y = 0)
+		{
+			this->x = x;
+			this->y = y;
+		}
 
-		float getX() const;
-		float getY() const;
+		Vector(const Vector<T> & other)
+		{
+			x = other.x;
+			y = other.y;
+		}
 
-		void setX(float value);
-		void setY(float value);
+		T getX() const
+		{
+			return x;
+		}
 
-		bool operator==(const Vector& other) const
+		T getY() const
+		{
+			return y;
+		}
+
+		void setX(T value)
+		{
+			x = value;
+		}
+
+		void setY(T value)
+		{
+			y = value;
+		}
+
+		bool operator==(const Vector<T>& other) const
 		{
 			return x == other.x && y == other.y;
 		}
 
-		Vector& operator/=(float literal)
+		Vector<T>& operator/=(T literal)
 		{
 			x /= literal;
 			y /= literal;
 			return *this;
 		}
 
-		Vector operator/(float literal) const
+		Vector<T> operator/(T literal) const
 		{
-			Vector ret(*this);
+			Vector<T> ret(*this);
 			ret.x /= literal;
 			ret.y /= literal;
 			return ret;
 		}
 
-		Vector operator*(float literal) const
+		Vector<T> operator*(T literal) const
 		{
-			Vector ret(*this);
+			Vector<T> ret(*this);
 			ret.x *= literal;
 			ret.y *= literal;
 			return ret;
 		}
 
 	private:
-		float x;
-		float y;
+		T x;
+		T y;
 	};
 }

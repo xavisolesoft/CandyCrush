@@ -26,7 +26,7 @@ namespace Animation {
 	private:
 		std::shared_ptr<Gem::GemObject> gem;
 		Geometry::Point<float> source;
-		Geometry::Vector move;
+		Geometry::Vector<float> move;
 		std::clock_t lastUpdate;
 
 		int TOTAL_STEPS;
