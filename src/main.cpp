@@ -24,6 +24,7 @@
 #include "GameLogic/LineRemover.hpp"
 #include "GameLogic/SpawnGemGenerator.hpp"
 #include "GameLogic/GemGravityShifter.hpp"
+#include "GameLogic/GemAnimationUpdater.hpp"
 
 #include "Animation/IAnimation.hpp"
 
@@ -59,14 +60,7 @@ public:
 	{
 		mEngine.Render(King::Engine::TEXTURE_BACKGROUND, 0.0f, 0.0f);
 
-		for (int i = 0; i < gameBoard.getNumXCells(); ++i) {
-			for (int j = 0; j < gameBoard.getNumYCells(); ++j) {
-				std::shared_ptr<Gem::GemObject> gem = gameBoard.getGemFromCell(i, j);
-				if (gem) {
-					gem->animationUpdate();
-				}
-			}
-		}
+		gemAnimationUpdater.update(gameBoard);
 
 		Render::RenderController::getInstance().update();
 
@@ -89,6 +83,7 @@ private:
 	GameLogic::LineRemover lineRemover;
 	GameLogic::SpawnGemGenerator spawnGemGenerator;
 	GameLogic::GemGravityShifter gemGravityShifter;
+	GameLogic::GemAnimationUpdater gemAnimationUpdater;
 };
 
 //**********************************************************************
