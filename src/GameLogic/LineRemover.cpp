@@ -1,7 +1,7 @@
 #include "LineRemover.hpp"
 
 #include "../Scene/GameBoard.hpp"
-#include "../Geometry/PointF.hpp"
+#include "../Geometry/Point.hpp"
 
 #include "../Gem/DestroyGemAnimation.hpp"
 
@@ -18,9 +18,9 @@ LineRemover::LineRemover()
 void LineRemover::update(GameBoard& gameBoard)
 {
 	GameLogic::LineMatcher lineMatcher(gameBoard);
-	std::vector<std::vector<Geometry::PointF> > lines = lineMatcher.getBoardLines();
-	for (const std::vector<Geometry::PointF> line : lines) {
-		for (const Geometry::PointF& point : line) {
+	std::vector<std::vector<Geometry::Point> > lines = lineMatcher.getBoardLines();
+	for (const std::vector<Geometry::Point> line : lines) {
+		for (const Geometry::Point& point : line) {
 			auto gem = gameBoard.getGemFromCell((int)point.getX(), (int)point.getY());
 			long gemId = -1;
 			if (gem) {

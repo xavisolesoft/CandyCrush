@@ -5,7 +5,7 @@
 #include <functional>
 
 #include "../Animation/IAnimation.hpp"
-#include "../Geometry/PointF.hpp"
+#include "../Geometry/Point.hpp"
 
 namespace Gem
 {

@@ -6,7 +6,7 @@
 #include <glm/mat4x4.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
-#include "../Geometry/PointF.hpp"
+#include "../Geometry/Point.hpp"
 
 #include "../Gem/GemObject.hpp"
 
@@ -27,7 +27,7 @@ GemRenderer::~GemRenderer()
 void GemRenderer::update(const IGameObject& gameObject)
 {
 	auto gem = dynamic_cast<const GemObject&>(gameObject);
-	Geometry::PointF pos = gem.getWorldPos();
+	Geometry::Point pos = gem.getWorldPos();
 	King::Engine::Texture texture = getGemTexture(gem.getGemType());
 	glm::mat4 transformation;
 

@@ -3,7 +3,7 @@
 namespace Geometry {
 	class Vector
 	{
-		friend class PointF;
+		friend class Point;
 
 	public:
 		Vector(float x = 0.0f, float y = 0.0f);

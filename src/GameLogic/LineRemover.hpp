@@ -11,7 +11,7 @@ namespace Scene
 
 namespace Geometry
 {
-	class PointF;
+	class Point;
 }
 
 namespace GameLogic {

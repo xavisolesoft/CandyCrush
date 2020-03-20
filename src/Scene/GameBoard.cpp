@@ -1,6 +1,6 @@
 #include "GameBoard.hpp"
 
-#include "../Geometry/PointF.hpp"
+#include "../Geometry/Point.hpp"
 #include "../Gem/GemObject.hpp"
 
 using namespace Scene;
@@ -72,7 +72,7 @@ float GameBoard::getCellHeight() const
 	return cellHeight;
 }
 
-void GameBoard::setTopLeft(const PointF& point)
+void GameBoard::setTopLeft(const Point& point)
 {
 	topLeft = point;
 }
@@ -98,8 +98,8 @@ std::shared_ptr<GemObject> GameBoard::getGemFromCell(int x, int y) const
 
 void GameBoard::swap(std::shared_ptr<GemObject> gem1, std::shared_ptr<GemObject> gem2)
 {
-	const PointF& worldPos1 = gem1->getWorldPos();
-	const PointF& worldPos2 = gem2->getWorldPos();
+	const Point& worldPos1 = gem1->getWorldPos();
+	const Point& worldPos2 = gem2->getWorldPos();
 	const Cell* cell1 = getCellFromWorldPos(worldPos1.getX(), worldPos1.getY());
 	const Cell* cell2 = getCellFromWorldPos(worldPos2.getX(), worldPos2.getY());
 	setGemToCell(cell1->getXCell(), cell1->getYCell(), gem2);
@@ -121,7 +121,7 @@ void GameBoard::calculateBBoxes()
 
 const Cell* GameBoard::getCellFromWorldPos(float xWorld, float yWorld) const
 {
-	PointF point(xWorld, yWorld);
+	Point point(xWorld, yWorld);
 	if (!bBox.contains(point)) {
 		return nullptr;
 	}
@@ -173,7 +173,7 @@ bool GameBoard::isAnyGemAnimated() const
 void GameBoard::calculateSceneBBox()
 {
 	bBox.setStartPoint(topLeft);
-	bBox.expand(PointF(topLeft.getX() + getNumXCells()*cellWidth,
+	bBox.expand(Point(topLeft.getX() + getNumXCells()*cellWidth,
 		topLeft.getY() + getNumYCells()*cellHeight));
 
 	for (size_t i = 0; i < cells.size(); ++i) {
@@ -187,11 +187,11 @@ void GameBoard::calculateCellBox(int i, int j)
 {
 	if (isValidCell(i, j)) {
 		BBox bBox;
-		PointF cellTopLeft(topLeft.getX() + i * cellWidth,
+		Point cellTopLeft(topLeft.getX() + i * cellWidth,
 			topLeft.getY() + j * cellHeight);
 
 		bBox.setStartPoint(cellTopLeft);
-		bBox.expand(PointF(cellTopLeft.getX() + cellWidth,
+		bBox.expand(Point(cellTopLeft.getX() + cellWidth,
 			cellTopLeft.getY() + cellHeight));
 
 		cells[i][j].setBBox(bBox);

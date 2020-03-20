@@ -2,7 +2,7 @@
 
 #include <vector>
 
-#include "../Geometry/PointF.hpp"
+#include "../Geometry/Point.hpp"
 
 #include "../Scene/GameBoard.hpp"
 #include "../Scene/Cell.hpp"
@@ -112,9 +112,9 @@ void PlayerActions::trySwapGems(const Cell& cell1, const Cell& cell2)
 
 	setSwapAnimations(gem1, gem2);
 	gameBoard.swap(gem2, gem1);
-	std::vector<std::vector<PointF> > lines = lineMatcher.getBoardLines();
-	if (!LineMatcher::containsCell(lines, PointF(cell1.getBoardPos())) &&
-		!LineMatcher::containsCell(lines, PointF(cell2.getBoardPos()))) {
+	std::vector<std::vector<Point> > lines = lineMatcher.getBoardLines();
+	if (!LineMatcher::containsCell(lines, Point(cell1.getBoardPos())) &&
+		!LineMatcher::containsCell(lines, Point(cell2.getBoardPos()))) {
 		appendSwapReturnAnimations(gem2, gem1);
 		gameBoard.swap(gem2, gem1);
 	}

@@ -51,7 +51,7 @@ int Cell::getYCell() const
 	return yCell;
 }
 
-PointF Cell::getBoardPos() const
+Point Cell::getBoardPos() const
 {
-	return PointF((float)xCell, (float)yCell);
+	return Point((float)xCell, (float)yCell);
 }

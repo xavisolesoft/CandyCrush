@@ -50,7 +50,7 @@ public:
 		gameBoard.setNumCells(8, 8);
 		gameBoard.setCellHeight(45.0f);
 		gameBoard.setCellWidth(45.0f);
-		gameBoard.setTopLeft(Geometry::PointF(320.0f, 100.0f));
+		gameBoard.setTopLeft(Geometry::Point(320.0f, 100.0f));
 		gameBoard.calculateBBoxes();
 
 		gemGenerator.setSeed(60);
@@ -87,7 +87,7 @@ public:
 			mEngine.Render(King::Engine::TEXTURE_BACKGROUND, 0.0f, 0.0f);
 
 			Text::TextObject theEnd(0);
-			theEnd.setWorldPos(Geometry::PointF(445, 260));
+			theEnd.setWorldPos(Geometry::Point(445, 260));
 			theEnd.setText("The End");
 			Text::TextRenderer textRenderer;
 			textRenderer.setEngine(&mEngine);

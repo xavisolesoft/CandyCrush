@@ -4,7 +4,7 @@
 #include <ctime>
 
 #include "../Animation/IAnimation.hpp"
-#include "../Geometry/PointF.hpp"
+#include "../Geometry/Point.hpp"
 
 namespace Gem
 {
@@ -19,13 +19,13 @@ namespace Animation {
 		MoveGemAnimation();
 		~MoveGemAnimation();
 		
-		void start(std::shared_ptr<Gem::GemObject> gem, const Geometry::PointF& source, const Geometry::PointF& destination, int steps, float perideSeconds);
+		void start(std::shared_ptr<Gem::GemObject> gem, const Geometry::Point& source, const Geometry::Point& destination, int steps, float perideSeconds);
 
 		bool update() override;
 
 	private:
 		std::shared_ptr<Gem::GemObject> gem;
-		Geometry::PointF source;
+		Geometry::Point source;
 		Geometry::Vector move;
 		std::clock_t lastUpdate;
 

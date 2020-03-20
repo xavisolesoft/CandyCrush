@@ -3,7 +3,7 @@
 #include <memory>
 
 #include "../Geometry/BBox.hpp"
-#include "../Geometry/PointF.hpp"
+#include "../Geometry/Point.hpp"
 
 namespace Gem
 {
@@ -28,7 +28,7 @@ namespace Scene {
 		void setYCell(int value);
 		int getYCell() const;
 
-		Geometry::PointF getBoardPos() const;
+		Geometry::Point getBoardPos() const;
 
 	private:
 		int xCell;

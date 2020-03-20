@@ -25,7 +25,7 @@ long IGameObject::getId() const
 	return id;
 }
 
-void IGameObject::setWorldPos(const PointF & point)
+void IGameObject::setWorldPos(const Point & point)
 {
 	worldPos = point;
 }
@@ -40,7 +40,7 @@ void IGameObject::setWorldY(float y)
 	worldPos.setY(y);
 }
 
-const PointF& IGameObject::getWorldPos() const
+const Point& IGameObject::getWorldPos() const
 {
 	return worldPos;
 }

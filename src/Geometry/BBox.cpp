@@ -8,19 +8,19 @@ Geometry::BBox::BBox() :
 {
 }
 
-BBox::BBox(const PointF& startPoint) :
+BBox::BBox(const Point& startPoint) :
 	topLeft(startPoint),
 	diagonal(0.0f, 0.0f)
 {
 	
 }
 
-void BBox::setStartPoint(const PointF & startPoint)
+void BBox::setStartPoint(const Point & startPoint)
 {
 	topLeft = startPoint;
 }
 
-void BBox::expand(const PointF& point)
+void BBox::expand(const Point& point)
 {
 	if (point.getX() < topLeft.getX()) {
 		topLeft.setX(point.getX());
@@ -37,24 +37,24 @@ void BBox::expand(const PointF& point)
 	}
 }
 
-PointF BBox::getTopLeft() const
+Point BBox::getTopLeft() const
 {
 	return topLeft;
 }
 
-PointF BBox::getTopRight() const
+Point BBox::getTopRight() const
 {
-	return PointF(topLeft.getX() + diagonal.getX(), topLeft.getY());
+	return Point(topLeft.getX() + diagonal.getX(), topLeft.getY());
 }
 
-PointF BBox::getBottomLeft() const
+Point BBox::getBottomLeft() const
 {
-	return PointF(topLeft.getX(), topLeft.getY() + diagonal.getY());
+	return Point(topLeft.getX(), topLeft.getY() + diagonal.getY());
 }
 
-PointF BBox::getBottomRight() const
+Point BBox::getBottomRight() const
 {
-	return PointF(topLeft.getX() + diagonal.getX(), topLeft.getY() + diagonal.getY());
+	return Point(topLeft.getX() + diagonal.getX(), topLeft.getY() + diagonal.getY());
 }
 
 float BBox::getTop() const
@@ -77,12 +77,12 @@ float BBox::getRight() const
 	return topLeft.getX() + diagonal.getX();
 }
 
-PointF BBox::getCenter() const
+Point BBox::getCenter() const
 {
 	return topLeft + (diagonal/2.0f);
 }
 
-bool BBox::contains(const PointF& point) const
+bool BBox::contains(const Point& point) const
 {
 	if (point.getX() < getLeft() ||
 		point.getX() > getRight() ||
