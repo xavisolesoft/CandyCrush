@@ -2,6 +2,8 @@
 
 #include <memory>
 
+#include "../GameLogic/LineMatcher.hpp"
+
 namespace Scene
 {
 	class GameBoard;
@@ -15,12 +17,10 @@ namespace Gem
 
 
 namespace GameLogic {
-	class LineMatcher;
-
 	class PlayerActions
 	{
 	public:
-		PlayerActions(Scene::GameBoard& gameBoard, const LineMatcher& lineMatcher);
+		PlayerActions(Scene::GameBoard& gameBoard);
 
 		void update(bool mouseButtonDown, float mouseX, float mouseY);
 
@@ -40,7 +40,7 @@ namespace GameLogic {
 		bool isDragEnd(bool mouseButtonDown) const;
 
 		Scene::GameBoard& gameBoard;
-		const LineMatcher& lineMatcher;
+		LineMatcher lineMatcher;
 		const Scene::Cell* selectedCell;
 		bool prevMouseButtonDown;
 		const Scene::Cell* dragStartCell;

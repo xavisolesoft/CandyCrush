@@ -8,8 +8,6 @@
 #include "../Scene/Cell.hpp"
 #include "../Gem/GemObject.hpp"
 
-#include "../GameLogic/LineMatcher.hpp"
-
 #include "../Gem/MoveGemAnimation.hpp"
 #include "../Animation/ComposedSequentialAnimation.hpp"
 
@@ -22,9 +20,9 @@ using namespace Scene;
 using namespace Animation;
 using namespace Util;
 
-PlayerActions::PlayerActions(GameBoard& gameBoard, const LineMatcher& lineMatcher) :
+PlayerActions::PlayerActions(GameBoard& gameBoard) :
 	gameBoard(gameBoard),
-	lineMatcher(lineMatcher),
+	lineMatcher(gameBoard),
 	selectedCell(nullptr),
 	prevMouseButtonDown(false),
 	dragStartCell(nullptr),

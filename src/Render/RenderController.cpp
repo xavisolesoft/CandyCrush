@@ -7,9 +7,14 @@
 using namespace GameObject;
 using namespace Render;
 
-RenderController::RenderController(King::Engine& engine) :
-	engine(engine)
+RenderController::RenderController() :
+	engine(nullptr)
 {
+}
+
+void RenderController::setEngine(King::Engine* engine)
+{
+	this->engine = engine;
 }
 
 void RenderController::update()
@@ -23,7 +28,7 @@ void RenderController::update()
 
 void RenderController::add(const GameObject::IGameObject& gameObject, Render::IRenderer& renderer)
 {
-	renderer.setEngine(&engine);
+	renderer.setEngine(engine);
 	renderers[&gameObject] = &renderer;
 }
 

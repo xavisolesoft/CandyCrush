@@ -8,7 +8,10 @@
 #include "../Gem/GemRenderer.hpp"
 #include "../Gem/GemGenerator.hpp"
 
+#include "../Util/Debug.hpp"
+
 using namespace Gem;
+using namespace Util;
 
 GemGenerator::GemGenerator(Render::RenderController& renderController) :
 	nextGemId(0),
@@ -23,9 +26,12 @@ std::shared_ptr<GemObject> GemGenerator::createNextGem()
 														generateNextGemType()),
 										[this](GemObject* gem) {
 											renderController.remove(*gem);
+											Debug() << "DELETED_GEM(" << gem->getId() << ", " << (int)gem->getGemType() << ")";
 										});
 
 	renderController.add(*gem, gemRenderer);
+
+	Debug() << "NEW_GEM(" << gem->getId() << ", " << (int)gem->getGemType() << ")";
 
 	return gem;
 

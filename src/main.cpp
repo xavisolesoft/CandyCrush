@@ -21,14 +21,10 @@
 #include "Render/RenderController.hpp"
 
 #include "GameLogic/PlayerActions.hpp"
-#include "GameLogic/LineMatcher.hpp"
 #include "GameLogic/StarGameGemGenerator.hpp"
+#include "GameLogic/LineRemover.hpp"
 
 #include "Animation/IAnimation.hpp"
-#include "Gem/DestroyGemAnimation.hpp"
-
-#include "Util/Debug.hpp"
-#include "Util/EngineDebug.hpp"
 
 //**********************************************************************
 
@@ -37,12 +33,10 @@ public:
 
 	ExampleGame()
 		: mEngine("./assets")
-		, lineMatcher(gameBoard)
-		, playerActions(gameBoard, lineMatcher)
-		, renderController(mEngine)
-		, gemGenerator(renderController)
+		, gemGenerator(Render::RenderController::getInstance())
+		, playerActions(gameBoard)
 	{
-		
+		Render::RenderController::getInstance().setEngine(&mEngine);
 	}
 
 	void Start()
@@ -73,7 +67,7 @@ public:
 			}
 		}
 
-		renderController.update();
+		Render::RenderController::getInstance().update();
 
 		Geometry::Point boardCenter = gameBoard.getBBox().getCenter();
 		mEngine.Write("1111111", boardCenter.getX(), boardCenter.getY());
@@ -81,23 +75,7 @@ public:
 		playerActions.update(mEngine.GetMouseButtonDown(), mEngine.GetMouseX(), mEngine.GetMouseY());
 
 		if (!gameBoard.isAnyCellEmpty() && !gameBoard.isAnyGemAnimated()) {
-			std::vector<std::vector<Geometry::Point> > lines = lineMatcher.getBoardLines();
-			for (const std::vector<Geometry::Point> line : lines) {
-				for (const Geometry::Point& point : line) {
-					auto gem = gameBoard.getGemFromCell((int)point.getX(), (int)point.getY());
-					long gemId = -1;
-					if (gem) {
-						gemId = gem->getId();
-						auto destroyGemAnimation = new Animation::DestroyGemAnimation();
-						destroyGemAnimation->setGem(gem,
-													[this, gem, point](){
-														gameBoard.setGemToCell((int)point.getX(), (int)point.getY(), nullptr);
-													});
-						gem->setAnimation(*destroyGemAnimation);
-					}
-					Util::Debug() << "REOVED_CELL(" << (int)point.getX() << ", " << (int)point.getY() << "), GEM(" << gemId << ")";
-				}
-			}
+			lineRemover.update(gameBoard);
 		}
 
 		static std::clock_t lastUpdate = std::clock();
@@ -124,11 +102,10 @@ public:
 
 private:
 	King::Engine mEngine;
-	Scene::GameBoard gameBoard;
-	GameLogic::LineMatcher lineMatcher;
-	GameLogic::PlayerActions playerActions;
-	Render::RenderController renderController;
 	Gem::GemGenerator gemGenerator;
+	Scene::GameBoard gameBoard;
+	GameLogic::PlayerActions playerActions;
+	GameLogic::LineRemover lineRemover;
 };
 
 //**********************************************************************

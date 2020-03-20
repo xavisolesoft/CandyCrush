@@ -5,6 +5,8 @@
 
 #include <king/Engine.h>
 
+#include "../Util/Singleton.hpp"
+
 namespace Render
 {
 	class IRenderer;
@@ -16,10 +18,13 @@ namespace GameObject
 }
 
 namespace Render {
-	class RenderController
+	class RenderController :
+		public Util::ISingleton<RenderController>
 	{
 	public:
-		RenderController(King::Engine& engine);
+		RenderController();
+
+		void setEngine(King::Engine* engine);
 
 		void update();
 
@@ -30,6 +35,6 @@ namespace Render {
 	private:
 		std::map<const GameObject::IGameObject*, Render::IRenderer*> renderers;
 
-		King::Engine& engine;
+		King::Engine* engine;
 	};
 }
