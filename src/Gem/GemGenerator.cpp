@@ -31,6 +31,11 @@ std::shared_ptr<GemObject> GemGenerator::createNextGem()
 
 }
 
+void GemGenerator::setSeed(unsigned value)
+{
+	std::srand(value);
+}
+
 long GemGenerator::genereateNextId()
 {
 	return nextGemId++;

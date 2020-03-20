@@ -53,6 +53,7 @@ public:
 		gameBoard.setTopLeft(Geometry::Point(320.0f, 100.0f));
 		gameBoard.calculateBBoxes();
 
+		gemGenerator.setSeed(60);
 		GameLogic::StarGameGemGenerator startGameGenerator;
 		startGameGenerator.generateStartConfiguration(gameBoard, gemGenerator);
 

@@ -19,6 +19,8 @@ namespace Gem {
 
 		std::shared_ptr<GemObject> createNextGem();
 
+		void setSeed(unsigned value);
+
 	private:
 		long genereateNextId();
 		GemType generateNextGemType() const;
