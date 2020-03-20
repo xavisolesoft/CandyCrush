@@ -28,6 +28,11 @@ std::shared_ptr<GemObject> GemGenerator::createNextGem()
 
 }
 
+void GemGenerator::removeGem(std::shared_ptr<GemObject> gem)
+{
+	renderController.remove(gem);
+}
+
 long GemGenerator::genereateNextId()
 {
 	return nextGemId++;
