@@ -1,25 +1,33 @@
 #include "RenderController.hpp"
 
 #include "../GameObject/IGameObject.hpp"
+#include "../Gem/GemRenderer.hpp"
 #include "../Render/IRenderer.hpp"
 
 using namespace GameObject;
 using namespace Render;
 
-RenderController::RenderController()
+RenderController::RenderController(King::Engine& engine) :
+	engine(engine)
 {
 }
 
 void RenderController::update()
 {
 	for (auto iter = renderers.begin(); iter != renderers.end(); ++iter) {
-		IGameObject& gameOobject = *iter->first;
+		const IGameObject& gameObject = *iter->first;
 		IRenderer& renderer = *iter->second;
-		renderer.update(gameOobject);
+		renderer.update(gameObject);
 	}
 }
 
-void RenderController::add(GameObject::IGameObject* gameObject, Render::IRenderer* renderer)
+void RenderController::add(std::shared_ptr<const GameObject::IGameObject> gameObject, Render::IRenderer* renderer)
 {
+	renderer->setEngine(&engine);
 	renderers[gameObject] = renderer;
+}
+
+void RenderController::remove(std::shared_ptr<const GameObject::IGameObject> gameObject)
+{
+	renderers.erase(gameObject);
 }

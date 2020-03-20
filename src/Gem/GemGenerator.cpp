@@ -1,19 +1,31 @@
 #include "GemGenerator.hpp"
 
+#include <king/Engine.h>
+
 #include <cstdlib>
+
+#include "../Render/RenderController.hpp"
+#include "../Gem/GemRenderer.hpp"
+#include "../Gem/GemGenerator.hpp"
 
 using namespace Gem;
 
-GemGenerator::GemGenerator() :
-	nextGemId(0)
+GemGenerator::GemGenerator(Render::RenderController& renderController) :
+	nextGemId(0),
+	renderController(renderController)
 {
 	std::srand(60);
 }
 
 std::shared_ptr<GemObject> GemGenerator::createNextGem()
 {
-	return std::make_shared<GemObject>(genereateNextId(),
-								 generateNextGemType());
+	auto gem = std::make_shared<GemObject>(genereateNextId(),
+											generateNextGemType());
+
+	renderController.add(gem, &gemRenderer);
+
+	return gem;
+
 }
 
 long GemGenerator::genereateNextId()

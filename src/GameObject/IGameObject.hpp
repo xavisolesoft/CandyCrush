@@ -34,7 +34,7 @@ namespace GameObject {
 
 		bool isUserInteractionEnabled() const;
 
-	private:
+	protected:
 		long id;
 		Geometry::Point worldPos;
 		float rotation;

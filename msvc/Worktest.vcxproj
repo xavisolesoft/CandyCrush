@@ -90,11 +90,13 @@
     <ClCompile Include="..\src\Gem\DestroyGemAnimation.cpp" />
     <ClCompile Include="..\src\Gem\GemGenerator.cpp" />
     <ClCompile Include="..\src\Gem\GemObject.cpp" />
+    <ClCompile Include="..\src\Gem\GemRenderer.cpp" />
     <ClCompile Include="..\src\Gem\MoveGemAnimation.cpp" />
     <ClCompile Include="..\src\Geometry\BBox.cpp" />
     <ClCompile Include="..\src\Geometry\Point.cpp" />
     <ClCompile Include="..\src\Geometry\Vector.cpp" />
     <ClCompile Include="..\src\main.cpp" />
+    <ClCompile Include="..\src\Render\IRenderer.cpp" />
     <ClCompile Include="..\src\Render\RenderController.cpp" />
     <ClCompile Include="..\src\Scene\Cell.cpp" />
     <ClCompile Include="..\src\Scene\GameBoard.cpp" />
@@ -117,6 +119,7 @@
     <ClInclude Include="..\src\Gem\DestroyGemAnimation.hpp" />
     <ClInclude Include="..\src\Gem\GemGenerator.hpp" />
     <ClInclude Include="..\src\Gem\GemObject.hpp" />
+    <ClInclude Include="..\src\Gem\GemRenderer.hpp" />
     <ClInclude Include="..\src\Gem\MoveGemAnimation.hpp" />
     <ClInclude Include="..\src\Geometry\BBox.hpp" />
     <ClInclude Include="..\src\Geometry\Point.hpp" />

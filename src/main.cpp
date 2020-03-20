@@ -18,6 +18,8 @@
 #include "Scene/Cell.hpp"
 #include "Gem/GemObject.hpp"
 
+#include "Render/RenderController.hpp"
+
 #include "GameLogic/PlayerActions.hpp"
 #include "GameLogic/LineMatcher.hpp"
 
@@ -36,6 +38,8 @@ public:
 		: mEngine("./assets")
 		, lineMatcher(gameBoard)
 		, playerActions(gameBoard, lineMatcher)
+		, renderController(mEngine)
+		, gemGenerator(renderController)
 	{
 		
 	}
@@ -61,6 +65,9 @@ public:
 
 			for (const std::vector<Geometry::Point> line : lines) {
 				for (const Geometry::Point& point : line) {
+					auto oldGem = gameBoard.getGemFromCell((int)point.getX(), (int)point.getY());
+					renderController.remove(oldGem);
+
 					auto gem = gemGenerator.createNextGem();
 					gameBoard.setGemToCell((int)point.getX(), (int)point.getY(), gem);
 				}
@@ -79,10 +86,11 @@ public:
 				std::shared_ptr<Gem::GemObject> gem = gameBoard.getGemFromCell(i, j);
 				if (gem) {
 					gem->animationUpdate();
-					renderGem(gem);
 				}
 			}
 		}
+
+		renderController.update();
 
 		Geometry::Point boardCenter = gameBoard.getBBox().getCenter();
 		mEngine.Write("1111111", boardCenter.getX(), boardCenter.getY());
@@ -99,8 +107,9 @@ public:
 						gemId = gem->getId();
 						auto destroyGemAnimation = new Animation::DestroyGemAnimation();
 						destroyGemAnimation->setGem(gem,
-													[this, point](){
+													[this, gem, point](){
 														gameBoard.setGemToCell((int)point.getX(), (int)point.getY(), nullptr);
+														renderController.remove(gem);
 													});
 						gem->setAnimation(*destroyGemAnimation);
 					}
@@ -123,7 +132,6 @@ public:
 			for (int i = 0; i < gameBoard.getNumXCells(); ++i) {
 				auto gem = gameBoard.getGemFromCell(i, 0);
 				if (!gem) {
-					gemGenerator.createNextGem();
 					gameBoard.setGemToCell(i, 0, gemGenerator.createNextGem());
 				}
 			}
@@ -132,58 +140,12 @@ public:
 		}
 	}
 
-	void renderGem(std::shared_ptr<Gem::GemObject> gem)
-	{
-		Geometry::Point pos = gem->getWorldPos();
-		King::Engine::Texture texture = getGemTexture(gem->getGemType());
-		glm::mat4 transformation;
-
-		transformation = glm::translate(transformation, glm::vec3(pos.getX(), pos.getY(), 0.0f));
-
-		float rotation = gem->getRotation();
-		if (rotation) {
-			transformation = glm::rotate(transformation, rotation, glm::vec3(0.0f, 0.0f, 1.0f));
-		}
-
-
-		float scale = gem->getScale();
-		if (scale != 1.0f) {
-			float transToOriginX = mEngine.GetTextureWidth(texture)/2.0f;
-			float transToOriginY = mEngine.GetTextureHeight(texture)/2.0f;
-			transformation = glm::translate(transformation, glm::vec3(transToOriginX, transToOriginY, 0.0f));
-			transformation = glm::scale(transformation, glm::vec3(scale));
-			transformation = glm::translate(transformation, glm::vec3(-transToOriginX, -transToOriginY, 0.0f));
-		}
-
-		mEngine.Render(texture, transformation);
-
-		Util::EngineDebug(mEngine).Write(std::to_string(gem->getId()).c_str(),
-										pos.getX(),
-										pos.getY());
-	}
-
-	static King::Engine::Texture getGemTexture(Gem::GemType gemType)
-	{
-		switch (gemType)
-		{
-		case Gem::GemType::BLUE:
-			return King::Engine::TEXTURE_BLUE;
-		case Gem::GemType::GREEN:
-			return King::Engine::TEXTURE_GREEN;
-		case Gem::GemType::PURPLE:
-			return King::Engine::TEXTURE_PURPLE;
-		case Gem::GemType::RED:
-			return King::Engine::TEXTURE_RED;
-		default:
-			return King::Engine::TEXTURE_YELLOW;
-		}
-	}
-
 private:
 	King::Engine mEngine;
 	Scene::GameBoard gameBoard;
 	GameLogic::LineMatcher lineMatcher;
 	GameLogic::PlayerActions playerActions;
+	Render::RenderController renderController;
 	Gem::GemGenerator gemGenerator;
 };
 

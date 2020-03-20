@@ -138,6 +138,12 @@
     <ClCompile Include="..\src\Render\RenderController.cpp">
       <Filter>Source Files\Render</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Gem\GemRenderer.cpp">
+      <Filter>Source Files\Gem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Render\IRenderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\external\include\king\Engine.h">
@@ -214,6 +220,9 @@
     </ClInclude>
     <ClInclude Include="..\src\Render\RenderController.hpp">
       <Filter>Header Files\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Gem\GemRenderer.hpp">
+      <Filter>Header Files\Gem</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
