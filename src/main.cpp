@@ -70,7 +70,6 @@ public:
 		Render::RenderController::getInstance().update();
 
 		Geometry::Point boardCenter = gameBoard.getBBox().getCenter();
-		mEngine.Write("1111111", boardCenter.getX(), boardCenter.getY());
 
 		playerActions.update(mEngine.GetMouseButtonDown(), mEngine.GetMouseX(), mEngine.GetMouseY());
 
@@ -78,25 +77,20 @@ public:
 			lineRemover.update(gameBoard);
 		}
 
-		static std::clock_t lastUpdate = std::clock();
-		if ((std::clock() - lastUpdate) / (double)CLOCKS_PER_SEC >= 0.1){
-			for (int i = 0; i < gameBoard.getNumXCells(); ++i) {
-				for (int j = gameBoard.getNumYCells() - 1; j > 0; --j) {
-					auto gem = gameBoard.getGemFromCell(i, j);
-					if (!gem) {
-						gameBoard.swap(i, j, i, j - 1);
-					}
-				}
-			}
-
-			for (int i = 0; i < gameBoard.getNumXCells(); ++i) {
-				auto gem = gameBoard.getGemFromCell(i, 0);
+		for (int i = 0; i < gameBoard.getNumXCells(); ++i) {
+			for (int j = gameBoard.getNumYCells() - 1; j > 0; --j) {
+				auto gem = gameBoard.getGemFromCell(i, j);
 				if (!gem) {
-					gameBoard.setGemToCell(i, 0, gemGenerator.createNextGem());
+					gameBoard.swap(i, j, i, j - 1);
 				}
 			}
+		}
 
-			lastUpdate = std::clock();
+		for (int i = 0; i < gameBoard.getNumXCells(); ++i) {
+			auto gem = gameBoard.getGemFromCell(i, 0);
+			if (!gem) {
+				gameBoard.setGemToCell(i, 0, gemGenerator.createNextGem());
+			}
 		}
 	}
 
