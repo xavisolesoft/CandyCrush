@@ -4,7 +4,6 @@
 #include <memory>
 #include <string>
 #include <iostream>
-#include <ctime>
 
 #include <glm/vec3.hpp>
 #include <glm/mat4x4.hpp>
@@ -23,6 +22,7 @@
 #include "GameLogic/PlayerActions.hpp"
 #include "GameLogic/StarGameGemGenerator.hpp"
 #include "GameLogic/LineRemover.hpp"
+#include "GameLogic/SpawnGemGenerator.hpp"
 
 #include "Animation/IAnimation.hpp"
 
@@ -69,8 +69,6 @@ public:
 
 		Render::RenderController::getInstance().update();
 
-		Geometry::Point boardCenter = gameBoard.getBBox().getCenter();
-
 		playerActions.update(mEngine.GetMouseButtonDown(), mEngine.GetMouseX(), mEngine.GetMouseY());
 
 		if (!gameBoard.isAnyCellEmpty() && !gameBoard.isAnyGemAnimated()) {
@@ -86,12 +84,7 @@ public:
 			}
 		}
 
-		for (int i = 0; i < gameBoard.getNumXCells(); ++i) {
-			auto gem = gameBoard.getGemFromCell(i, 0);
-			if (!gem) {
-				gameBoard.setGemToCell(i, 0, gemGenerator.createNextGem());
-			}
-		}
+		spawnGemGenerator.spawnGemsInFirstRowEmptyCells(gameBoard, gemGenerator);
 	}
 
 private:
@@ -100,6 +93,7 @@ private:
 	Scene::GameBoard gameBoard;
 	GameLogic::PlayerActions playerActions;
 	GameLogic::LineRemover lineRemover;
+	GameLogic::SpawnGemGenerator spawnGemGenerator;
 };
 
 //**********************************************************************

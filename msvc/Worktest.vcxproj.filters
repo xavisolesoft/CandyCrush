@@ -150,6 +150,9 @@
     <ClCompile Include="..\src\GameLogic\LineRemover.cpp">
       <Filter>Source Files\GameLogic</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\GameLogic\SpawnGemGenerator.cpp">
+      <Filter>Source Files\GameLogic</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\external\include\king\Engine.h">
@@ -238,6 +241,9 @@
     </ClInclude>
     <ClInclude Include="..\src\Util\Singleton.hpp">
       <Filter>Header Files\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GameLogic\SpawnGemGenerator.hpp">
+      <Filter>Header Files\GameLogic</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
