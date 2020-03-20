@@ -12,7 +12,7 @@ namespace GameObject {
 	class IGameObject
 	{
 	public:
-		IGameObject();
+		IGameObject(long id);
 		virtual ~IGameObject();
 		
 		long getId() const;

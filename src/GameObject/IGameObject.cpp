@@ -6,7 +6,7 @@ using namespace GameObject;
 using namespace Geometry;
 using namespace Animation;
 
-IGameObject::IGameObject() :
+IGameObject::IGameObject(long id) :
 	id(id),
 	rotation(0.0f),
 	scale(1.0f),

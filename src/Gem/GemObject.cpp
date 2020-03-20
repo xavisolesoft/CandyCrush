@@ -3,6 +3,7 @@
 using namespace Gem;
 
 GemObject::GemObject(long id, GemType gemType) :
+	IGameObject(id),
 	gemType(gemType)
 {
 
