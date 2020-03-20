@@ -15,7 +15,7 @@ SpawnGemGenerator::SpawnGemGenerator() :
 {
 }
 
-void SpawnGemGenerator::spawnGemsInFirstRowEmptyCells(GameBoard& gameBoard, GemGenerator& gemGenerator)
+void SpawnGemGenerator::update(GameBoard& gameBoard, GemGenerator& gemGenerator)
 {
 	if ((std::clock() - lastUpdate) / (double)CLOCKS_PER_SEC >= SPAWN_PERIODE_SECS) {
 		for (int i = 0; i < gameBoard.getNumXCells(); ++i) {

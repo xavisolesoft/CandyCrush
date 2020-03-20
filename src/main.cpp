@@ -70,9 +70,9 @@ public:
 			lineRemover.update(gameBoard);
 		}
 
-		gemGravityShifter.spawnGemsInFirstRowEmptyCells(gameBoard);
+		gemGravityShifter.update(gameBoard);
 
-		spawnGemGenerator.spawnGemsInFirstRowEmptyCells(gameBoard, gemGenerator);
+		spawnGemGenerator.update(gameBoard, gemGenerator);
 	}
 
 private:
@@ -94,5 +94,3 @@ int main(int argc, char *argv[]) {
 
 	return 0;
 }
-
-

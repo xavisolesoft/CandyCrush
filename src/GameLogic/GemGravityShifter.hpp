@@ -13,7 +13,7 @@ namespace GameLogic {
 	public:
 		GemGravityShifter();
 
-		void spawnGemsInFirstRowEmptyCells(Scene::GameBoard& gameBoard);
+		void update(Scene::GameBoard& gameBoard);
 
 	private:
 		static const double SHIFT_PERIODE_SECS;

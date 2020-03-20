@@ -17,7 +17,7 @@ namespace GameLogic {
 	public:
 		SpawnGemGenerator();
 
-		void spawnGemsInFirstRowEmptyCells(Scene::GameBoard& gameBoard, Gem::GemGenerator& gemGenerator);
+		void update(Scene::GameBoard& gameBoard, Gem::GemGenerator& gemGenerator);
 
 	private:
 		static const double SPAWN_PERIODE_SECS;
