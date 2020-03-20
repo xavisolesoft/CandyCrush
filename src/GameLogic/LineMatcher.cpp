@@ -17,17 +17,17 @@ LineMatcher::LineMatcher(const GameBoard& gameBoard) :
 {
 }
 
-std::vector<std::vector<Point> > LineMatcher::getBoardLines() const
+std::vector<std::vector<Point<int>> > LineMatcher::getBoardLines() const
 {
-	std::vector<std::vector<Point> > machedLines;
+	std::vector<std::vector<Point<int>> > machedLines;
 	
 	getVerticalBoardLines(machedLines);
 	getHoritzontalBoardLines(machedLines);
 	
-	for (const std::vector<Point>& line : machedLines) {
+	for (const std::vector<Point<int>>& line : machedLines) {
 		Util::Debug debug;
 		debug << "DETECTED_LINE ";
-		for (const Point& point : line) {
+		for (const Point<int>& point : line) {
 			debug << "(" << point.getX() << ", " << point.getY() << ")  ";
 		}
 	}
@@ -35,9 +35,9 @@ std::vector<std::vector<Point> > LineMatcher::getBoardLines() const
 	return machedLines;
 }
 
-bool LineMatcher::containsCell(const std::vector<std::vector<Point> >& lines, const Point& point)
+bool LineMatcher::containsCell(const std::vector<std::vector<Point<int>> >& lines, const Point<int>& point)
 {
-	for (const std::vector<Point>& line : lines) {
+	for (const std::vector<Point<int> >& line : lines) {
 		if (line.cend() != std::find(line.cbegin(), line.cend(), point)) {
 			return true;
 		}
@@ -45,7 +45,7 @@ bool LineMatcher::containsCell(const std::vector<std::vector<Point> >& lines, co
 	return false;
 }
 
-void LineMatcher::getVerticalBoardLines(std::vector<std::vector<Point>>& outLines) const
+void LineMatcher::getVerticalBoardLines(std::vector<std::vector<Point<int>> >& outLines) const
 {
 	for (int i = 0; i < gameBoard.getNumXCells(); ++i) {
 		int numConsecutive = 0;
@@ -63,9 +63,9 @@ void LineMatcher::getVerticalBoardLines(std::vector<std::vector<Point>>& outLine
 			if (gem && gem->getGemType() == gemType) {
 				numConsecutive++;
 				if (numConsecutive >= 3) {
-					std::vector<Point> line;
+					std::vector<Point<int>> line;
 					for (int k = numConsecutive - 1; k >= 0; --k) {
-						line.push_back(Point((float)i, (float)j - k));
+						line.push_back(Point<int>(i, j - k));
 					}
 					outLines.push_back(line);
 				}
@@ -83,7 +83,7 @@ void LineMatcher::getVerticalBoardLines(std::vector<std::vector<Point>>& outLine
 	}
 }
 
-void LineMatcher::getHoritzontalBoardLines(std::vector<std::vector<Geometry::Point>>& outLines) const
+void LineMatcher::getHoritzontalBoardLines(std::vector<std::vector<Geometry::Point<int> > >& outLines) const
 {
 	for (int j = 0; j < gameBoard.getNumYCells(); ++j) {
 		int numConsecutive = 0;
@@ -101,9 +101,9 @@ void LineMatcher::getHoritzontalBoardLines(std::vector<std::vector<Geometry::Poi
 			if (gem && gem->getGemType() == gemType) {
 				numConsecutive++;
 				if (numConsecutive >= 3) {
-					std::vector<Point> line;
+					std::vector<Point<int> > line;
 					for (int k = numConsecutive; k > 0; --k) {
-						line.push_back(Point((float)i - k + 1, (float)j));
+						line.push_back(Point<int>(i - k + 1, j));
 					}
 					outLines.push_back(line);
 				}

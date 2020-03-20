@@ -3,6 +3,7 @@
 namespace Geometry {
 	class Vector
 	{
+		template<class T>
 		friend class Point;
 
 	public:

@@ -99,7 +99,6 @@
     <ClCompile Include="..\src\Gem\GemRenderer.cpp" />
     <ClCompile Include="..\src\Gem\MoveGemAnimation.cpp" />
     <ClCompile Include="..\src\Geometry\BBox.cpp" />
-    <ClCompile Include="..\src\Geometry\Point.cpp" />
     <ClCompile Include="..\src\Geometry\Vector.cpp" />
     <ClCompile Include="..\src\main.cpp" />
     <ClCompile Include="..\src\Render\IRenderer.cpp" />

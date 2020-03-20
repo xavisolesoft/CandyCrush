@@ -6,6 +6,7 @@
 
 namespace Geometry
 {
+	template<class T>
 	class Point;
 }
 
@@ -21,13 +22,13 @@ namespace GameLogic {
 	public:
 		LineMatcher(const Scene::GameBoard& gameBoard);
 		
-		std::vector<std::vector<Geometry::Point> > getBoardLines() const;
+		std::vector<std::vector<Geometry::Point<int>> > getBoardLines() const;
 
-		static bool containsCell(const std::vector<std::vector<Geometry::Point> >& lines, const Geometry::Point& point);
+		static bool containsCell(const std::vector<std::vector<Geometry::Point<int>> >& lines, const Geometry::Point<int>& point);
 		
 	private:
-		void getVerticalBoardLines(std::vector<std::vector<Geometry::Point> >& outLines) const;
-		void getHoritzontalBoardLines(std::vector<std::vector<Geometry::Point> >& outLines) const;
+		void getVerticalBoardLines(std::vector<std::vector<Geometry::Point<int>> >& outLines) const;
+		void getHoritzontalBoardLines(std::vector<std::vector<Geometry::Point<int>> >& outLines) const;
 
 		const Scene::GameBoard& gameBoard;
 	};

@@ -72,7 +72,7 @@ float GameBoard::getCellHeight() const
 	return cellHeight;
 }
 
-void GameBoard::setTopLeft(const Point& point)
+void GameBoard::setTopLeft(const Point<float>& point)
 {
 	topLeft = point;
 }
@@ -98,8 +98,8 @@ std::shared_ptr<GemObject> GameBoard::getGemFromCell(int x, int y) const
 
 void GameBoard::swap(std::shared_ptr<GemObject> gem1, std::shared_ptr<GemObject> gem2)
 {
-	const Point& worldPos1 = gem1->getWorldPos();
-	const Point& worldPos2 = gem2->getWorldPos();
+	const Point<float>& worldPos1 = gem1->getWorldPos();
+	const Point<float>& worldPos2 = gem2->getWorldPos();
 	const Cell* cell1 = getCellFromWorldPos(worldPos1.getX(), worldPos1.getY());
 	const Cell* cell2 = getCellFromWorldPos(worldPos2.getX(), worldPos2.getY());
 	setGemToCell(cell1->getXCell(), cell1->getYCell(), gem2);
@@ -121,7 +121,7 @@ void GameBoard::calculateBBoxes()
 
 const Cell* GameBoard::getCellFromWorldPos(float xWorld, float yWorld) const
 {
-	Point point(xWorld, yWorld);
+	Point<float> point(xWorld, yWorld);
 	if (!bBox.contains(point)) {
 		return nullptr;
 	}
@@ -173,8 +173,8 @@ bool GameBoard::isAnyGemAnimated() const
 void GameBoard::calculateSceneBBox()
 {
 	bBox.setStartPoint(topLeft);
-	bBox.expand(Point(topLeft.getX() + getNumXCells()*cellWidth,
-		topLeft.getY() + getNumYCells()*cellHeight));
+	bBox.expand(Point<float>(topLeft.getX() + getNumXCells()*cellWidth,
+							topLeft.getY() + getNumYCells()*cellHeight));
 
 	for (size_t i = 0; i < cells.size(); ++i) {
 		for (size_t j = 0; j < cells[i].size(); ++j) {
@@ -187,12 +187,12 @@ void GameBoard::calculateCellBox(int i, int j)
 {
 	if (isValidCell(i, j)) {
 		BBox bBox;
-		Point cellTopLeft(topLeft.getX() + i * cellWidth,
-			topLeft.getY() + j * cellHeight);
+		Point<float> cellTopLeft(topLeft.getX() + i * cellWidth,
+								topLeft.getY() + j * cellHeight);
 
 		bBox.setStartPoint(cellTopLeft);
-		bBox.expand(Point(cellTopLeft.getX() + cellWidth,
-			cellTopLeft.getY() + cellHeight));
+		bBox.expand(Point<float>(cellTopLeft.getX() + cellWidth,
+								cellTopLeft.getY() + cellHeight));
 
 		cells[i][j].setBBox(bBox);
 	}

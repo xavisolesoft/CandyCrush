@@ -99,9 +99,6 @@
     <ClCompile Include="..\src\Geometry\BBox.cpp">
       <Filter>Source Files\Geomentry</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\Geometry\Point.cpp">
-      <Filter>Source Files\Geomentry</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\Geometry\Vector.cpp">
       <Filter>Source Files\Geomentry</Filter>
     </ClCompile>

@@ -28,7 +28,7 @@ namespace Scene {
 		void setYCell(int value);
 		int getYCell() const;
 
-		Geometry::Point getBoardPos() const;
+		Geometry::Point<int> getBoardPos() const;
 
 	private:
 		int xCell;

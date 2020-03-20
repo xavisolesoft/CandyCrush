@@ -27,7 +27,7 @@ GemRenderer::~GemRenderer()
 void GemRenderer::update(const IGameObject& gameObject)
 {
 	auto gem = dynamic_cast<const GemObject&>(gameObject);
-	Geometry::Point pos = gem.getWorldPos();
+	Geometry::Point<float> pos = gem.getWorldPos();
 	King::Engine::Texture texture = getGemTexture(gem.getGemType());
 	glm::mat4 transformation;
 

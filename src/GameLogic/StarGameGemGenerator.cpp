@@ -23,13 +23,13 @@ void StarGameGemGenerator::generateStartConfiguration(GameBoard& gameBoard, GemG
 		}
 	}
 
-	std::vector<std::vector<Geometry::Point> > lines;
+	std::vector<std::vector<Geometry::Point<int>> > lines;
 	do {
 		LineMatcher lineMatcher(gameBoard);
 		lines = lineMatcher.getBoardLines();
 
-		for (const std::vector<Geometry::Point> line : lines) {
-			for (const Geometry::Point& point : line) {
+		for (const std::vector<Geometry::Point<int>> line : lines) {
+			for (const Geometry::Point<int>& point : line) {
 				auto gem = gemGenerator.createNextGem();
 				gameBoard.setGemToCell((int)point.getX(), (int)point.getY(), gem);
 			}

@@ -19,13 +19,13 @@ namespace Animation {
 		MoveGemAnimation();
 		~MoveGemAnimation();
 		
-		void start(std::shared_ptr<Gem::GemObject> gem, const Geometry::Point& source, const Geometry::Point& destination, int steps, float perideSeconds);
+		void start(std::shared_ptr<Gem::GemObject> gem, const Geometry::Point<float>& source, const Geometry::Point<float>& destination, int steps, float perideSeconds);
 
 		bool update() override;
 
 	private:
 		std::shared_ptr<Gem::GemObject> gem;
-		Geometry::Point source;
+		Geometry::Point<float> source;
 		Geometry::Vector move;
 		std::clock_t lastUpdate;
 

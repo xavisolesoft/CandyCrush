@@ -3,38 +3,57 @@
 #include "Vector.hpp"
 
 namespace Geometry {
+	template<class T>
 	class Point
 	{
 	public:
-		Point(float x = 0, float y = 0);
+		Point(T x = 0, T y = 0)
+		{
+			this->x = x;
+			this->y = y;
+		}
 
-		float getX() const;
-		float getY() const;
+		T getX() const
+		{
+			return x;
+		}
 
-		void setX(float value);
-		void setY(float value);
+		T getY() const
+		{
+			return y;
+		}
 
-		bool operator==(const Point& other) const
+		void setX(T value)
+		{
+			x = value;
+		}
+
+		void setY(T value)
+		{
+			y = value;
+		}
+
+		bool operator==(const Point<T>& other) const
 		{
 			return x == other.x && y == other.y;
 		}
 
-		Point& operator+=(const Vector& vector)
+		Point<T>& operator+=(const Vector& vector)
 		{
 			x += vector.x;
 			y += vector.y;
 			return *this;
 		}
 
-		Point operator+(const Vector& vector) const
+		Point<T> operator+(const Vector& vector) const
 		{
-			Point ret(*this);
+			Point<T> ret(*this);
 			ret.x += vector.x;
 			ret.y += vector.y;
 			return ret;
 		}
 
-		Vector operator-(const Point& other) const
+		Vector operator-(const Point<T>& other) const
 		{
 			Vector ret;
 			ret.x = x - other.x;
@@ -43,7 +62,7 @@ namespace Geometry {
 		}
 
 	private:
-		float x;
-		float y;
+		T x;
+		T y;
 	};
 }

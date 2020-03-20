@@ -11,6 +11,7 @@ namespace Scene
 
 namespace Geometry
 {
+	template<class T>
 	class Point;
 }
 

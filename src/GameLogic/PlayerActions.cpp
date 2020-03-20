@@ -112,9 +112,9 @@ void PlayerActions::trySwapGems(const Cell& cell1, const Cell& cell2)
 
 	setSwapAnimations(gem1, gem2);
 	gameBoard.swap(gem2, gem1);
-	std::vector<std::vector<Point> > lines = lineMatcher.getBoardLines();
-	if (!LineMatcher::containsCell(lines, Point(cell1.getBoardPos())) &&
-		!LineMatcher::containsCell(lines, Point(cell2.getBoardPos()))) {
+	std::vector<std::vector<Point<int>> > lines = lineMatcher.getBoardLines();
+	if (!LineMatcher::containsCell(lines, Point<int>(cell1.getBoardPos())) &&
+		!LineMatcher::containsCell(lines, Point<int>(cell2.getBoardPos()))) {
 		appendSwapReturnAnimations(gem2, gem1);
 		gameBoard.swap(gem2, gem1);
 	}

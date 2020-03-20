@@ -17,10 +17,10 @@ namespace GameObject {
 		
 		long getId() const;
 
-		void setWorldPos(const Geometry::Point& point);
+		void setWorldPos(const Geometry::Point<float>& point);
 		void setWorldX(float x);
 		void setWorldY(float y);
-		const Geometry::Point& getWorldPos() const;
+		const Geometry::Point<float>& getWorldPos() const;
 
 		float getRotation() const;
 		void setRotation(float value);
@@ -36,7 +36,7 @@ namespace GameObject {
 
 	protected:
 		long id;
-		Geometry::Point worldPos;
+		Geometry::Point<float> worldPos;
 		float rotation;
 		float scale;
 		Animation::IAnimation* animation;

@@ -8,27 +8,27 @@ namespace Geometry {
 	{
 	public:
 		BBox();
-		BBox(const Point& startPoint);
+		BBox(const Point<float>& startPoint);
 
-		void setStartPoint(const Point& startPoint);
-		void expand(const Point& point);
+		void setStartPoint(const Point<float>& startPoint);
+		void expand(const Point<float>& point);
 
-		Point getTopLeft() const;
-		Point getTopRight() const;
-		Point getBottomLeft() const;
-		Point getBottomRight() const;
+		Point<float> getTopLeft() const;
+		Point<float> getTopRight() const;
+		Point<float> getBottomLeft() const;
+		Point<float> getBottomRight() const;
 
 		float getTop() const;
 		float getBottom() const;
 		float getLeft() const;
 		float getRight() const;
 
-		Point getCenter() const;
+		Point<float> getCenter() const;
 
-		bool contains(const Point& point) const;
+		bool contains(const Point<float>& point) const;
 
 	private:
-		Point topLeft;
+		Point<float> topLeft;
 		Vector diagonal;
 	};
 }

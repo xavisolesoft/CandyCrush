@@ -16,7 +16,7 @@ Animation::MoveGemAnimation::~MoveGemAnimation()
 {
 }
 
-void MoveGemAnimation::start(std::shared_ptr<GemObject> gem, const Point& source, const Point& destination, int steps, float perideSeconds)
+void MoveGemAnimation::start(std::shared_ptr<GemObject> gem, const Point<float>& source, const Point<float>& destination, int steps, float perideSeconds)
 {
 	this->gem = gem;
 	this->source = source;
