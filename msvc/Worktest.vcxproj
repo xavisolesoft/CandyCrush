@@ -86,6 +86,7 @@
     <ClCompile Include="..\src\Animation\ComposedSequentialAnimation.cpp" />
     <ClCompile Include="..\src\GameLogic\LineMatcher.cpp" />
     <ClCompile Include="..\src\GameLogic\PlayerActions.cpp" />
+    <ClCompile Include="..\src\GameLogic\StarGameGemGenerator.cpp" />
     <ClCompile Include="..\src\GameObject\IGameObject.cpp" />
     <ClCompile Include="..\src\Gem\DestroyGemAnimation.cpp" />
     <ClCompile Include="..\src\Gem\GemGenerator.cpp" />
@@ -115,6 +116,7 @@
     <ClInclude Include="..\src\Animation\ComposedSequentialAnimation.hpp" />
     <ClInclude Include="..\src\GameLogic\LineMatcher.hpp" />
     <ClInclude Include="..\src\GameLogic\PlayerActions.hpp" />
+    <ClInclude Include="..\src\GameLogic\StarGameGemGenerator.hpp" />
     <ClInclude Include="..\src\GameObject\IGameObject.hpp" />
     <ClInclude Include="..\src\Gem\DestroyGemAnimation.hpp" />
     <ClInclude Include="..\src\Gem\GemGenerator.hpp" />

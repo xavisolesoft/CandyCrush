@@ -144,6 +144,9 @@
     <ClCompile Include="..\src\Render\IRenderer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\GameLogic\StarGameGemGenerator.cpp">
+      <Filter>Source Files\GameLogic</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\external\include\king\Engine.h">
@@ -223,6 +226,9 @@
     </ClInclude>
     <ClInclude Include="..\src\Gem\GemRenderer.hpp">
       <Filter>Header Files\Gem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GameLogic\StarGameGemGenerator.hpp">
+      <Filter>Header Files\GameLogic</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

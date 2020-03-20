@@ -22,6 +22,7 @@
 
 #include "GameLogic/PlayerActions.hpp"
 #include "GameLogic/LineMatcher.hpp"
+#include "GameLogic/StarGameGemGenerator.hpp"
 
 #include "Animation/IAnimation.hpp"
 #include "Gem/DestroyGemAnimation.hpp"
@@ -52,24 +53,8 @@ public:
 		gameBoard.setTopLeft(Geometry::Point(320.0f, 100.0f));
 		gameBoard.calculateBBoxes();
 
-		for (int j = 0; j < gameBoard.getNumYCells(); ++j) {
-			for (int i = 0; i < gameBoard.getNumXCells(); ++i) {
-				auto gem = gemGenerator.createNextGem();
-				gameBoard.setGemToCell(i, j, gem);
-			}
-		}
-
-		std::vector<std::vector<Geometry::Point> > lines;
-		do {
-			lines = lineMatcher.getBoardLines();
-
-			for (const std::vector<Geometry::Point> line : lines) {
-				for (const Geometry::Point& point : line) {
-					auto gem = gemGenerator.createNextGem();
-					gameBoard.setGemToCell((int)point.getX(), (int)point.getY(), gem);
-				}
-			}
-		} while (!lines.empty());
+		GameLogic::StarGameGemGenerator startGameGenerator;
+		startGameGenerator.generateStartConfiguration(gameBoard, gemGenerator);
 
 		mEngine.Start(*this);
 	}
