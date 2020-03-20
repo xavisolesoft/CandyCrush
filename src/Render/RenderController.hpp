@@ -32,6 +32,8 @@ namespace Render {
 		void add(const GameObject::IGameObject& gameObject, Render::IRenderer& renderer);
 		void remove(const GameObject::IGameObject& gameObject);
 
+		void removeAll();
+
 	private:
 		std::map<const GameObject::IGameObject*, Render::IRenderer*> renderers;
 

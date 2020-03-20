@@ -52,7 +52,7 @@ std::string GameTimeController::getGameRemaningTimeStr() const
 	return stringStream.str();
 }
 
-bool GameTimeController::haveGameEnded() const
+bool GameTimeController::isTheEnd() const
 {
 	return gameEndTimeSecs <= std::clock();
 }

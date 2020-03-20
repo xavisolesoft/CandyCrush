@@ -57,36 +57,49 @@ public:
 		GameLogic::StarGameGemGenerator startGameGenerator;
 		startGameGenerator.generateStartConfiguration(gameBoard, gemGenerator);
 
-		gameTimeController.start(60);
+		gameTimeController.start(5);
 
 		mEngine.Start(*this);
 	}
 
 	void Update()
 	{
-		mEngine.Render(King::Engine::TEXTURE_BACKGROUND, 0.0f, 0.0f);
+		if (!gameTimeController.isTheEnd()) {
+			mEngine.Render(King::Engine::TEXTURE_BACKGROUND, 0.0f, 0.0f);
 
-		gameTimeController.update();
+			gameTimeController.update();
 
-		gemAnimationUpdater.update(gameBoard);
+			gemAnimationUpdater.update(gameBoard);
 
-		Render::RenderController::getInstance().update();
+			Render::RenderController::getInstance().update();
 
-		playerActions.update(mEngine.GetMouseButtonDown(), mEngine.GetMouseX(), mEngine.GetMouseY());
+			playerActions.update(mEngine.GetMouseButtonDown(), mEngine.GetMouseX(), mEngine.GetMouseY());
 
-		if (!gameBoard.isAnyCellEmpty() && !gameBoard.isAnyGemAnimated()) {
-			lineRemover.update(gameBoard);
+			if (!gameBoard.isAnyCellEmpty() && !gameBoard.isAnyGemAnimated()) {
+				lineRemover.update(gameBoard);
+			}
+
+			gemGravityShifter.update(gameBoard);
+
+			spawnGemGenerator.update(gameBoard, gemGenerator);
+		}
+		else {
+			mEngine.Render(King::Engine::TEXTURE_BACKGROUND, 0.0f, 0.0f);
+
+			Text::TextObject theEnd(0);
+			theEnd.setWorldPos(Geometry::Point(445, 260));
+			theEnd.setText("The End");
+			Text::TextRenderer textRenderer;
+			textRenderer.setEngine(&mEngine);
+			textRenderer.update(theEnd);
 		}
 
-		gemGravityShifter.update(gameBoard);
 
-		spawnGemGenerator.update(gameBoard, gemGenerator);
-
-		/*
+		
 		if (mEngine.GetMouseButtonDown()) {
 			std::cout << "CLICK---->  " << mEngine.GetMouseX() << ", " << mEngine.GetMouseY() << std::endl;
 		}
-		*/
+		
 	}
 
 private:

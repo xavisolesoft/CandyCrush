@@ -20,7 +20,7 @@ namespace GameLogic {
 		std::clock_t getGameRemaningTimeSecs() const;
 		std::string getGameRemaningTimeStr() const;
 
-		bool haveGameEnded() const;
+		bool isTheEnd() const;
 
 	private:
 		std::clock_t gameStartTimeSecs;

@@ -14,10 +14,7 @@ RenderController::RenderController() :
 
 RenderController::~RenderController()
 {
-	for (auto iter = renderers.begin(); iter != renderers.end(); ++iter) {
-		IRenderer* renderer = iter->second;
-		delete renderer;
-	}
+	removeAll();
 }
 
 void RenderController::setEngine(King::Engine* engine)
@@ -48,4 +45,14 @@ void RenderController::remove(const IGameObject& gameObject)
 		delete renderer;
 		renderers.erase(renderersIter);
 	}
+}
+
+void RenderController::removeAll()
+{
+	for (auto iter = renderers.begin(); iter != renderers.end(); ++iter) {
+		IRenderer* renderer = iter->second;
+		delete renderer;
+	}
+
+	renderers.clear();
 }
