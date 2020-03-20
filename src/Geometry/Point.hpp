@@ -1,7 +1,5 @@
 #pragma once
 
-#include <glm/vec2.hpp>
-
 #include "Vector.hpp"
 
 namespace Geometry {
@@ -18,30 +16,34 @@ namespace Geometry {
 
 		bool operator==(const Point& other) const
 		{
-			return point == other.point;
+			return x == other.x && y == other.y;
 		}
 
 		Point& operator+=(const Vector& vector)
 		{
-			point += vector.vector;
+			x += vector.x;
+			y += vector.y;
 			return *this;
 		}
 
 		Point operator+(const Vector& vector) const
 		{
 			Point ret(*this);
-			ret.point += vector.vector;
+			ret.x += vector.x;
+			ret.y += vector.y;
 			return ret;
 		}
 
 		Vector operator-(const Point& other) const
 		{
 			Vector ret;
-			ret.vector = point - other.point;
+			ret.x = x - other.x;
+			ret.y = y - other.y;
 			return ret;
 		}
 
 	private:
-		glm::vec2 point;
+		float x;
+		float y;
 	};
 }

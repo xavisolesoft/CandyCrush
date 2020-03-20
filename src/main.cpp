@@ -57,7 +57,7 @@ public:
 		GameLogic::StarGameGemGenerator startGameGenerator;
 		startGameGenerator.generateStartConfiguration(gameBoard, gemGenerator);
 
-		gameTimeController.start(5);
+		gameTimeController.start(60);
 
 		mEngine.Start(*this);
 	}
@@ -95,11 +95,11 @@ public:
 		}
 
 
-		
+		/*
 		if (mEngine.GetMouseButtonDown()) {
 			std::cout << "CLICK---->  " << mEngine.GetMouseX() << ", " << mEngine.GetMouseY() << std::endl;
 		}
-		
+		*/
 	}
 
 private:

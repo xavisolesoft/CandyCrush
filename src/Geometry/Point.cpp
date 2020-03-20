@@ -4,26 +4,26 @@ using namespace Geometry;
 
 Point::Point(float x, float y)
 {
-	point.x = x;
-	point.y = y;
+	this->x = x;
+	this->y = y;
 }
 
 float Point::getX() const
 {
-	return point.x;
+	return x;
 }
 
 float Point::getY() const
 {
-	return point.y;
+	return y;
 }
 
 void Point::setX(float value)
 {
-	point.x = value;
+	x = value;
 }
 
 void Point::setY(float value)
 {
-	point.y = value;
+	y = value;
 }

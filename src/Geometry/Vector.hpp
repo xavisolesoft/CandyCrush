@@ -1,7 +1,5 @@
 #pragma once
 
-#include <glm/vec2.hpp>
-
 namespace Geometry {
 	class Vector
 	{
@@ -19,30 +17,34 @@ namespace Geometry {
 
 		bool operator==(const Vector& other) const
 		{
-			return vector == other.vector;
+			return x == other.x && y == other.y;
 		}
 
 		Vector& operator/=(float literal)
 		{
-			vector /= literal;
+			x /= literal;
+			y /= literal;
 			return *this;
 		}
 
 		Vector operator/(float literal) const
 		{
 			Vector ret(*this);
-			ret.vector /= literal;
+			ret.x /= literal;
+			ret.y /= literal;
 			return ret;
 		}
 
 		Vector operator*(float literal) const
 		{
 			Vector ret(*this);
-			ret.vector *= literal;
+			ret.x *= literal;
+			ret.y *= literal;
 			return ret;
 		}
 
 	private:
-		glm::vec2 vector;
+		float x;
+		float y;
 	};
 }

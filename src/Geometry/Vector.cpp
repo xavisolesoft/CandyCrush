@@ -4,31 +4,32 @@ using namespace Geometry;
 
 Vector::Vector(float x, float y)
 {
-	vector.x = x;
-	vector.y = y;
+	this->x = x;
+	this->y = y;
 }
 
 Vector::Vector(const Vector & other)
 {
-	vector = other.vector;
+	x = other.x;
+	y = other.y;
 }
 
 float Vector::getX() const
 {
-	return vector.x;
+	return x;
 }
 
 float Vector::getY() const
 {
-	return vector.y;
+	return y;
 }
 
 void Vector::setX(float value)
 {
-	vector.x = value;
+	x = value;
 }
 
 void Vector::setY(float value)
 {
-	vector.y = value;
+	y = value;
 }
