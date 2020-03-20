@@ -153,6 +153,9 @@
     <ClCompile Include="..\src\GameLogic\SpawnGemGenerator.cpp">
       <Filter>Source Files\GameLogic</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\GameLogic\GemGravityShifter.cpp">
+      <Filter>Source Files\GameLogic</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\external\include\king\Engine.h">
@@ -243,6 +246,9 @@
       <Filter>Header Files\Util</Filter>
     </ClInclude>
     <ClInclude Include="..\src\GameLogic\SpawnGemGenerator.hpp">
+      <Filter>Header Files\GameLogic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GameLogic\GemGravityShifter.hpp">
       <Filter>Header Files\GameLogic</Filter>
     </ClInclude>
   </ItemGroup>

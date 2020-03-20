@@ -23,6 +23,7 @@
 #include "GameLogic/StarGameGemGenerator.hpp"
 #include "GameLogic/LineRemover.hpp"
 #include "GameLogic/SpawnGemGenerator.hpp"
+#include "GameLogic/GemGravityShifter.hpp"
 
 #include "Animation/IAnimation.hpp"
 
@@ -75,14 +76,7 @@ public:
 			lineRemover.update(gameBoard);
 		}
 
-		for (int i = 0; i < gameBoard.getNumXCells(); ++i) {
-			for (int j = gameBoard.getNumYCells() - 1; j > 0; --j) {
-				auto gem = gameBoard.getGemFromCell(i, j);
-				if (!gem) {
-					gameBoard.swap(i, j, i, j - 1);
-				}
-			}
-		}
+		gemGravityShifter.spawnGemsInFirstRowEmptyCells(gameBoard);
 
 		spawnGemGenerator.spawnGemsInFirstRowEmptyCells(gameBoard, gemGenerator);
 	}
@@ -94,6 +88,7 @@ private:
 	GameLogic::PlayerActions playerActions;
 	GameLogic::LineRemover lineRemover;
 	GameLogic::SpawnGemGenerator spawnGemGenerator;
+	GameLogic::GemGravityShifter gemGravityShifter;
 };
 
 //**********************************************************************
