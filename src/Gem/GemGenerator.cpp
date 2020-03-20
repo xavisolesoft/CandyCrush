@@ -19,18 +19,16 @@ GemGenerator::GemGenerator(Render::RenderController& renderController) :
 
 std::shared_ptr<GemObject> GemGenerator::createNextGem()
 {
-	auto gem = std::make_shared<GemObject>(genereateNextId(),
-											generateNextGemType());
+	auto gem = std::shared_ptr<GemObject>(new GemObject(genereateNextId(),
+														generateNextGemType()),
+										[this](GemObject* gem) {
+											renderController.remove(*gem);
+										});
 
-	renderController.add(gem, &gemRenderer);
+	renderController.add(*gem, gemRenderer);
 
 	return gem;
 
-}
-
-void GemGenerator::removeGem(std::shared_ptr<GemObject> gem)
-{
-	renderController.remove(gem);
 }
 
 long GemGenerator::genereateNextId()

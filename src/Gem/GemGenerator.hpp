@@ -19,8 +19,6 @@ namespace Gem {
 
 		std::shared_ptr<GemObject> createNextGem();
 
-		void removeGem(std::shared_ptr<GemObject> gem);
-
 	private:
 		long genereateNextId();
 		GemType generateNextGemType() const;

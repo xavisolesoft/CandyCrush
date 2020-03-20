@@ -21,13 +21,13 @@ void RenderController::update()
 	}
 }
 
-void RenderController::add(std::shared_ptr<const GameObject::IGameObject> gameObject, Render::IRenderer* renderer)
+void RenderController::add(const GameObject::IGameObject& gameObject, Render::IRenderer& renderer)
 {
-	renderer->setEngine(&engine);
-	renderers[gameObject] = renderer;
+	renderer.setEngine(&engine);
+	renderers[&gameObject] = &renderer;
 }
 
-void RenderController::remove(std::shared_ptr<const GameObject::IGameObject> gameObject)
+void RenderController::remove(const IGameObject& gameObject)
 {
-	renderers.erase(gameObject);
+	renderers.erase(&gameObject);
 }

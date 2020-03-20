@@ -23,12 +23,12 @@ namespace Render {
 
 		void update();
 
-		void add(std::shared_ptr<const GameObject::IGameObject> gameObject, Render::IRenderer* renderer);
-		void remove(std::shared_ptr<const GameObject::IGameObject> gameObject);
+		void add(const GameObject::IGameObject& gameObject, Render::IRenderer& renderer);
+		void remove(const GameObject::IGameObject& gameObject);
 
 
 	private:
-		std::map<std::shared_ptr<const GameObject::IGameObject>, Render::IRenderer*> renderers;
+		std::map<const GameObject::IGameObject*, Render::IRenderer*> renderers;
 
 		King::Engine& engine;
 	};

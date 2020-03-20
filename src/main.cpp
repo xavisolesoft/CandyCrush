@@ -65,9 +65,6 @@ public:
 
 			for (const std::vector<Geometry::Point> line : lines) {
 				for (const Geometry::Point& point : line) {
-					auto oldGem = gameBoard.getGemFromCell((int)point.getX(), (int)point.getY());
-					gemGenerator.removeGem(oldGem);
-
 					auto gem = gemGenerator.createNextGem();
 					gameBoard.setGemToCell((int)point.getX(), (int)point.getY(), gem);
 				}
@@ -109,7 +106,6 @@ public:
 						destroyGemAnimation->setGem(gem,
 													[this, gem, point](){
 														gameBoard.setGemToCell((int)point.getX(), (int)point.getY(), nullptr);
-														gemGenerator.removeGem(gem);
 													});
 						gem->setAnimation(*destroyGemAnimation);
 					}
