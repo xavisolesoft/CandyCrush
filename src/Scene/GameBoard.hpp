@@ -5,7 +5,7 @@
 
 #include "Cell.hpp"
 #include "../Geometry/BBox.hpp"
-#include "../Geometry/Point.hpp"
+#include "../Geometry/PointF.hpp"
 
 namespace Gem
 {
@@ -31,7 +31,7 @@ namespace Scene {
 		void setCellHeight(float value);
 		float getCellHeight() const;
 
-		void setTopLeft(const Geometry::Point& point);
+		void setTopLeft(const Geometry::PointF& point);
 
 		void setGemToCell(int x, int y, std::shared_ptr<Gem::GemObject> gem);
 		std::shared_ptr<Gem::GemObject> getGemFromCell(int x, int y) const;
@@ -54,7 +54,7 @@ namespace Scene {
 		std::vector<std::vector<Cell> > cells;
 		float cellWidth;
 		float cellHeight;
-		Geometry::Point topLeft;
+		Geometry::PointF topLeft;
 		Geometry::BBox bBox;
 	};
 }

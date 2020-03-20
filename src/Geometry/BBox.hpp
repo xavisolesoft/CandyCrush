@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Point.hpp"
+#include "PointF.hpp"
 #include "Vector.hpp"
 
 namespace Geometry {
@@ -8,27 +8,27 @@ namespace Geometry {
 	{
 	public:
 		BBox();
-		BBox(const Point& startPoint);
+		BBox(const PointF& startPoint);
 
-		void setStartPoint(const Point& startPoint);
-		void expand(const Point& point);
+		void setStartPoint(const PointF& startPoint);
+		void expand(const PointF& point);
 
-		Point getTopLeft() const;
-		Point getTopRight() const;
-		Point getBottomLeft() const;
-		Point getBottomRight() const;
+		PointF getTopLeft() const;
+		PointF getTopRight() const;
+		PointF getBottomLeft() const;
+		PointF getBottomRight() const;
 
 		float getTop() const;
 		float getBottom() const;
 		float getLeft() const;
 		float getRight() const;
 
-		Point getCenter() const;
+		PointF getCenter() const;
 
-		bool contains(const Point& point) const;
+		bool contains(const PointF& point) const;
 
 	private:
-		Point topLeft;
+		PointF topLeft;
 		Vector diagonal;
 	};
 }

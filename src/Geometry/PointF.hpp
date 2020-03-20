@@ -3,10 +3,10 @@
 #include "Vector.hpp"
 
 namespace Geometry {
-	class Point
+	class PointF
 	{
 	public:
-		Point(float x = 0, float y = 0);
+		PointF(float x = 0, float y = 0);
 
 		float getX() const;
 		float getY() const;
@@ -14,27 +14,27 @@ namespace Geometry {
 		void setX(float value);
 		void setY(float value);
 
-		bool operator==(const Point& other) const
+		bool operator==(const PointF& other) const
 		{
 			return x == other.x && y == other.y;
 		}
 
-		Point& operator+=(const Vector& vector)
+		PointF& operator+=(const Vector& vector)
 		{
 			x += vector.x;
 			y += vector.y;
 			return *this;
 		}
 
-		Point operator+(const Vector& vector) const
+		PointF operator+(const Vector& vector) const
 		{
-			Point ret(*this);
+			PointF ret(*this);
 			ret.x += vector.x;
 			ret.y += vector.y;
 			return ret;
 		}
 
-		Vector operator-(const Point& other) const
+		Vector operator-(const PointF& other) const
 		{
 			Vector ret;
 			ret.x = x - other.x;

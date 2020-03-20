@@ -2,7 +2,7 @@
 
 #include <king/Engine.h>
 
-#include "../Geometry/Point.hpp"
+#include "../Geometry/PointF.hpp"
 
 #include "../Text/TextObject.hpp"
 

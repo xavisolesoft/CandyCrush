@@ -1,7 +1,7 @@
 #pragma once
 
 #include "../Geometry/BBox.hpp"
-#include "../Geometry/Point.hpp"
+#include "../Geometry/PointF.hpp"
 
 namespace Animation
 {
@@ -17,10 +17,10 @@ namespace GameObject {
 		
 		long getId() const;
 
-		void setWorldPos(const Geometry::Point& point);
+		void setWorldPos(const Geometry::PointF& point);
 		void setWorldX(float x);
 		void setWorldY(float y);
-		const Geometry::Point& getWorldPos() const;
+		const Geometry::PointF& getWorldPos() const;
 
 		float getRotation() const;
 		void setRotation(float value);
@@ -36,7 +36,7 @@ namespace GameObject {
 
 	protected:
 		long id;
-		Geometry::Point worldPos;
+		Geometry::PointF worldPos;
 		float rotation;
 		float scale;
 		Animation::IAnimation* animation;

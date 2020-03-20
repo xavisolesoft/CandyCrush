@@ -18,12 +18,12 @@ GameTimeController::GameTimeController()
 void GameTimeController::start(std::clock_t gameDurationSecs)
 {
 	timerTittle.reset(new TextObject(0));
-	timerTittle->setWorldPos(Geometry::Point(44.0f, 386.0f));
+	timerTittle->setWorldPos(Geometry::PointF(44.0f, 386.0f));
 	timerTittle->setText("Time:");
 	RenderController::getInstance().add(*timerTittle, *(new TextRenderer()));
 
 	timerObject.reset(new TextObject(1));
-	timerObject->setWorldPos(Geometry::Point(76.0f, 445.0f));
+	timerObject->setWorldPos(Geometry::PointF(76.0f, 445.0f));
 	RenderController::getInstance().add(*timerObject, *(new TextRenderer()));
 
 	gameStartTimeSecs = std::clock();
