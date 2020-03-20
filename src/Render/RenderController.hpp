@@ -23,6 +23,7 @@ namespace Render {
 	{
 	public:
 		RenderController();
+		~RenderController();
 
 		void setEngine(King::Engine* engine);
 
@@ -30,7 +31,6 @@ namespace Render {
 
 		void add(const GameObject::IGameObject& gameObject, Render::IRenderer& renderer);
 		void remove(const GameObject::IGameObject& gameObject);
-
 
 	private:
 		std::map<const GameObject::IGameObject*, Render::IRenderer*> renderers;

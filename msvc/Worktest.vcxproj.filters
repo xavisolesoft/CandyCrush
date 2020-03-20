@@ -67,6 +67,12 @@
     <Filter Include="Source Files\Render">
       <UniqueIdentifier>{30ea8b99-6680-4f5c-a61c-c2348ff115e8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Text">
+      <UniqueIdentifier>{d350f8c7-39c8-44a8-bd5e-24827cf96e81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Text">
+      <UniqueIdentifier>{bccedf3b-df21-4696-be37-fa15cafc2b7b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -158,6 +164,15 @@
     </ClCompile>
     <ClCompile Include="..\src\GameLogic\GemAnimationUpdater.cpp">
       <Filter>Source Files\GameLogic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GameLogic\GameTimeController.cpp">
+      <Filter>Source Files\GameLogic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Text\TextObject.cpp">
+      <Filter>Source Files\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Text\TextRenderer.cpp">
+      <Filter>Source Files\Text</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -256,6 +271,15 @@
     </ClInclude>
     <ClInclude Include="..\src\GameLogic\GemAnimationUpdater.hpp">
       <Filter>Header Files\GameLogic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GameLogic\GameTimeController.hpp">
+      <Filter>Header Files\GameLogic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Text\TextObject.hpp">
+      <Filter>Header Files\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Text\TextRenderer.hpp">
+      <Filter>Header Files\Text</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

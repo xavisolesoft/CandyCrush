@@ -29,7 +29,7 @@ std::shared_ptr<GemObject> GemGenerator::createNextGem()
 											Debug() << "DELETED_GEM(" << gem->getId() << ", " << (int)gem->getGemType() << ")";
 										});
 
-	renderController.add(*gem, gemRenderer);
+	renderController.add(*gem, *new GemRenderer());
 
 	Debug() << "NEW_GEM(" << gem->getId() << ", " << (int)gem->getGemType() << ")";
 

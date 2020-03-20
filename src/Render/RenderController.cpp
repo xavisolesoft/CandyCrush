@@ -12,6 +12,14 @@ RenderController::RenderController() :
 {
 }
 
+RenderController::~RenderController()
+{
+	for (auto iter = renderers.begin(); iter != renderers.end(); ++iter) {
+		IRenderer* renderer = iter->second;
+		delete renderer;
+	}
+}
+
 void RenderController::setEngine(King::Engine* engine)
 {
 	this->engine = engine;
@@ -34,5 +42,10 @@ void RenderController::add(const GameObject::IGameObject& gameObject, Render::IR
 
 void RenderController::remove(const IGameObject& gameObject)
 {
-	renderers.erase(&gameObject);
+	auto renderersIter = renderers.find(&gameObject);
+	if (renderers.end() != renderersIter) {
+		Render::IRenderer* renderer = renderersIter->second;
+		delete renderer;
+		renderers.erase(renderersIter);
+	}
 }

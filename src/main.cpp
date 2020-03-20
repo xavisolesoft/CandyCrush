@@ -19,12 +19,16 @@
 
 #include "Render/RenderController.hpp"
 
+#include "Text/TextObject.hpp"
+#include "Text/TextRenderer.hpp"
+
 #include "GameLogic/PlayerActions.hpp"
 #include "GameLogic/StarGameGemGenerator.hpp"
 #include "GameLogic/LineRemover.hpp"
 #include "GameLogic/SpawnGemGenerator.hpp"
 #include "GameLogic/GemGravityShifter.hpp"
 #include "GameLogic/GemAnimationUpdater.hpp"
+#include "GameLogic/GameTimeController.hpp"
 
 #include "Animation/IAnimation.hpp"
 
@@ -53,12 +57,16 @@ public:
 		GameLogic::StarGameGemGenerator startGameGenerator;
 		startGameGenerator.generateStartConfiguration(gameBoard, gemGenerator);
 
+		gameTimeController.start(60);
+
 		mEngine.Start(*this);
 	}
 
 	void Update()
 	{
 		mEngine.Render(King::Engine::TEXTURE_BACKGROUND, 0.0f, 0.0f);
+
+		gameTimeController.update();
 
 		gemAnimationUpdater.update(gameBoard);
 
@@ -73,6 +81,12 @@ public:
 		gemGravityShifter.update(gameBoard);
 
 		spawnGemGenerator.update(gameBoard, gemGenerator);
+
+		/*
+		if (mEngine.GetMouseButtonDown()) {
+			std::cout << "CLICK---->  " << mEngine.GetMouseX() << ", " << mEngine.GetMouseY() << std::endl;
+		}
+		*/
 	}
 
 private:
@@ -84,6 +98,7 @@ private:
 	GameLogic::SpawnGemGenerator spawnGemGenerator;
 	GameLogic::GemGravityShifter gemGravityShifter;
 	GameLogic::GemAnimationUpdater gemAnimationUpdater;
+	GameLogic::GameTimeController gameTimeController;
 };
 
 //**********************************************************************

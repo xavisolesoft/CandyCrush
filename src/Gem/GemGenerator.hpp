@@ -27,6 +27,5 @@ namespace Gem {
 
 		std::atomic<long> nextGemId;
 		Render::RenderController& renderController;
-		GemRenderer gemRenderer;
 	};
 }
