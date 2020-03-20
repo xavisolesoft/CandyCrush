@@ -22,6 +22,11 @@ GemGenerator::GemGenerator(Render::RenderController& renderController) :
 
 std::shared_ptr<GemObject> GemGenerator::createNextGem()
 {
+	/*
+	 * Note: The design is prepared for future optimizations like static object pool.
+	 *		 But for now is not needed because we don't have performance issues due the small
+	 *       number of gems created by the game.
+	 */
 	auto gem = std::shared_ptr<GemObject>(new GemObject(genereateNextId(),
 														generateNextGemType()),
 										[this](GemObject* gem) {
