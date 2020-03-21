@@ -180,6 +180,9 @@
     <ClCompile Include="..\src\Render\GUIRenderController.cpp">
       <Filter>Source Files\Render</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Scene\IScene.cpp">
+      <Filter>Source Files\Scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\external\include\king\Engine.h">
@@ -298,6 +301,9 @@
     </ClInclude>
     <ClInclude Include="..\src\Render\GUIRenderController.hpp">
       <Filter>Header Files\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Scene\IScene.hpp">
+      <Filter>Header Files\Scene</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

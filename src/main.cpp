@@ -34,8 +34,7 @@ public:
 		: mEngine("./assets")
 		, gemGenerator(Render::GameRenderController::getInstance())
 		, gamePlayScene(mEngine, gameBoard, gemGenerator)
-		, endGameScene(mEngine)
-		, sceneStarted(false)
+		, prevScene(nullptr)
 	{
 		Render::GameRenderController::getInstance().setEngine(&mEngine);
 		Render::GUIRenderController::getInstance().setEngine(&mEngine);
@@ -51,8 +50,7 @@ public:
 
 		gemGenerator.setSeed(60);
 
-		gamePlayScene.start();
-		endGameScene.start();
+		gamePlayScene.init();
 
 		mEngine.Start(*this);
 	}
@@ -63,9 +61,14 @@ public:
 
 		if (!gamePlayScene.end()) {
 			gamePlayScene.update();
+			prevScene = &gamePlayScene;
 		}
 		else {
+			if (prevScene && prevScene->end()) {
+				endGameScene.start();
+			}
 			endGameScene.update();
+			prevScene = &endGameScene;
 		}
 
 		Render::GameRenderController::getInstance().update();
@@ -84,7 +87,7 @@ private:
 	GameBoard::Board gameBoard;
 	Scene::GamePlayScene gamePlayScene;
 	Scene::EndGameScene endGameScene;
-	bool sceneStarted;
+	Scene::IScene* prevScene;
 };
 
 //**********************************************************************

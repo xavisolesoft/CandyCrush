@@ -23,7 +23,7 @@ GamePlayScene::~GamePlayScene()
 	
 }
 
-void GamePlayScene::start()
+void GamePlayScene::init()
 {
 	GameLogic::StarGameGemGenerator startGameGenerator;
 	startGameGenerator.generateStartConfiguration(gameBoard, gemGenerator);

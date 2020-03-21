@@ -1,11 +1,5 @@
 #include "EndGameScene.hpp"
 
-#include <king/Engine.h>
-
-#include "../GameLogic/StarGameGemGenerator.hpp"
-
-#include "../GameBoard/Board.hpp"
-
 #include "../Render/GUIRenderController.hpp"
 
 #include "../Text/TextObject.hpp"
@@ -13,8 +7,7 @@
 
 using namespace Scene;
 
-EndGameScene::EndGameScene(King::Engine& engine) :
-	engine(engine)
+EndGameScene::EndGameScene()
 {
 }
 

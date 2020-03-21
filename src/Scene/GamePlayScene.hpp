@@ -1,5 +1,6 @@
 #pragma once
 
+#include "../Scene/IScene.hpp"
 #include "../GameLogic/LineRemover.hpp"
 #include "../GameLogic/PlayerActions.hpp"
 #include "../GameLogic/GameTimeController.hpp"
@@ -23,7 +24,8 @@ namespace King
 }
 
 namespace Scene {
-	class GamePlayScene
+	class GamePlayScene :
+		public IScene
 	{
 	public:
 		GamePlayScene(King::Engine& engine,
@@ -31,9 +33,9 @@ namespace Scene {
 					Gem::GemGenerator& gemGenerator);
 		~GamePlayScene();
 		
-		void start();
-		void update();
-		bool end();
+		void init() override;
+		void update() override;
+		bool end() override;
 
 	private:
 		King::Engine& engine;

@@ -1,11 +1,6 @@
 #pragma once
 
-#include "../GameLogic/LineRemover.hpp"
-#include "../GameLogic/PlayerActions.hpp"
-#include "../GameLogic/GameTimeController.hpp"
-#include "../GameLogic/GemAnimationUpdater.hpp"
-#include "../GameLogic/SpawnGemGenerator.hpp"
-#include "../GameLogic/GemGravityShifter.hpp"
+#include "../Scene/IScene.hpp"
 
 namespace GameBoard
 {
@@ -23,19 +18,18 @@ namespace King
 }
 
 namespace Scene {
-	class EndGameScene
+	class EndGameScene :
+		public IScene
 	{
 	public:
-		EndGameScene(King::Engine& engine);
+		EndGameScene();
 		~EndGameScene();
 		
-		void start();
-		void update();
-		bool end();
+		void start() override;
+		void update() override;
+		bool end() override;
 
 	private:
 		void createTheEndTextObject() const;
-
-		King::Engine& engine;
 	};
 }
