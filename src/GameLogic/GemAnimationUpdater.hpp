@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Scene
+namespace Board
 {
 	class Board;
 }
@@ -11,6 +11,6 @@ namespace GameLogic {
 	public:
 		GemAnimationUpdater();
 
-		void update(Scene::Board& gameBoard);
+		void update(Board::Board& gameBoard);
 	};
 }

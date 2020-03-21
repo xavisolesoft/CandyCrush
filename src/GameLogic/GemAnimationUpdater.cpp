@@ -4,7 +4,7 @@
 #include "../Gem/GemGenerator.hpp"
 
 using namespace GameLogic;
-using namespace Scene;
+using namespace Board;
 using namespace Gem;
 
 GemAnimationUpdater::GemAnimationUpdater()

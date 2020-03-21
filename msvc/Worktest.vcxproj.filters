@@ -70,6 +70,12 @@
     <Filter Include="Source Files\GameBoard">
       <UniqueIdentifier>{0dbe33b4-da2b-4d9c-9d11-942e91673e2e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Scene">
+      <UniqueIdentifier>{bb718365-c380-4b52-8ab5-9d6a7efc5b04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Scene">
+      <UniqueIdentifier>{4632c946-2446-475e-82de-2351e7ab4974}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -161,6 +167,9 @@
     </ClCompile>
     <ClCompile Include="..\src\GameBoard\Board.cpp">
       <Filter>Source Files\GameBoard</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Scene\GamePlayScene.cpp">
+      <Filter>Source Files\Scene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -268,6 +277,9 @@
     </ClInclude>
     <ClInclude Include="..\src\GameBoard\Cell.hpp">
       <Filter>Header Files\GameBoard</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Scene\GamePlayScene.hpp">
+      <Filter>Header Files\Scene</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

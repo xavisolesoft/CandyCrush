@@ -2,7 +2,7 @@
 
 #include <ctime>
 
-namespace Scene
+namespace Board
 {
 	class Board;
 }
@@ -13,7 +13,7 @@ namespace GameLogic {
 	public:
 		GemGravityShifter();
 
-		void update(Scene::Board& gameBoard);
+		void update(Board::Board& gameBoard);
 
 	private:
 		static const double SHIFT_PERIODE_SECS;

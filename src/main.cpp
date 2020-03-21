@@ -105,7 +105,7 @@ public:
 private:
 	King::Engine mEngine;
 	Gem::GemGenerator gemGenerator;
-	Scene::Board gameBoard;
+	Board::Board gameBoard;
 	GameLogic::PlayerActions playerActions;
 	GameLogic::LineRemover lineRemover;
 	GameLogic::SpawnGemGenerator spawnGemGenerator;

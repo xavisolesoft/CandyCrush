@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Scene
+namespace Board
 {
 	class Board;
 }
@@ -15,6 +15,6 @@ namespace GameLogic {
 	public:
 		StarGameGemGenerator();
 
-		void generateStartConfiguration(Scene::Board& gameBoard, Gem::GemGenerator& gemGenerator);
+		void generateStartConfiguration(Board::Board& gameBoard, Gem::GemGenerator& gemGenerator);
 	};
 }

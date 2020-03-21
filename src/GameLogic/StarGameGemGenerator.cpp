@@ -7,7 +7,7 @@
 #include "../GameLogic/LineMatcher.hpp"
 
 using namespace GameLogic;
-using namespace Scene;
+using namespace Board;
 using namespace Gem;
 
 StarGameGemGenerator::StarGameGemGenerator()

@@ -2,7 +2,7 @@
 
 #include "../Gem/GemObject.hpp"
 
-using namespace Scene;
+using namespace Board;
 using namespace Gem;
 using namespace Geometry;
 

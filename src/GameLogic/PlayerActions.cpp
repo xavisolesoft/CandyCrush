@@ -16,7 +16,7 @@
 using namespace GameLogic;
 using namespace Geometry;
 using namespace Gem;
-using namespace Scene;
+using namespace Board;
 using namespace Animation;
 using namespace Util;
 
@@ -37,7 +37,7 @@ void PlayerActions::update(bool mouseButtonDown, float mouseX, float mouseY)
 		prevSelectedGem = selectedCell->getGem();
 	}
 
-	const Scene::Cell* currentCell = gameBoard.getCellFromWorldPos(mouseX, mouseY);
+	const Board::Cell* currentCell = gameBoard.getCellFromWorldPos(mouseX, mouseY);
 	if(currentCell && currentCell->getGem() && currentCell->getGem()->isUserInteractionEnabled())
 	if (isDragStart(mouseButtonDown)) {
 		dragAborted = false;
@@ -64,12 +64,12 @@ void PlayerActions::update(bool mouseButtonDown, float mouseX, float mouseY)
 	prevMouseButtonDown = mouseButtonDown;
 }
 
-void PlayerActions::updateDragStart(const Scene::Cell* currentCell)
+void PlayerActions::updateDragStart(const Board::Cell* currentCell)
 {
 	dragStartCell = currentCell;
 }
 
-void PlayerActions::updateDragMove(const Scene::Cell* currentCell)
+void PlayerActions::updateDragMove(const Board::Cell* currentCell)
 {
 	if (!dragStartCell) {
 		dragStartCell = currentCell;
@@ -82,7 +82,7 @@ void PlayerActions::updateDragMove(const Scene::Cell* currentCell)
 	}
 }
 
-void PlayerActions::updateDragEnd(const Scene::Cell* currentCell)
+void PlayerActions::updateDragEnd(const Board::Cell* currentCell)
 {
 	if (currentCell) {
 		Util::Debug() << "CLICKED_CELL(" << currentCell->getXCell() << ", " << currentCell->getYCell() << ")"
