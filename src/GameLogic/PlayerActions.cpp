@@ -20,7 +20,7 @@ using namespace GameBoard;
 using namespace Animation;
 using namespace Util;
 
-const int PlayerActions::SWAP_ANIMATION_STEPS = 50;
+const int PlayerActions::SWAP_ANIMATION_STEPS = 10;
 const float PlayerActions::SWAP_ANIMATION_PERIODE_SECONDS = 0.01f;
 
 PlayerActions::PlayerActions(Board& gameBoard) :
