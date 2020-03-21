@@ -16,6 +16,11 @@ MoveGemAnimation::~MoveGemAnimation()
 {
 }
 
+void MoveGemAnimation::setEndFunction(std::function<void()> animationEndFunction)
+{
+	this->animationEndFunction = animationEndFunction;
+}
+
 void MoveGemAnimation::start(std::shared_ptr<GemObject> gem, const Point<float>& origin, const Point<float>& destination, int steps, float perideSeconds)
 {
 	this->gem = gem;
@@ -37,5 +42,10 @@ bool MoveGemAnimation::update()
 		lastUpdate = std::clock();
 	}
 
-	return currentStep >= TOTAL_STEPS;
+	bool end = currentStep >= TOTAL_STEPS;
+	if (end && animationEndFunction) {
+		animationEndFunction();
+	}
+
+	return end;
 }

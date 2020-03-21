@@ -1,5 +1,6 @@
 #pragma once
 
+#include <functional>
 #include <memory>
 #include <ctime>
 
@@ -16,6 +17,8 @@ namespace Gem {
 		MoveGemAnimation();
 		~MoveGemAnimation();
 		
+		void setEndFunction(std::function<void()> animationEndFunction);
+
 		void start(std::shared_ptr<Gem::GemObject> gem, const Geometry::Point<float>& origin, const Geometry::Point<float>& destination, int steps, float perideSeconds);
 
 		bool update() override;
@@ -29,5 +32,7 @@ namespace Gem {
 		int TOTAL_STEPS;
 		float PERIODE_SECONDS;
 		int currentStep;
+
+		std::function<void()> animationEndFunction;
 	};
 }
