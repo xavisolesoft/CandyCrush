@@ -177,6 +177,9 @@
     <ClCompile Include="..\src\Render\GameRenderController.cpp">
       <Filter>Source Files\Render</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Render\GUIRenderController.cpp">
+      <Filter>Source Files\Render</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\external\include\king\Engine.h">
@@ -291,6 +294,9 @@
       <Filter>Header Files\Scene</Filter>
     </ClInclude>
     <ClInclude Include="..\src\Render\GameRenderController.hpp">
+      <Filter>Header Files\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Render\GUIRenderController.hpp">
       <Filter>Header Files\Render</Filter>
     </ClInclude>
   </ItemGroup>

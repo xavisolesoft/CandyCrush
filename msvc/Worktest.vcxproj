@@ -102,6 +102,7 @@
     <ClCompile Include="..\src\Gem\MoveGemAnimation.cpp" />
     <ClCompile Include="..\src\main.cpp" />
     <ClCompile Include="..\src\Render\GameRenderController.cpp" />
+    <ClCompile Include="..\src\Render\GUIRenderController.cpp" />
     <ClCompile Include="..\src\Render\IRenderer.cpp" />
     <ClCompile Include="..\src\Render\RenderController.cpp" />
     <ClCompile Include="..\src\Scene\EndGameScene.cpp" />
@@ -141,6 +142,7 @@
     <ClInclude Include="..\src\Geometry\Point.hpp" />
     <ClInclude Include="..\src\Geometry\Vector.hpp" />
     <ClInclude Include="..\src\Render\GameRenderController.hpp" />
+    <ClInclude Include="..\src\Render\GUIRenderController.hpp" />
     <ClInclude Include="..\src\Render\IRenderer.hpp" />
     <ClInclude Include="..\src\Render\RenderController.hpp" />
     <ClInclude Include="..\src\Scene\EndGameScene.hpp" />
