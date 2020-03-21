@@ -35,33 +35,43 @@ PlayerActions::PlayerActions(Board& gameBoard) :
 
 void PlayerActions::update(bool mouseButtonDown, float mouseX, float mouseY)
 {
-	std::shared_ptr<GemObject> prevSelectedGem = nullptr;
-	if (selectedCell) {
-		prevSelectedGem = selectedCell->getGem();
-	}
-
 	const GameBoard::Cell* currentCell = gameBoard.getCellFromWorldPos(mouseX, mouseY);
-	if(currentCell && currentCell->getGem() && currentCell->getGem()->isUserInteractionEnabled())
-	if (isDragStart(mouseButtonDown)) {
-		dragAborted = false;
-		updateDragStart(currentCell);
-	}
-	if (!dragAborted) {
-		if (isDragMove(mouseButtonDown)) {
-			updateDragMove(currentCell);
-		}
-		else if (isDragEnd(mouseButtonDown)) {
-			updateDragEnd(currentCell);
+	if (currentCell && currentCell->getGem() && currentCell->getGem()->isUserInteractionEnabled()) {
+		if (isDragStart(mouseButtonDown)) {
 			dragAborted = false;
+			updateDragStart(currentCell);
+		}
+		if (!dragAborted) {
+			if (isDragMove(mouseButtonDown)) {
+				updateDragMove(currentCell);
+			}
+			else if (isDragEnd(mouseButtonDown)) {
+				updateDragEnd(currentCell);
+				dragAborted = false;
+			}
+		}
+
+		if (!prevSelectedGem.expired()) {
+			std::shared_ptr<GemObject> prevSelectedGem(prevSelectedGem);
+			prevSelectedGem->setScale(1.0f);
+		}
+
+		if (selectedCell && selectedCell->getGem()) {
+			selectedCell->getGem()->setScale(1.3f);
+		}
+
+		if (selectedCell) {
+			prevSelectedGem = selectedCell->getGem();
 		}
 	}
 
-	if (prevSelectedGem) {
-		prevSelectedGem->setScale(1.0f);
-	}
-
-	if (selectedCell && selectedCell->getGem()) {
-		selectedCell->getGem()->setScale(1.3f);
+	//Clear selection when a gem was selected on movement and currently is not in the same cell.
+	if (!selectedCell || prevSelectedGem.expired() || selectedCell->getGem() != std::shared_ptr<GemObject>(prevSelectedGem)) {
+		if (!prevSelectedGem.expired()) {
+			std::shared_ptr<GemObject>(prevSelectedGem)->setScale(1.0f);
+		}
+		selectedCell == nullptr;
+		prevSelectedGem.reset();
 	}
 
 	prevMouseButtonDown = mouseButtonDown;

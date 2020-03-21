@@ -42,6 +42,7 @@ namespace GameLogic {
 		GameBoard::Board& gameBoard;
 		LineMatcher lineMatcher;
 		const GameBoard::Cell* selectedCell;
+		std::weak_ptr<Gem::GemObject> prevSelectedGem;
 		bool prevMouseButtonDown;
 		const GameBoard::Cell* dragStartCell;
 		bool dragAborted;
