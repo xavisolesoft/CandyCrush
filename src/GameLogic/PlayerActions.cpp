@@ -119,8 +119,6 @@ void PlayerActions::trySwapGems(const Cell& cell1, const Cell& cell2)
 	if (!LineMatcher::containsCell(lines, Point<int>(cell1.getBoardPos())) &&
 		!LineMatcher::containsCell(lines, Point<int>(cell2.getBoardPos()))) {
 		gameBoard.swap(cell1.getXCell(), cell1.getYCell(), cell2.getXCell(), cell2.getYCell());
-		//gameBoard.setGemToCell(cell1.getXCell(), cell1.getYCell(), gem1);
-		//gameBoard.setGemToCell(cell2.getXCell(), cell2.getYCell(), gem2);
 		appendSwapReturnAnimations(gem2, gem1);
 	}
 	else {
