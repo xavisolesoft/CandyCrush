@@ -1,21 +1,11 @@
 #define GLM_FORCE_RADIANS
 
-#include <cstdlib>
-#include <memory>
-#include <string>
-#include <iostream>
-
-#include <glm/vec3.hpp>
-#include <glm/mat4x4.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-
 #include <king/Engine.h>
 #include <king/Updater.h>
 
 #include "Gem/GemGenerator.hpp"
 
 #include "GameBoard/Board.hpp"
-#include "GameBoard/Cell.hpp"
 
 #include "Scene/StartGameScene.hpp"
 #include "Scene/GamePlayScene.hpp"
@@ -24,7 +14,7 @@
 #include "Render/GameRenderController.hpp"
 #include "Render/GUIRenderController.hpp"
 
-#include "Animation/IAnimation.hpp"
+#include "Util/FPSDisplay.hpp"
 
 //**********************************************************************
 
@@ -53,6 +43,8 @@ public:
 
 		gamePlayScene.init();
 
+		fpsDisplay.start();
+
 		mEngine.Start(*this);
 	}
 
@@ -70,14 +62,10 @@ public:
 			endGameScene.update();
 		}
 
+		fpsDisplay.update();
+
 		Render::GameRenderController::getInstance().update();
 		Render::GUIRenderController::getInstance().update();
-
-		/*
-		if (mEngine.GetMouseButtonDown()) {
-			std::cout << "CLICK---->  " << mEngine.GetMouseX() << ", " << mEngine.GetMouseY() << std::endl;
-		}
-		*/
 	}
 
 private:
@@ -87,6 +75,7 @@ private:
 	Scene::StartGameScene startGameScene;
 	Scene::GamePlayScene gamePlayScene;
 	Scene::EndGameScene endGameScene;
+	Util::FPSDisplay fpsDisplay;
 };
 
 //**********************************************************************
