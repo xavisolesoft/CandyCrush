@@ -4,7 +4,7 @@
 
 #include "../GameLogic/LineMatcher.hpp"
 
-namespace Board
+namespace GameBoard
 {
 	class Board;
 	class Cell;
@@ -20,30 +20,30 @@ namespace GameLogic {
 	class PlayerActions
 	{
 	public:
-		PlayerActions(Board::Board& gameBoard);
+		PlayerActions(GameBoard::Board& gameBoard);
 
 		void update(bool mouseButtonDown, float mouseX, float mouseY);
 
 	private:
-		void updateDragStart(const Board::Cell* currentCell);
-		void updateDragMove(const Board::Cell* currentCell);
-		void updateDragEnd(const Board::Cell* currentCell);
+		void updateDragStart(const GameBoard::Cell* currentCell);
+		void updateDragMove(const GameBoard::Cell* currentCell);
+		void updateDragEnd(const GameBoard::Cell* currentCell);
 
-		void trySwapGems(const Board::Cell& cell1, const Board::Cell& cell2);
+		void trySwapGems(const GameBoard::Cell& cell1, const GameBoard::Cell& cell2);
 
 		static void setSwapAnimations(std::shared_ptr<Gem::GemObject> gem1, std::shared_ptr<Gem::GemObject> gem2);
 		static void appendSwapReturnAnimations(std::shared_ptr<Gem::GemObject> gem1, std::shared_ptr<Gem::GemObject> gem2);
 
-		static bool isAllowedMovement(const Board::Cell* originCell, const Board::Cell* destinationCell);
+		static bool isAllowedMovement(const GameBoard::Cell* originCell, const GameBoard::Cell* destinationCell);
 		bool isDragStart(bool mouseButtonDown) const;
 		bool isDragMove(bool mouseButtonDown) const;
 		bool isDragEnd(bool mouseButtonDown) const;
 
-		Board::Board& gameBoard;
+		GameBoard::Board& gameBoard;
 		LineMatcher lineMatcher;
-		const Board::Cell* selectedCell;
+		const GameBoard::Cell* selectedCell;
 		bool prevMouseButtonDown;
-		const Board::Cell* dragStartCell;
+		const GameBoard::Cell* dragStartCell;
 		bool dragAborted;
 	};
 }

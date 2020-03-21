@@ -10,7 +10,7 @@ namespace Geometry
 	class Point;
 }
 
-namespace Board
+namespace GameBoard
 {
 	class Board;
 	class Cell;
@@ -20,7 +20,7 @@ namespace GameLogic {
 	class LineMatcher
 	{
 	public:
-		LineMatcher(const Board::Board& gameBoard);
+		LineMatcher(const GameBoard::Board& gameBoard);
 		
 		std::vector<std::vector<Geometry::Point<int>> > getBoardLines() const;
 
@@ -30,6 +30,6 @@ namespace GameLogic {
 		void getVerticalBoardLines(std::vector<std::vector<Geometry::Point<int>> >& outLines) const;
 		void getHoritzontalBoardLines(std::vector<std::vector<Geometry::Point<int>> >& outLines) const;
 
-		const Board::Board& gameBoard;
+		const GameBoard::Board& gameBoard;
 	};
 }

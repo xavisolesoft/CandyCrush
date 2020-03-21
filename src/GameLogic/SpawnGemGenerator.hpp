@@ -2,7 +2,7 @@
 
 #include <ctime>
 
-namespace Board
+namespace GameBoard
 {
 	class Board;
 }
@@ -17,7 +17,7 @@ namespace GameLogic {
 	public:
 		SpawnGemGenerator();
 
-		void update(Board::Board& gameBoard, Gem::GemGenerator& gemGenerator);
+		void update(GameBoard::Board& gameBoard, Gem::GemGenerator& gemGenerator);
 
 	private:
 		static const double SPAWN_PERIODE_SECS;

@@ -10,7 +10,7 @@ namespace Gem
 	class GemObject;
 }
 
-namespace Board {
+namespace GameBoard {
 	class Cell
 	{
 	public:

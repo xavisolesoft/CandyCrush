@@ -8,7 +8,7 @@
 #include "../Util/Debug.hpp"
 
 using namespace GameLogic;
-using namespace Board;
+using namespace GameBoard;
 using namespace Geometry;
 
 LineRemover::LineRemover()

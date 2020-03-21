@@ -13,22 +13,16 @@
 #include <king/Updater.h>
 
 #include "Gem/GemGenerator.hpp"
+
 #include "GameBoard/Board.hpp"
 #include "GameBoard/Cell.hpp"
-#include "Gem/GemObject.hpp"
+
+#include "Scene/GamePlayScene.hpp"
 
 #include "Render/RenderController.hpp"
 
 #include "Text/TextObject.hpp"
 #include "Text/TextRenderer.hpp"
-
-#include "GameLogic/PlayerActions.hpp"
-#include "GameLogic/StarGameGemGenerator.hpp"
-#include "GameLogic/LineRemover.hpp"
-#include "GameLogic/SpawnGemGenerator.hpp"
-#include "GameLogic/GemGravityShifter.hpp"
-#include "GameLogic/GemAnimationUpdater.hpp"
-#include "GameLogic/GameTimeController.hpp"
 
 #include "Animation/IAnimation.hpp"
 
@@ -40,7 +34,7 @@ public:
 	ExampleGame()
 		: mEngine("./assets")
 		, gemGenerator(Render::RenderController::getInstance())
-		, playerActions(gameBoard)
+		, gamePlayScene(mEngine, gameBoard, gemGenerator)
 	{
 		Render::RenderController::getInstance().setEngine(&mEngine);
 	}
@@ -54,37 +48,25 @@ public:
 		gameBoard.calculateBBoxes();
 
 		gemGenerator.setSeed(60);
-		GameLogic::StarGameGemGenerator startGameGenerator;
-		startGameGenerator.generateStartConfiguration(gameBoard, gemGenerator);
 
-		gameTimeController.start(60);
+		gamePlayScene.start();
 
 		mEngine.Start(*this);
 	}
 
 	void Update()
 	{
-		if (!gameTimeController.isTheEnd()) {
-			mEngine.Render(King::Engine::TEXTURE_BACKGROUND, 0.0f, 0.0f);
+		mEngine.Render(King::Engine::TEXTURE_BACKGROUND, 0.0f, 0.0f);
 
-			gameTimeController.update();
-
-			gemAnimationUpdater.update(gameBoard);
+		if (!gamePlayScene.end()) {
+			gamePlayScene.update();
 
 			Render::RenderController::getInstance().update();
-
-			playerActions.update(mEngine.GetMouseButtonDown(), mEngine.GetMouseX(), mEngine.GetMouseY());
-
-			if (!gameBoard.isAnyCellEmpty() && !gameBoard.isAnyGemAnimated()) {
-				lineRemover.update(gameBoard);
-			}
-
-			gemGravityShifter.update(gameBoard);
-
-			spawnGemGenerator.update(gameBoard, gemGenerator);
 		}
 		else {
 			mEngine.Render(King::Engine::TEXTURE_BACKGROUND, 0.0f, 0.0f);
+
+			Render::RenderController::getInstance().update();
 
 			Text::TextObject theEnd(0);
 			theEnd.setWorldPos(Geometry::Point<float>(445, 260));
@@ -93,7 +75,6 @@ public:
 			textRenderer.setEngine(&mEngine);
 			textRenderer.update(theEnd);
 		}
-
 
 		/*
 		if (mEngine.GetMouseButtonDown()) {
@@ -105,13 +86,8 @@ public:
 private:
 	King::Engine mEngine;
 	Gem::GemGenerator gemGenerator;
-	Board::Board gameBoard;
-	GameLogic::PlayerActions playerActions;
-	GameLogic::LineRemover lineRemover;
-	GameLogic::SpawnGemGenerator spawnGemGenerator;
-	GameLogic::GemGravityShifter gemGravityShifter;
-	GameLogic::GemAnimationUpdater gemAnimationUpdater;
-	GameLogic::GameTimeController gameTimeController;
+	GameBoard::Board gameBoard;
+	Scene::GamePlayScene gamePlayScene;
 };
 
 //**********************************************************************

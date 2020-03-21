@@ -5,7 +5,7 @@
 #include "../Gem/GemGenerator.hpp"
 
 using namespace GameLogic;
-using namespace Board;
+using namespace GameBoard;
 using namespace Gem;
 
 const double SpawnGemGenerator::SPAWN_PERIODE_SECS = 0.1;

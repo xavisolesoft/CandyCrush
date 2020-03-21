@@ -3,7 +3,7 @@
 #include "../Geometry/Point.hpp"
 #include "../Gem/GemObject.hpp"
 
-using namespace Board;
+using namespace GameBoard;
 using namespace Gem;
 using namespace Geometry;
 

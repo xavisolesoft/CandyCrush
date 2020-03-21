@@ -4,7 +4,7 @@
 
 #include "../GameLogic/LineMatcher.hpp"
 
-namespace Board
+namespace GameBoard
 {
 	class Board;
 }
@@ -21,6 +21,6 @@ namespace GameLogic {
 	public:
 		LineRemover();
 
-		void update(Board::Board& gameBoard);
+		void update(GameBoard::Board& gameBoard);
 	};
 }

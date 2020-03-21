@@ -3,7 +3,7 @@
 #include "../GameBoard/Board.hpp"
 
 using namespace GameLogic;
-using namespace Board;
+using namespace GameBoard;
 using namespace Gem;
 
 const double GemGravityShifter::SHIFT_PERIODE_SECS = 0.1;
