@@ -1,6 +1,6 @@
 #include "GemGravityShifter.hpp"
 
-#include "../Scene/Board.hpp"
+#include "../GameBoard/Board.hpp"
 
 using namespace GameLogic;
 using namespace Scene;

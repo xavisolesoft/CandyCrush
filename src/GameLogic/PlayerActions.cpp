@@ -4,8 +4,8 @@
 
 #include "../Geometry/Point.hpp"
 
-#include "../Scene/Board.hpp"
-#include "../Scene/Cell.hpp"
+#include "../GameBoard/Board.hpp"
+#include "../GameBoard/Cell.hpp"
 #include "../Gem/GemObject.hpp"
 
 #include "../Gem/MoveGemAnimation.hpp"

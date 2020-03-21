@@ -1,6 +1,6 @@
 #include "StarGameGemGenerator.hpp"
 
-#include "../Scene/Board.hpp"
+#include "../GameBoard/Board.hpp"
 
 #include "../Gem/GemGenerator.hpp"
 

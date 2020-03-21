@@ -1,7 +1,7 @@
 #include "LineMatcher.hpp"
 
 
-#include "../Scene/Board.hpp"
+#include "../GameBoard/Board.hpp"
 
 #include "../Geometry/Point.hpp"
 

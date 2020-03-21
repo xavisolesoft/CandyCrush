@@ -1,6 +1,6 @@
 #include "GemAnimationUpdater.hpp"
 
-#include "../Scene/Board.hpp"
+#include "../GameBoard/Board.hpp"
 #include "../Gem/GemGenerator.hpp"
 
 using namespace GameLogic;

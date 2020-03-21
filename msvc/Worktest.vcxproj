@@ -84,6 +84,8 @@
     <ClCompile Include="..\external\include\king\SdlSurface.cpp" />
     <ClCompile Include="..\external\include\king\SdlWindow.cpp" />
     <ClCompile Include="..\src\Animation\ComposedSequentialAnimation.cpp" />
+    <ClCompile Include="..\src\GameBoard\Board.cpp" />
+    <ClCompile Include="..\src\GameBoard\Cell.cpp" />
     <ClCompile Include="..\src\GameLogic\GameTimeController.cpp" />
     <ClCompile Include="..\src\GameLogic\GemAnimationUpdater.cpp" />
     <ClCompile Include="..\src\GameLogic\GemGravityShifter.cpp" />
@@ -101,8 +103,6 @@
     <ClCompile Include="..\src\main.cpp" />
     <ClCompile Include="..\src\Render\IRenderer.cpp" />
     <ClCompile Include="..\src\Render\RenderController.cpp" />
-    <ClCompile Include="..\src\Scene\Cell.cpp" />
-    <ClCompile Include="..\src\Scene\Board.cpp" />
     <ClCompile Include="..\src\Text\TextObject.cpp" />
     <ClCompile Include="..\src\Text\TextRenderer.cpp" />
     <ClCompile Include="..\src\Util\Debug.cpp" />
@@ -118,6 +118,8 @@
     <ClInclude Include="..\external\include\king\Updater.h" />
     <ClInclude Include="..\src\Animation\IAnimation.hpp" />
     <ClInclude Include="..\src\Animation\ComposedSequentialAnimation.hpp" />
+    <ClInclude Include="..\src\GameBoard\Board.hpp" />
+    <ClInclude Include="..\src\GameBoard\Cell.hpp" />
     <ClInclude Include="..\src\GameLogic\GameTimeController.hpp" />
     <ClInclude Include="..\src\GameLogic\GemAnimationUpdater.hpp" />
     <ClInclude Include="..\src\GameLogic\GemGravityShifter.hpp" />
@@ -137,8 +139,6 @@
     <ClInclude Include="..\src\Geometry\Vector.hpp" />
     <ClInclude Include="..\src\Render\IRenderer.hpp" />
     <ClInclude Include="..\src\Render\RenderController.hpp" />
-    <ClInclude Include="..\src\Scene\Cell.hpp" />
-    <ClInclude Include="..\src\Scene\Board.hpp" />
     <ClInclude Include="..\src\Text\TextObject.hpp" />
     <ClInclude Include="..\src\Text\TextRenderer.hpp" />
     <ClInclude Include="..\src\Util\Debug.hpp" />

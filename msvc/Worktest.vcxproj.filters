@@ -22,12 +22,6 @@
     <Filter Include="Header Files\Geometry">
       <UniqueIdentifier>{b45eb4b4-7538-41fa-b920-92bf43103c4d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Scene">
-      <UniqueIdentifier>{77e9c349-1ab7-47a7-b5b1-461c4ecf3aab}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Scene">
-      <UniqueIdentifier>{be4772fd-1abb-4536-8032-1c036077b64f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Util">
       <UniqueIdentifier>{ed730073-e900-4191-b441-fd6bcab322e0}</UniqueIdentifier>
     </Filter>
@@ -70,6 +64,12 @@
     <Filter Include="Source Files\Text">
       <UniqueIdentifier>{bccedf3b-df21-4696-be37-fa15cafc2b7b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\GameBoard">
+      <UniqueIdentifier>{94c7d182-97ac-4691-ae03-2cdfba7e94bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameBoard">
+      <UniqueIdentifier>{0dbe33b4-da2b-4d9c-9d11-942e91673e2e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -92,9 +92,6 @@
     </ClCompile>
     <ClCompile Include="..\external\include\king\SdlSurface.cpp">
       <Filter>Source Files\kinglib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\Scene\Cell.cpp">
-      <Filter>Source Files\Scene</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Util\Debug.cpp">
       <Filter>Source Files\Util</Filter>
@@ -159,8 +156,11 @@
     <ClCompile Include="..\src\Text\TextRenderer.cpp">
       <Filter>Source Files\Text</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\Scene\Board.cpp">
-      <Filter>Source Files\Scene</Filter>
+    <ClCompile Include="..\src\GameBoard\Cell.cpp">
+      <Filter>Source Files\GameBoard</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GameBoard\Board.cpp">
+      <Filter>Source Files\GameBoard</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -193,9 +193,6 @@
     </ClInclude>
     <ClInclude Include="..\src\Geometry\Vector.hpp">
       <Filter>Header Files\Geometry</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\Scene\Cell.hpp">
-      <Filter>Header Files\Scene</Filter>
     </ClInclude>
     <ClInclude Include="..\src\Util\Debug.hpp">
       <Filter>Header Files\Util</Filter>
@@ -266,8 +263,11 @@
     <ClInclude Include="..\src\Text\TextRenderer.hpp">
       <Filter>Header Files\Text</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\Scene\Board.hpp">
-      <Filter>Header Files\Scene</Filter>
+    <ClInclude Include="..\src\GameBoard\Board.hpp">
+      <Filter>Header Files\GameBoard</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GameBoard\Cell.hpp">
+      <Filter>Header Files\GameBoard</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

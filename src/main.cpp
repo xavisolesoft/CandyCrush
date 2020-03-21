@@ -13,8 +13,8 @@
 #include <king/Updater.h>
 
 #include "Gem/GemGenerator.hpp"
-#include "Scene/Board.hpp"
-#include "Scene/Cell.hpp"
+#include "GameBoard/Board.hpp"
+#include "GameBoard/Cell.hpp"
 #include "Gem/GemObject.hpp"
 
 #include "Render/RenderController.hpp"
