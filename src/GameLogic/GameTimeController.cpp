@@ -24,7 +24,7 @@ void GameTimeController::start(std::clock_t gameDurationSecs)
 	GUIRenderController::getInstance().add(*timerTittle, *(new TextRenderer()));
 
 	timerObject.reset(new TextObject(1));
-	timerObject->setWorldPos(Geometry::Point<float>(76.0f, 445.0f));
+	timerObject->setWorldPos(Geometry::Point<float>(70.0f, 445.0f));
 	GUIRenderController::getInstance().add(*timerObject, *(new TextRenderer()));
 
 	gameStartTimeSecs = std::clock();

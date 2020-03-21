@@ -10,6 +10,8 @@
 
 using namespace Scene;
 
+const int GamePlayScene::GAME_DURATION_SECS = 1;
+
 GamePlayScene::GamePlayScene(King::Engine& engine,
 							GameBoard::Board& gameBoard,
 							Gem::GemGenerator& gemGenerator) :
@@ -34,7 +36,7 @@ void GamePlayScene::init()
 
 void GamePlayScene::start()
 {
-	gameTimeController.start(1000);
+	gameTimeController.start(GAME_DURATION_SECS);
 }
 
 void GamePlayScene::update()

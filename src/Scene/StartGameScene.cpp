@@ -25,7 +25,7 @@ StartGameScene::~StartGameScene()
 
 void StartGameScene::start()
 {
-	createTextGameObject("Click to Start", Geometry::Point<float>(405, 260));
+	createTextGameObject("Click to Start", Geometry::Point<float>(405, 48));
 }
 
 void StartGameScene::update()

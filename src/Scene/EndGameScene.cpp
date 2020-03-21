@@ -38,7 +38,7 @@ bool EndGameScene::haveEnd()
 void EndGameScene::createTheEndTextObject() const
 {
 	auto theEndTextObject = new Text::TextObject(0);
-	theEndTextObject->setWorldPos(Geometry::Point<float>(445, 260));
+	theEndTextObject->setWorldPos(Geometry::Point<float>(445, 48));
 	theEndTextObject->setText("The End");
 
 	auto textRenderer = new Text::TextRenderer();

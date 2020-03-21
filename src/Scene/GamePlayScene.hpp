@@ -50,5 +50,7 @@ namespace Scene {
 		GameLogic::GemGravityShifter gemGravityShifter;
 		
 		bool isFirstUpdate;
+
+		static const int GAME_DURATION_SECS;
 	};
 }
