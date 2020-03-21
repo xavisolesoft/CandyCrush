@@ -37,7 +37,9 @@ void GamePlayScene::update()
 
 	gemAnimationUpdater.update(gameBoard);
 
-	playerActions.update(engine.GetMouseButtonDown(), engine.GetMouseX(), engine.GetMouseY());
+	if (!gameTimeController.isTheEnd()) {
+		playerActions.update(engine.GetMouseButtonDown(), engine.GetMouseX(), engine.GetMouseY());
+	}
 
 	if (!gameBoard.isAnyCellEmpty() && !gameBoard.isAnyGemAnimated()) {
 		lineRemover.update(gameBoard);
@@ -50,5 +52,5 @@ void GamePlayScene::update()
 
 bool GamePlayScene::haveEnd()
 {
-	return gameTimeController.isTheEnd();
+	return gameTimeController.isTheEnd() && !gameBoard.isAnyGemAnimated();
 }
