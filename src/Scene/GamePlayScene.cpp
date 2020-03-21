@@ -10,7 +10,7 @@
 
 using namespace Scene;
 
-const int GamePlayScene::GAME_DURATION_SECS = 1;
+const int GamePlayScene::GAME_DURATION_SECS = 60;
 
 GamePlayScene::GamePlayScene(King::Engine& engine,
 							GameBoard::Board& gameBoard,

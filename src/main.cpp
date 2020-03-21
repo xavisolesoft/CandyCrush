@@ -1,5 +1,7 @@
 #define GLM_FORCE_RADIANS
 
+#include <ctime>
+
 #include <king/Engine.h>
 #include <king/Updater.h>
 
@@ -39,7 +41,7 @@ public:
 		gameBoard.setTopLeft(Geometry::Point<float>(320.0f, 100.0f));
 		gameBoard.calculateBBoxes();
 
-		gemGenerator.setSeed(60);
+		gemGenerator.setSeed(std::clock());
 
 		gamePlayScene.init();
 
