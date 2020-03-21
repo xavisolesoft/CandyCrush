@@ -15,7 +15,8 @@ using namespace Util;
 
 GemGenerator::GemGenerator(Render::RenderController& renderController) :
 	nextGemId(0),
-	renderController(renderController)
+	renderController(renderController),
+	numDestroyedGems(0)
 {
 	std::srand(60);
 }
@@ -31,6 +32,7 @@ std::shared_ptr<GemObject> GemGenerator::createNextGem()
 														generateNextGemType()),
 										[this](GemObject* gem) {
 											renderController.remove(*gem);
+											numDestroyedGems++;
 											Debug() << "DELETED_GEM(" << gem->getId() << ", " << (int)gem->getGemType() << ")";
 										});
 
@@ -45,6 +47,16 @@ std::shared_ptr<GemObject> GemGenerator::createNextGem()
 void GemGenerator::setSeed(unsigned value)
 {
 	std::srand(value);
+}
+
+void GemGenerator::resetNumDestroyedGems()
+{
+	numDestroyedGems = 0;
+}
+
+long GemGenerator::getNumDestroyedGems() const
+{
+	return numDestroyedGems;
 }
 
 long GemGenerator::genereateNextId()

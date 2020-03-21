@@ -1,7 +1,5 @@
 #pragma once
 
-#include <ctime>
-
 namespace Geometry
 {
 	template<class T>
@@ -13,11 +11,16 @@ namespace Text
 	class TextObject;
 }
 
-namespace Util {
-	class FPSDisplay
+namespace Gem
+{
+	class GemGenerator;
+}
+
+namespace GameLogic {
+	class ScoreCounter
 	{
 	public:
-		FPSDisplay();
+		ScoreCounter(Gem::GemGenerator& gemGenerator);
 
 		void start();
 		void update();
@@ -25,9 +28,7 @@ namespace Util {
 	private:
 		Text::TextObject& createTextGameObject(const Geometry::Point<float>& point);
 
-		std::clock_t timeFormLastMeasure;
-		int fps;
-		int nextTextGameObjectId;
-		Text::TextObject* fpsDisplayObject;
+		Text::TextObject* scoreObject;
+		Gem::GemGenerator& gemGenerator;
 	};
 }

@@ -69,7 +69,7 @@ void PlayerActions::update(bool mouseButtonDown, float mouseX, float mouseY)
 		if (!prevSelectedGem.expired()) {
 			std::shared_ptr<GemObject>(prevSelectedGem)->setScale(1.0f);
 		}
-		selectedCell == nullptr;
+		selectedCell = nullptr;
 		prevSelectedGem.reset();
 	}
 

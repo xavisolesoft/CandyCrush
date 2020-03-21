@@ -7,6 +7,7 @@
 #include "../GameLogic/GemAnimationUpdater.hpp"
 #include "../GameLogic/SpawnGemGenerator.hpp"
 #include "../GameLogic/GemGravityShifter.hpp"
+#include "../GameLogic/ScoreCounter.hpp"
 
 namespace GameBoard
 {
@@ -48,6 +49,7 @@ namespace Scene {
 		GameLogic::GemAnimationUpdater gemAnimationUpdater;
 		GameLogic::SpawnGemGenerator spawnGemGenerator;
 		GameLogic::GemGravityShifter gemGravityShifter;
+		GameLogic::ScoreCounter scoreCounter;
 		
 		bool isFirstUpdate;
 

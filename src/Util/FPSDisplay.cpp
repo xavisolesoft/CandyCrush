@@ -13,6 +13,7 @@
 using namespace Util;
 using namespace Geometry;
 using namespace Text;
+using namespace Render;
 
 FPSDisplay::FPSDisplay() :
 	nextTextGameObjectId(0)
@@ -21,7 +22,7 @@ FPSDisplay::FPSDisplay() :
 
 void FPSDisplay::start()
 {
-	timeF = std::clock();
+	timeFormLastMeasure = std::clock();
 	fps = 0;
 	fpsDisplayObject = &createTextGameObject(Point<float>(10, 0));
 	fpsDisplayObject->setText("FPS: ");
@@ -29,12 +30,12 @@ void FPSDisplay::start()
 
 void FPSDisplay::update()
 {
-	if ((std::clock() - timeF) >= CLOCKS_PER_SEC) {
+	if ((std::clock() - timeFormLastMeasure) >= CLOCKS_PER_SEC) {
 		std::stringstream sstream;
 		sstream << "FPS: " << fps;
 		fpsDisplayObject->setText(std::move(sstream.str()));
 		fps = 0;
-		timeF = std::clock();
+		timeFormLastMeasure = std::clock();
 	}
 	else {
 		fps++;
@@ -47,7 +48,7 @@ Text::TextObject& FPSDisplay::createTextGameObject(const Geometry::Point<float>&
 	textObject->setWorldPos(point);
 
 	auto textRenderer = new TextRenderer();
-	Render::GameRenderController::getInstance().add(*textObject, *textRenderer);
+	GameRenderController::getInstance().add(*textObject, *textRenderer);
 
 	return *textObject;
 }

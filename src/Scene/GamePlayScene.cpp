@@ -19,7 +19,8 @@ GamePlayScene::GamePlayScene(King::Engine& engine,
 	gameBoard(gameBoard),
 	gemGenerator(gemGenerator),
 	playerActions(gameBoard),
-	isFirstUpdate(isFirstUpdate)
+	isFirstUpdate(isFirstUpdate),
+	scoreCounter(gemGenerator)
 {
 }
 
@@ -37,6 +38,7 @@ void GamePlayScene::init()
 void GamePlayScene::start()
 {
 	gameTimeController.start(GAME_DURATION_SECS);
+	scoreCounter.start();
 }
 
 void GamePlayScene::update()
@@ -47,6 +49,7 @@ void GamePlayScene::update()
 	}
 
 	gameTimeController.update();
+	scoreCounter.update();
 
 	gemAnimationUpdater.update(gameBoard);
 

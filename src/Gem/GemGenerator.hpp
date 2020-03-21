@@ -20,6 +20,8 @@ namespace Gem {
 		std::shared_ptr<GemObject> createNextGem();
 
 		void setSeed(unsigned value);
+		void resetNumDestroyedGems();
+		long getNumDestroyedGems() const;
 
 	private:
 		long genereateNextId();
@@ -27,5 +29,6 @@ namespace Gem {
 
 		std::atomic<long> nextGemId;
 		Render::RenderController& renderController;
+		long numDestroyedGems;
 	};
 }

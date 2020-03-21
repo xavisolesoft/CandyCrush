@@ -92,6 +92,7 @@
     <ClCompile Include="..\src\GameLogic\LineMatcher.cpp" />
     <ClCompile Include="..\src\GameLogic\LineRemover.cpp" />
     <ClCompile Include="..\src\GameLogic\PlayerActions.cpp" />
+    <ClCompile Include="..\src\GameLogic\ScoreCounter.cpp" />
     <ClCompile Include="..\src\GameLogic\SpawnGemGenerator.cpp" />
     <ClCompile Include="..\src\GameLogic\StarGameGemGenerator.cpp" />
     <ClCompile Include="..\src\GameObject\IGameObject.cpp" />
@@ -133,6 +134,7 @@
     <ClInclude Include="..\src\GameLogic\LineMatcher.hpp" />
     <ClInclude Include="..\src\GameLogic\LineRemover.hpp" />
     <ClInclude Include="..\src\GameLogic\PlayerActions.hpp" />
+    <ClInclude Include="..\src\GameLogic\ScoreCounter.hpp" />
     <ClInclude Include="..\src\GameLogic\SpawnGemGenerator.hpp" />
     <ClInclude Include="..\src\GameLogic\StarGameGemGenerator.hpp" />
     <ClInclude Include="..\src\GameObject\IGameObject.hpp" />
