@@ -41,6 +41,7 @@ namespace GameBoard {
 		void calculateBBoxes();
 
 		const Cell* getCellFromWorldPos(float xWorld, float yWorld) const;
+		Geometry::Point<float> getWorldPosFromCell(int xCell, int yCell) const;
 
 		bool isValidCell(int i, int j) const;
 		bool isAnyCellEmpty() const;

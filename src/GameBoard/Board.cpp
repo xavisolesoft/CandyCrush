@@ -81,7 +81,7 @@ void Board::setGemToCell(int x, int y, std::shared_ptr<GemObject> gem)
 {
 	if (isValidCell(x, y)) {
 		cells[x][y].setGem(gem);
-		if (gem) {
+		if (gem && gem->isUserInteractionEnabled()) {
 			gem->setWorldPos(cells[x][y].getBBox().getTopLeft());
 		}
 	}
@@ -134,6 +134,17 @@ const Cell* Board::getCellFromWorldPos(float xWorld, float yWorld) const
 	}
 	
 	return nullptr;
+}
+
+Point<float> Board::getWorldPosFromCell(int xCell, int yCell) const
+{
+	if (!isValidCell(xCell, yCell)) {
+		return topLeft;
+	}
+
+	return topLeft + Point<float>(cellWidth*xCell, cellHeight*yCell);
+
+	return Point<float>();
 }
 
 bool Board::isValidCell(int i, int j) const

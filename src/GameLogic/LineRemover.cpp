@@ -23,9 +23,9 @@ void LineRemover::update(Board& gameBoard)
 		for (const Geometry::Point<int>& point : line) {
 			auto gem = gameBoard.getGemFromCell((int)point.getX(), (int)point.getY());
 			long gemId = -1;
-			if (gem) {
+			if (gem && gem->isUserInteractionEnabled()) {
 				gemId = gem->getId();
-				auto destroyGemAnimation = new Animation::DestroyGemAnimation();
+				auto destroyGemAnimation = new Gem::DestroyGemAnimation();
 				destroyGemAnimation->setGem(gem,
 					[&gameBoard, point]() {
 						gameBoard.setGemToCell((int)point.getX(), (int)point.getY(), nullptr);

@@ -12,15 +12,15 @@ MoveGemAnimation::MoveGemAnimation() :
 
 }
 
-Animation::MoveGemAnimation::~MoveGemAnimation()
+MoveGemAnimation::~MoveGemAnimation()
 {
 }
 
-void MoveGemAnimation::start(std::shared_ptr<GemObject> gem, const Point<float>& source, const Point<float>& destination, int steps, float perideSeconds)
+void MoveGemAnimation::start(std::shared_ptr<GemObject> gem, const Point<float>& origin, const Point<float>& destination, int steps, float perideSeconds)
 {
 	this->gem = gem;
-	this->source = source;
-	this->move = destination - source;
+	this->origin = origin;
+	this->move = destination - origin;
 	TOTAL_STEPS = steps;
 	PERIODE_SECONDS = perideSeconds;
 	lastUpdate = 0;
@@ -32,7 +32,7 @@ bool MoveGemAnimation::update()
 {
 	if (currentStep < TOTAL_STEPS && (std::clock() - lastUpdate) / (double)CLOCKS_PER_SEC >= PERIODE_SECONDS) {
 		++currentStep;
-		gem->setWorldPos(source + (move/(float)TOTAL_STEPS)*(float)currentStep);
+		gem->setWorldPos(origin + (move/(float)TOTAL_STEPS)*(float)currentStep);
 		
 		lastUpdate = std::clock();
 	}

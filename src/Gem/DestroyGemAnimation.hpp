@@ -12,9 +12,9 @@ namespace Gem
 	class GemObject;
 }
 
-namespace Animation {
+namespace Gem {
 	class DestroyGemAnimation :
-		public IAnimation
+		public Animation::IAnimation
 	{
 	public:
 		DestroyGemAnimation();
