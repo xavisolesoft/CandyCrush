@@ -34,7 +34,7 @@ void GamePlayScene::init()
 
 void GamePlayScene::start()
 {
-	gameTimeController.start(8);
+	gameTimeController.start(1000);
 }
 
 void GamePlayScene::update()

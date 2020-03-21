@@ -7,7 +7,8 @@ using namespace Geometry;
 using namespace Gem;
 
 MoveGemAnimation::MoveGemAnimation() :
-	lastUpdate(0)
+	lastUpdate(0),
+	stepFunctionTrigger(-1)
 {
 
 }
@@ -16,8 +17,9 @@ MoveGemAnimation::~MoveGemAnimation()
 {
 }
 
-void MoveGemAnimation::setEndFunction(std::function<void()> animationEndFunction)
+void MoveGemAnimation::setStepTriggeredFunction(int stepNumber, std::function<void()> animationEndFunction)
 {
+	stepFunctionTrigger = stepNumber;
 	this->animationEndFunction = animationEndFunction;
 }
 
@@ -43,7 +45,7 @@ bool MoveGemAnimation::update()
 	}
 
 	bool end = currentStep >= TOTAL_STEPS;
-	if (end && animationEndFunction) {
+	if (currentStep == stepFunctionTrigger && animationEndFunction) {
 		animationEndFunction();
 	}
 

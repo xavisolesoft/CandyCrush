@@ -17,7 +17,7 @@ namespace Gem {
 		MoveGemAnimation();
 		~MoveGemAnimation();
 		
-		void setEndFunction(std::function<void()> animationEndFunction);
+		void setStepTriggeredFunction(int stepNumber, std::function<void()> animationEndFunction);
 
 		void start(std::shared_ptr<Gem::GemObject> gem, const Geometry::Point<float>& origin, const Geometry::Point<float>& destination, int steps, float perideSeconds);
 
@@ -32,6 +32,7 @@ namespace Gem {
 		int TOTAL_STEPS;
 		float PERIODE_SECONDS;
 		int currentStep;
+		int stepFunctionTrigger;
 
 		std::function<void()> animationEndFunction;
 	};

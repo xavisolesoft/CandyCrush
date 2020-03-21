@@ -28,9 +28,11 @@ void GemGravityShifter::update(Board& gameBoard)
 				Point<float> origin = gameBoard.getWorldPosFromCell(i, j - 1);
 				animation1->start(upperGem, origin, destination, 10, 0.01f);
 				upperGem->setAnimation(*animation1);
-				animation1->setEndFunction([&gameBoard, i, j]() {
-												gameBoard.swap(i, j, i, j - 1);
-											});
+				animation1->setStepTriggeredFunction(5,
+													[&gameBoard, &gem, i, j]() {
+														gameBoard.setGemToCell(i, j, gem);
+														gameBoard.setGemToCell(i, j - 1, nullptr);
+													});
 			}
 		}
 	}
