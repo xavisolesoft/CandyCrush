@@ -17,6 +17,7 @@
 #include "GameBoard/Board.hpp"
 #include "GameBoard/Cell.hpp"
 
+#include "Scene/StartGameScene.hpp"
 #include "Scene/GamePlayScene.hpp"
 #include "Scene/EndGameScene.hpp"
 
@@ -33,8 +34,8 @@ public:
 	ExampleGame()
 		: mEngine("./assets")
 		, gemGenerator(Render::GameRenderController::getInstance())
+		, startGameScene(mEngine)
 		, gamePlayScene(mEngine, gameBoard, gemGenerator)
-		, prevScene(nullptr)
 	{
 		Render::GameRenderController::getInstance().setEngine(&mEngine);
 		Render::GUIRenderController::getInstance().setEngine(&mEngine);
@@ -59,16 +60,14 @@ public:
 	{
 		mEngine.Render(King::Engine::TEXTURE_BACKGROUND, 0.0f, 0.0f);
 
-		if (!gamePlayScene.end()) {
+		if (!startGameScene.haveEnd()){
+			startGameScene.update();
+		}
+		else if (!gamePlayScene.haveEnd()) {
 			gamePlayScene.update();
-			prevScene = &gamePlayScene;
 		}
 		else {
-			if (prevScene && prevScene->end()) {
-				endGameScene.start();
-			}
 			endGameScene.update();
-			prevScene = &endGameScene;
 		}
 
 		Render::GameRenderController::getInstance().update();
@@ -85,9 +84,9 @@ private:
 	King::Engine mEngine;
 	Gem::GemGenerator gemGenerator;
 	GameBoard::Board gameBoard;
+	Scene::StartGameScene startGameScene;
 	Scene::GamePlayScene gamePlayScene;
 	Scene::EndGameScene endGameScene;
-	Scene::IScene* prevScene;
 };
 
 //**********************************************************************

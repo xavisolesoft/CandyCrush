@@ -48,7 +48,7 @@ void GamePlayScene::update()
 	spawnGemGenerator.update(gameBoard, gemGenerator);
 }
 
-bool GamePlayScene::end()
+bool GamePlayScene::haveEnd()
 {
 	return gameTimeController.isTheEnd();
 }

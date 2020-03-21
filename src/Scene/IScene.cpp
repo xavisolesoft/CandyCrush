@@ -15,17 +15,12 @@ void IScene::init()
 {
 }
 
-void IScene::start()
-{
-	
-}
-
 void IScene::update()
 {
 	
 }
 
-bool IScene::end()
+bool IScene::haveEnd()
 {
 	return false;
 }

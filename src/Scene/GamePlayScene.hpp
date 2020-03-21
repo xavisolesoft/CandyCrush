@@ -35,7 +35,7 @@ namespace Scene {
 		
 		void init() override;
 		void update() override;
-		bool end() override;
+		bool haveEnd() override;
 
 	private:
 		King::Engine& engine;

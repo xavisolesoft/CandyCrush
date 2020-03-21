@@ -7,7 +7,8 @@
 
 using namespace Scene;
 
-EndGameScene::EndGameScene()
+EndGameScene::EndGameScene() :
+	isFirstUpdate(true)
 {
 }
 
@@ -23,10 +24,13 @@ void EndGameScene::start()
 
 void EndGameScene::update()
 {
-	
+	if (isFirstUpdate) {
+		start();
+		isFirstUpdate = false;
+	}
 }
 
-bool EndGameScene::end()
+bool EndGameScene::haveEnd()
 {
 	return false;
 }

@@ -2,21 +2,6 @@
 
 #include "../Scene/IScene.hpp"
 
-namespace GameBoard
-{
-	class Board;
-}
-
-namespace Gem
-{
-	class GemGenerator;
-}
-
-namespace King
-{
-	class Engine;
-}
-
 namespace Scene {
 	class EndGameScene :
 		public IScene
@@ -25,11 +10,13 @@ namespace Scene {
 		EndGameScene();
 		~EndGameScene();
 		
-		void start() override;
+		void start();
 		void update() override;
-		bool end() override;
+		bool haveEnd() override;
 
 	private:
 		void createTheEndTextObject() const;
+
+		bool isFirstUpdate;
 	};
 }

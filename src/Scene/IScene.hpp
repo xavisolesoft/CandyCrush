@@ -8,8 +8,7 @@ namespace Scene {
 		virtual ~IScene();
 		
 		virtual void init();
-		virtual void start();
 		virtual void update();
-		virtual bool end();
+		virtual bool haveEnd();
 	};
 }
