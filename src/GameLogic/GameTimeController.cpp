@@ -11,7 +11,8 @@ using namespace GameLogic;
 using namespace Text;
 using namespace Render;
 
-GameTimeController::GameTimeController()
+GameTimeController::GameTimeController() :
+	started(false)
 {
 }
 
@@ -28,6 +29,8 @@ void GameTimeController::start(std::clock_t gameDurationSecs)
 
 	gameStartTimeSecs = std::clock();
 	gameEndTimeSecs = gameStartTimeSecs + gameDurationSecs*CLOCKS_PER_SEC;
+
+	started = true;
 }
 
 void GameTimeController::update()
@@ -54,5 +57,5 @@ std::string GameTimeController::getGameRemaningTimeStr() const
 
 bool GameTimeController::isTheEnd() const
 {
-	return gameEndTimeSecs <= std::clock();
+	return started && gameEndTimeSecs <= std::clock();
 }

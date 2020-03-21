@@ -28,5 +28,7 @@ namespace GameLogic {
 
 		std::unique_ptr<Text::TextObject> timerTittle;
 		std::unique_ptr<Text::TextObject> timerObject;
+
+		bool started;
 	};
 }

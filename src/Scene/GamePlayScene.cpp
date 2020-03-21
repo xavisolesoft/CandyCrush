@@ -16,7 +16,8 @@ GamePlayScene::GamePlayScene(King::Engine& engine,
 	engine(engine),
 	gameBoard(gameBoard),
 	gemGenerator(gemGenerator),
-	playerActions(gameBoard)
+	playerActions(gameBoard),
+	isFirstUpdate(isFirstUpdate)
 {
 }
 
@@ -29,12 +30,20 @@ void GamePlayScene::init()
 {
 	GameLogic::StarGameGemGenerator startGameGenerator;
 	startGameGenerator.generateStartConfiguration(gameBoard, gemGenerator);
+}
 
+void GamePlayScene::start()
+{
 	gameTimeController.start(8);
 }
 
 void GamePlayScene::update()
 {
+	if (isFirstUpdate) {
+		start();
+		isFirstUpdate = false;
+	}
+
 	gameTimeController.update();
 
 	gemAnimationUpdater.update(gameBoard);

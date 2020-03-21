@@ -34,6 +34,7 @@ namespace Scene {
 		~GamePlayScene();
 		
 		void init() override;
+		void start();
 		void update() override;
 		bool haveEnd() override;
 
@@ -47,5 +48,7 @@ namespace Scene {
 		GameLogic::GemAnimationUpdater gemAnimationUpdater;
 		GameLogic::SpawnGemGenerator spawnGemGenerator;
 		GameLogic::GemGravityShifter gemGravityShifter;
+		
+		bool isFirstUpdate;
 	};
 }
