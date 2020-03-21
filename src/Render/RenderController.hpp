@@ -5,8 +5,6 @@
 
 #include <king/Engine.h>
 
-#include "../Util/Singleton.hpp"
-
 namespace Render
 {
 	class IRenderer;
@@ -18,8 +16,7 @@ namespace GameObject
 }
 
 namespace Render {
-	class RenderController :
-		public Util::ISingleton<RenderController>
+	class RenderController
 	{
 	public:
 		RenderController();
