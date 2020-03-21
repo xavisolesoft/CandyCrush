@@ -20,6 +20,9 @@ using namespace GameBoard;
 using namespace Animation;
 using namespace Util;
 
+const int PlayerActions::SWAP_ANIMATION_STEPS = 50;
+const float PlayerActions::SWAP_ANIMATION_PERIODE_SECONDS = 0.01f;
+
 PlayerActions::PlayerActions(Board& gameBoard) :
 	gameBoard(gameBoard),
 	lineMatcher(gameBoard),
@@ -115,8 +118,10 @@ void PlayerActions::trySwapGems(const Cell& cell1, const Cell& cell2)
 	std::vector<std::vector<Point<int>> > lines = lineMatcher.getBoardLines();
 	if (!LineMatcher::containsCell(lines, Point<int>(cell1.getBoardPos())) &&
 		!LineMatcher::containsCell(lines, Point<int>(cell2.getBoardPos()))) {
+		gameBoard.swap(cell1.getXCell(), cell1.getYCell(), cell2.getXCell(), cell2.getYCell());
+		//gameBoard.setGemToCell(cell1.getXCell(), cell1.getYCell(), gem1);
+		//gameBoard.setGemToCell(cell2.getXCell(), cell2.getYCell(), gem2);
 		appendSwapReturnAnimations(gem2, gem1);
-		gameBoard.swap(gem2, gem1);
 	}
 	else {
 		Util::Debug() << "SWAP_CELL(" << cell1.getXCell() << ", " << cell1.getYCell() << ")"
@@ -130,25 +135,25 @@ void PlayerActions::trySwapGems(const Cell& cell1, const Cell& cell2)
 void PlayerActions::setSwapAnimations(std::shared_ptr<GemObject> gem1, std::shared_ptr<GemObject> gem2)
 {
 	auto animation1 = new MoveGemAnimation();
-	animation1->start(gem1, gem1->getWorldPos(), gem2->getWorldPos(), 10, 0.01f);
+	animation1->start(gem1, gem1->getWorldPos(), gem2->getWorldPos(), SWAP_ANIMATION_STEPS, SWAP_ANIMATION_PERIODE_SECONDS);
 	gem1->setAnimation(*animation1);
 
 	auto animation2 = new MoveGemAnimation();
-	animation2->start(gem2, gem2->getWorldPos(), gem1->getWorldPos(), 10, 0.01f);
+	animation2->start(gem2, gem2->getWorldPos(), gem1->getWorldPos(), SWAP_ANIMATION_STEPS, SWAP_ANIMATION_PERIODE_SECONDS);
 	gem2->setAnimation(*animation2);
 }
 
 void PlayerActions::appendSwapReturnAnimations(std::shared_ptr<GemObject> gem1, std::shared_ptr<GemObject> gem2)
 {
 	auto swapReturnAnimtion1 = new MoveGemAnimation();
-	swapReturnAnimtion1->start(gem1, gem1->getWorldPos(), gem2->getWorldPos(), 10, 0.01f);
+	swapReturnAnimtion1->start(gem1, gem2->getWorldPos(), gem1->getWorldPos(), SWAP_ANIMATION_STEPS, SWAP_ANIMATION_PERIODE_SECONDS);
 	auto composedAnimation1 = new ComposedSequentialAnimation();
 	composedAnimation1->appendAnimation(*gem1->getAnimation());
 	composedAnimation1->appendAnimation(*swapReturnAnimtion1);
 	gem1->setAnimation(*composedAnimation1);
 
 	auto swapReturnAnimtion2 = new MoveGemAnimation();
-	swapReturnAnimtion2->start(gem2, gem2->getWorldPos(), gem1->getWorldPos(), 10, 0.01f);
+	swapReturnAnimtion2->start(gem2, gem1->getWorldPos(), gem2->getWorldPos(), SWAP_ANIMATION_STEPS, SWAP_ANIMATION_PERIODE_SECONDS);
 	auto composedAnimation2 = new ComposedSequentialAnimation();
 	composedAnimation2->appendAnimation(*gem2->getAnimation());
 	composedAnimation2->appendAnimation(*swapReturnAnimtion2);

@@ -45,5 +45,8 @@ namespace GameLogic {
 		bool prevMouseButtonDown;
 		const GameBoard::Cell* dragStartCell;
 		bool dragAborted;
+
+		static const int SWAP_ANIMATION_STEPS;
+		static const float SWAP_ANIMATION_PERIODE_SECONDS;
 	};
 }
