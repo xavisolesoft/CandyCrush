@@ -2,6 +2,8 @@
 
 #include <king/Engine.h>
 
+#include "../Render/GUIRenderController.hpp"
+
 #include "../GameLogic/StarGameGemGenerator.hpp"
 
 #include "../GameBoard/Board.hpp"
@@ -48,6 +50,10 @@ void GamePlayScene::update()
 	gemGravityShifter.update(gameBoard);
 
 	spawnGemGenerator.update(gameBoard, gemGenerator);
+
+	if (haveEnd()) {
+		Render::GUIRenderController::getInstance().removeAll();
+	}
 }
 
 bool GamePlayScene::haveEnd()

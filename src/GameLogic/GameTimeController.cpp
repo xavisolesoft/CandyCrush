@@ -5,7 +5,7 @@
 #include "../Text/TextRenderer.hpp"
 #include "../Text/TextObject.hpp"
 
-#include "../Render/GameRenderController.hpp"
+#include "../Render/GUIRenderController.hpp"
 
 using namespace GameLogic;
 using namespace Text;
@@ -20,11 +20,11 @@ void GameTimeController::start(std::clock_t gameDurationSecs)
 	timerTittle.reset(new TextObject(0));
 	timerTittle->setWorldPos(Geometry::Point<float>(44.0f, 386.0f));
 	timerTittle->setText("Time:");
-	GameRenderController::getInstance().add(*timerTittle, *(new TextRenderer()));
+	GUIRenderController::getInstance().add(*timerTittle, *(new TextRenderer()));
 
 	timerObject.reset(new TextObject(1));
 	timerObject->setWorldPos(Geometry::Point<float>(76.0f, 445.0f));
-	GameRenderController::getInstance().add(*timerObject, *(new TextRenderer()));
+	GUIRenderController::getInstance().add(*timerObject, *(new TextRenderer()));
 
 	gameStartTimeSecs = std::clock();
 	gameEndTimeSecs = gameStartTimeSecs + gameDurationSecs*CLOCKS_PER_SEC;
