@@ -13,10 +13,10 @@ namespace Gem
 }
 
 namespace Scene {
-	class GameBoard
+	class Board
 	{
 	public:
-		GameBoard();
+		Board();
 
 		Geometry::BBox<float> getBBox() const;
 		Geometry::BBox<float> getCellBBox(int x, int y) const;

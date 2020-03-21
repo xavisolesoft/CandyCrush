@@ -4,7 +4,7 @@
 
 namespace Scene
 {
-	class GameBoard;
+	class Board;
 }
 
 namespace GameLogic {
@@ -13,7 +13,7 @@ namespace GameLogic {
 	public:
 		GemGravityShifter();
 
-		void update(Scene::GameBoard& gameBoard);
+		void update(Scene::Board& gameBoard);
 
 	private:
 		static const double SHIFT_PERIODE_SECS;

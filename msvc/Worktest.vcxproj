@@ -102,7 +102,7 @@
     <ClCompile Include="..\src\Render\IRenderer.cpp" />
     <ClCompile Include="..\src\Render\RenderController.cpp" />
     <ClCompile Include="..\src\Scene\Cell.cpp" />
-    <ClCompile Include="..\src\Scene\GameBoard.cpp" />
+    <ClCompile Include="..\src\Scene\Board.cpp" />
     <ClCompile Include="..\src\Text\TextObject.cpp" />
     <ClCompile Include="..\src\Text\TextRenderer.cpp" />
     <ClCompile Include="..\src\Util\Debug.cpp" />
@@ -138,7 +138,7 @@
     <ClInclude Include="..\src\Render\IRenderer.hpp" />
     <ClInclude Include="..\src\Render\RenderController.hpp" />
     <ClInclude Include="..\src\Scene\Cell.hpp" />
-    <ClInclude Include="..\src\Scene\GameBoard.hpp" />
+    <ClInclude Include="..\src\Scene\Board.hpp" />
     <ClInclude Include="..\src\Text\TextObject.hpp" />
     <ClInclude Include="..\src\Text\TextRenderer.hpp" />
     <ClInclude Include="..\src\Util\Debug.hpp" />

@@ -2,7 +2,7 @@
 
 namespace Scene
 {
-	class GameBoard;
+	class Board;
 }
 
 namespace GameLogic {
@@ -11,6 +11,6 @@ namespace GameLogic {
 	public:
 		GemAnimationUpdater();
 
-		void update(Scene::GameBoard& gameBoard);
+		void update(Scene::Board& gameBoard);
 	};
 }

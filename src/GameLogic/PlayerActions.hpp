@@ -6,7 +6,7 @@
 
 namespace Scene
 {
-	class GameBoard;
+	class Board;
 	class Cell;
 }
 
@@ -20,7 +20,7 @@ namespace GameLogic {
 	class PlayerActions
 	{
 	public:
-		PlayerActions(Scene::GameBoard& gameBoard);
+		PlayerActions(Scene::Board& gameBoard);
 
 		void update(bool mouseButtonDown, float mouseX, float mouseY);
 
@@ -39,7 +39,7 @@ namespace GameLogic {
 		bool isDragMove(bool mouseButtonDown) const;
 		bool isDragEnd(bool mouseButtonDown) const;
 
-		Scene::GameBoard& gameBoard;
+		Scene::Board& gameBoard;
 		LineMatcher lineMatcher;
 		const Scene::Cell* selectedCell;
 		bool prevMouseButtonDown;

@@ -4,7 +4,7 @@
 
 namespace Scene
 {
-	class GameBoard;
+	class Board;
 }
 
 namespace Gem {
@@ -17,7 +17,7 @@ namespace GameLogic {
 	public:
 		SpawnGemGenerator();
 
-		void update(Scene::GameBoard& gameBoard, Gem::GemGenerator& gemGenerator);
+		void update(Scene::Board& gameBoard, Gem::GemGenerator& gemGenerator);
 
 	private:
 		static const double SPAWN_PERIODE_SECS;

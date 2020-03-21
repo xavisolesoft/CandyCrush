@@ -1,6 +1,6 @@
 #include "GemGravityShifter.hpp"
 
-#include "../Scene/GameBoard.hpp"
+#include "../Scene/Board.hpp"
 
 using namespace GameLogic;
 using namespace Scene;
@@ -13,7 +13,7 @@ GemGravityShifter::GemGravityShifter() :
 {
 }
 
-void GemGravityShifter::update(GameBoard& gameBoard)
+void GemGravityShifter::update(Board& gameBoard)
 {
 	if ((std::clock() - lastUpdate) / (double)CLOCKS_PER_SEC >= SHIFT_PERIODE_SECS) {
 		for (int i = 0; i < gameBoard.getNumXCells(); ++i) {

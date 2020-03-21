@@ -1,7 +1,7 @@
 #include "LineMatcher.hpp"
 
 
-#include "../Scene/GameBoard.hpp"
+#include "../Scene/Board.hpp"
 
 #include "../Geometry/Point.hpp"
 
@@ -12,7 +12,7 @@ using namespace Scene;
 using namespace Gem;
 using namespace Geometry;
 
-LineMatcher::LineMatcher(const GameBoard& gameBoard) :
+LineMatcher::LineMatcher(const Board& gameBoard) :
 	gameBoard(gameBoard)
 {
 }

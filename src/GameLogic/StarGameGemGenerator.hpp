@@ -2,7 +2,7 @@
 
 namespace Scene
 {
-	class GameBoard;
+	class Board;
 }
 
 namespace Gem {
@@ -15,6 +15,6 @@ namespace GameLogic {
 	public:
 		StarGameGemGenerator();
 
-		void generateStartConfiguration(Scene::GameBoard& gameBoard, Gem::GemGenerator& gemGenerator);
+		void generateStartConfiguration(Scene::Board& gameBoard, Gem::GemGenerator& gemGenerator);
 	};
 }

@@ -4,7 +4,7 @@
 
 #include "../Geometry/Point.hpp"
 
-#include "../Scene/GameBoard.hpp"
+#include "../Scene/Board.hpp"
 #include "../Scene/Cell.hpp"
 #include "../Gem/GemObject.hpp"
 
@@ -20,7 +20,7 @@ using namespace Scene;
 using namespace Animation;
 using namespace Util;
 
-PlayerActions::PlayerActions(GameBoard& gameBoard) :
+PlayerActions::PlayerActions(Board& gameBoard) :
 	gameBoard(gameBoard),
 	lineMatcher(gameBoard),
 	selectedCell(nullptr),

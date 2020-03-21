@@ -1,6 +1,6 @@
 #include "SpawnGemGenerator.hpp"
 
-#include "../Scene/GameBoard.hpp"
+#include "../Scene/Board.hpp"
 
 #include "../Gem/GemGenerator.hpp"
 
@@ -15,7 +15,7 @@ SpawnGemGenerator::SpawnGemGenerator() :
 {
 }
 
-void SpawnGemGenerator::update(GameBoard& gameBoard, GemGenerator& gemGenerator)
+void SpawnGemGenerator::update(Board& gameBoard, GemGenerator& gemGenerator)
 {
 	if ((std::clock() - lastUpdate) / (double)CLOCKS_PER_SEC >= SPAWN_PERIODE_SECS) {
 		for (int i = 0; i < gameBoard.getNumXCells(); ++i) {

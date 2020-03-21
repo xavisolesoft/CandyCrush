@@ -1,4 +1,4 @@
-#include "GameBoard.hpp"
+#include "Board.hpp"
 
 #include "../Geometry/Point.hpp"
 #include "../Gem/GemObject.hpp"
@@ -7,17 +7,17 @@ using namespace Scene;
 using namespace Gem;
 using namespace Geometry;
 
-GameBoard::GameBoard()
+Board::Board()
 {
 
 }
 
-BBox<float> GameBoard::getBBox() const
+BBox<float> Board::getBBox() const
 {
 	return bBox;
 }
 
-BBox<float> GameBoard::getCellBBox(int x, int y) const
+BBox<float> Board::getCellBBox(int x, int y) const
 {
 	if (isValidCell(x, y)) {
 		return cells[x][y].getBBox();
@@ -26,12 +26,12 @@ BBox<float> GameBoard::getCellBBox(int x, int y) const
 	return BBox<float>();
 }
 
-int GameBoard::getNumXCells() const
+int Board::getNumXCells() const
 {
 	return cells.size();
 }
 
-int GameBoard::getNumYCells() const
+int Board::getNumYCells() const
 {
 	if (cells.empty()) {
 		return 0;
@@ -40,7 +40,7 @@ int GameBoard::getNumYCells() const
 	return cells.front().size();
 }
 
-void GameBoard::setNumCells(int numXCells, int numYCells)
+void Board::setNumCells(int numXCells, int numYCells)
 {
 	cells.resize(numXCells, std::vector<Cell>(numYCells));
 
@@ -52,32 +52,32 @@ void GameBoard::setNumCells(int numXCells, int numYCells)
 	}
 }
 
-void GameBoard::setCellWidth(float value)
+void Board::setCellWidth(float value)
 {
 	cellWidth = value;
 }
 
-float GameBoard::getCellWidth() const
+float Board::getCellWidth() const
 {
 	return cellWidth;
 }
 
-void GameBoard::setCellHeight(float value)
+void Board::setCellHeight(float value)
 {
 	cellHeight = value;
 }
 
-float GameBoard::getCellHeight() const
+float Board::getCellHeight() const
 {
 	return cellHeight;
 }
 
-void GameBoard::setTopLeft(const Point<float>& point)
+void Board::setTopLeft(const Point<float>& point)
 {
 	topLeft = point;
 }
 
-void GameBoard::setGemToCell(int x, int y, std::shared_ptr<GemObject> gem)
+void Board::setGemToCell(int x, int y, std::shared_ptr<GemObject> gem)
 {
 	if (isValidCell(x, y)) {
 		cells[x][y].setGem(gem);
@@ -87,7 +87,7 @@ void GameBoard::setGemToCell(int x, int y, std::shared_ptr<GemObject> gem)
 	}
 }
 
-std::shared_ptr<GemObject> GameBoard::getGemFromCell(int x, int y) const
+std::shared_ptr<GemObject> Board::getGemFromCell(int x, int y) const
 {
 	if (isValidCell(x, y)) {
 		return cells[x][y].getGem();
@@ -96,7 +96,7 @@ std::shared_ptr<GemObject> GameBoard::getGemFromCell(int x, int y) const
 	return nullptr;
 }
 
-void GameBoard::swap(std::shared_ptr<GemObject> gem1, std::shared_ptr<GemObject> gem2)
+void Board::swap(std::shared_ptr<GemObject> gem1, std::shared_ptr<GemObject> gem2)
 {
 	const Point<float>& worldPos1 = gem1->getWorldPos();
 	const Point<float>& worldPos2 = gem2->getWorldPos();
@@ -106,7 +106,7 @@ void GameBoard::swap(std::shared_ptr<GemObject> gem1, std::shared_ptr<GemObject>
 	setGemToCell(cell2->getXCell(), cell2->getYCell(), gem1);
 }
 
-void GameBoard::swap(int xCell1, int yCell1, int xCell2, int yCell2)
+void Board::swap(int xCell1, int yCell1, int xCell2, int yCell2)
 {
 	auto gem1 = getGemFromCell(xCell1, yCell1);
 	auto gem2 = getGemFromCell(xCell2, yCell2);
@@ -114,12 +114,12 @@ void GameBoard::swap(int xCell1, int yCell1, int xCell2, int yCell2)
 	setGemToCell(xCell2, yCell2, gem1);
 }
 
-void GameBoard::calculateBBoxes()
+void Board::calculateBBoxes()
 {
 	calculateSceneBBox();
 }
 
-const Cell* GameBoard::getCellFromWorldPos(float xWorld, float yWorld) const
+const Cell* Board::getCellFromWorldPos(float xWorld, float yWorld) const
 {
 	Point<float> point(xWorld, yWorld);
 	if (!bBox.contains(point)) {
@@ -136,7 +136,7 @@ const Cell* GameBoard::getCellFromWorldPos(float xWorld, float yWorld) const
 	return nullptr;
 }
 
-bool GameBoard::isValidCell(int i, int j) const
+bool Board::isValidCell(int i, int j) const
 {
 	return i >= 0 &&
 		j >= 0 &&
@@ -144,7 +144,7 @@ bool GameBoard::isValidCell(int i, int j) const
 		j < getNumYCells();
 }
 
-bool GameBoard::isAnyCellEmpty() const
+bool Board::isAnyCellEmpty() const
 {
 	for (size_t i = 0; i < cells.size(); ++i) {
 		for (size_t j = 0; j < cells[i].size(); ++j) {
@@ -157,7 +157,7 @@ bool GameBoard::isAnyCellEmpty() const
 	return false;
 }
 
-bool GameBoard::isAnyGemAnimated() const
+bool Board::isAnyGemAnimated() const
 {
 	for (size_t i = 0; i < cells.size(); ++i) {
 		for (size_t j = 0; j < cells[i].size(); ++j) {
@@ -170,7 +170,7 @@ bool GameBoard::isAnyGemAnimated() const
 	return false;
 }
 
-void GameBoard::calculateSceneBBox()
+void Board::calculateSceneBBox()
 {
 	bBox.setStartPoint(topLeft);
 	bBox.expand(Point<float>(topLeft.getX() + getNumXCells()*cellWidth,
@@ -183,7 +183,7 @@ void GameBoard::calculateSceneBBox()
 	}
 }
 
-void GameBoard::calculateCellBox(int i, int j)
+void Board::calculateCellBox(int i, int j)
 {
 	if (isValidCell(i, j)) {
 		BBox<float> bBox;

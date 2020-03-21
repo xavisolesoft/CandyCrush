@@ -13,7 +13,7 @@
 #include <king/Updater.h>
 
 #include "Gem/GemGenerator.hpp"
-#include "Scene/GameBoard.hpp"
+#include "Scene/Board.hpp"
 #include "Scene/Cell.hpp"
 #include "Gem/GemObject.hpp"
 
@@ -105,7 +105,7 @@ public:
 private:
 	King::Engine mEngine;
 	Gem::GemGenerator gemGenerator;
-	Scene::GameBoard gameBoard;
+	Scene::Board gameBoard;
 	GameLogic::PlayerActions playerActions;
 	GameLogic::LineRemover lineRemover;
 	GameLogic::SpawnGemGenerator spawnGemGenerator;

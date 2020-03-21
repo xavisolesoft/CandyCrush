@@ -1,6 +1,6 @@
 #include "StarGameGemGenerator.hpp"
 
-#include "../Scene/GameBoard.hpp"
+#include "../Scene/Board.hpp"
 
 #include "../Gem/GemGenerator.hpp"
 
@@ -14,7 +14,7 @@ StarGameGemGenerator::StarGameGemGenerator()
 {
 }
 
-void StarGameGemGenerator::generateStartConfiguration(GameBoard& gameBoard, GemGenerator& gemGenerator)
+void StarGameGemGenerator::generateStartConfiguration(Board& gameBoard, GemGenerator& gemGenerator)
 {
 	for (int j = 0; j < gameBoard.getNumYCells(); ++j) {
 		for (int i = 0; i < gameBoard.getNumXCells(); ++i) {

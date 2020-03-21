@@ -6,7 +6,7 @@
 
 namespace Scene
 {
-	class GameBoard;
+	class Board;
 }
 
 namespace Geometry
@@ -21,6 +21,6 @@ namespace GameLogic {
 	public:
 		LineRemover();
 
-		void update(Scene::GameBoard& gameBoard);
+		void update(Scene::Board& gameBoard);
 	};
 }

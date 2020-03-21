@@ -1,6 +1,6 @@
 #include "LineRemover.hpp"
 
-#include "../Scene/GameBoard.hpp"
+#include "../Scene/Board.hpp"
 #include "../Geometry/Point.hpp"
 
 #include "../Gem/DestroyGemAnimation.hpp"
@@ -15,7 +15,7 @@ LineRemover::LineRemover()
 {
 }
 
-void LineRemover::update(GameBoard& gameBoard)
+void LineRemover::update(Board& gameBoard)
 {
 	GameLogic::LineMatcher lineMatcher(gameBoard);
 	std::vector<std::vector<Geometry::Point<int>>> lines = lineMatcher.getBoardLines();

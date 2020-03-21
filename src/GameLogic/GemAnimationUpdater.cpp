@@ -1,6 +1,6 @@
 #include "GemAnimationUpdater.hpp"
 
-#include "../Scene/GameBoard.hpp"
+#include "../Scene/Board.hpp"
 #include "../Gem/GemGenerator.hpp"
 
 using namespace GameLogic;
@@ -11,7 +11,7 @@ GemAnimationUpdater::GemAnimationUpdater()
 {
 }
 
-void GemAnimationUpdater::update(GameBoard& gameBoard)
+void GemAnimationUpdater::update(Board& gameBoard)
 {
 	for (int i = 0; i < gameBoard.getNumXCells(); ++i) {
 		for (int j = 0; j < gameBoard.getNumYCells(); ++j) {
