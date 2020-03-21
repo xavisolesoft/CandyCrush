@@ -171,6 +171,9 @@
     <ClCompile Include="..\src\Scene\GamePlayScene.cpp">
       <Filter>Source Files\Scene</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Scene\EndGameScene.cpp">
+      <Filter>Source Files\Scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\external\include\king\Engine.h">
@@ -279,6 +282,9 @@
       <Filter>Header Files\GameBoard</Filter>
     </ClInclude>
     <ClInclude Include="..\src\Scene\GamePlayScene.hpp">
+      <Filter>Header Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Scene\EndGameScene.hpp">
       <Filter>Header Files\Scene</Filter>
     </ClInclude>
   </ItemGroup>

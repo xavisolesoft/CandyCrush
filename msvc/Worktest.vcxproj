@@ -103,6 +103,7 @@
     <ClCompile Include="..\src\main.cpp" />
     <ClCompile Include="..\src\Render\IRenderer.cpp" />
     <ClCompile Include="..\src\Render\RenderController.cpp" />
+    <ClCompile Include="..\src\Scene\EndGameScene.cpp" />
     <ClCompile Include="..\src\Scene\GamePlayScene.cpp" />
     <ClCompile Include="..\src\Text\TextObject.cpp" />
     <ClCompile Include="..\src\Text\TextRenderer.cpp" />
@@ -140,6 +141,7 @@
     <ClInclude Include="..\src\Geometry\Vector.hpp" />
     <ClInclude Include="..\src\Render\IRenderer.hpp" />
     <ClInclude Include="..\src\Render\RenderController.hpp" />
+    <ClInclude Include="..\src\Scene\EndGameScene.hpp" />
     <ClInclude Include="..\src\Scene\GamePlayScene.hpp" />
     <ClInclude Include="..\src\Text\TextObject.hpp" />
     <ClInclude Include="..\src\Text\TextRenderer.hpp" />

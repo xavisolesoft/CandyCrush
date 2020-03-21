@@ -28,7 +28,7 @@ void GamePlayScene::start()
 	GameLogic::StarGameGemGenerator startGameGenerator;
 	startGameGenerator.generateStartConfiguration(gameBoard, gemGenerator);
 
-	gameTimeController.start(60);
+	gameTimeController.start(8);
 }
 
 void GamePlayScene::update()
