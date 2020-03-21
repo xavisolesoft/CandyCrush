@@ -6,6 +6,8 @@
 
 #include "../GameBoard/Board.hpp"
 
+#include "../Render/GUIRenderController.hpp"
+
 #include "../Text/TextObject.hpp"
 #include "../Text/TextRenderer.hpp"
 
@@ -23,21 +25,25 @@ EndGameScene::~EndGameScene()
 
 void EndGameScene::start()
 {
-
+	createTheEndTextObject();
 }
 
 void EndGameScene::update()
 {
-	Text::TextObject theEnd(0);
-	theEnd.setWorldPos(Geometry::Point<float>(445, 260));
-	theEnd.setText("The End");
-
-	Text::TextRenderer textRenderer;
-	textRenderer.setEngine(&engine);
-	textRenderer.update(theEnd);
+	
 }
 
 bool EndGameScene::end()
 {
 	return false;
+}
+
+void EndGameScene::createTheEndTextObject() const
+{
+	auto theEndTextObject = new Text::TextObject(0);
+	theEndTextObject->setWorldPos(Geometry::Point<float>(445, 260));
+	theEndTextObject->setText("The End");
+
+	auto textRenderer = new Text::TextRenderer();
+	Render::GUIRenderController::getInstance().add(*theEndTextObject, *textRenderer);
 }

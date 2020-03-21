@@ -21,6 +21,7 @@
 #include "Scene/EndGameScene.hpp"
 
 #include "Render/GameRenderController.hpp"
+#include "Render/GUIRenderController.hpp"
 
 #include "Animation/IAnimation.hpp"
 
@@ -34,8 +35,10 @@ public:
 		, gemGenerator(Render::GameRenderController::getInstance())
 		, gamePlayScene(mEngine, gameBoard, gemGenerator)
 		, endGameScene(mEngine)
+		, sceneStarted(false)
 	{
 		Render::GameRenderController::getInstance().setEngine(&mEngine);
+		Render::GUIRenderController::getInstance().setEngine(&mEngine);
 	}
 
 	void Start()
@@ -60,12 +63,13 @@ public:
 
 		if (!gamePlayScene.end()) {
 			gamePlayScene.update();
-			Render::GameRenderController::getInstance().update();
 		}
 		else {
-			Render::GameRenderController::getInstance().update();
 			endGameScene.update();
 		}
+
+		Render::GameRenderController::getInstance().update();
+		Render::GUIRenderController::getInstance().update();
 
 		/*
 		if (mEngine.GetMouseButtonDown()) {
@@ -80,6 +84,7 @@ private:
 	GameBoard::Board gameBoard;
 	Scene::GamePlayScene gamePlayScene;
 	Scene::EndGameScene endGameScene;
+	bool sceneStarted;
 };
 
 //**********************************************************************

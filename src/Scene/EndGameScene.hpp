@@ -34,6 +34,8 @@ namespace Scene {
 		bool end();
 
 	private:
+		void createTheEndTextObject() const;
+
 		King::Engine& engine;
 	};
 }
