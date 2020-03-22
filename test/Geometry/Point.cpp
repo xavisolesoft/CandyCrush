@@ -5,35 +5,35 @@
 
 using namespace Geometry;
 
-TEST(PointTest, Constructor_DefaultValues) {
+TEST(Point, Constructor_DefaultValues) {
 	Point<float> point;
 
 	ASSERT_EQ(0.0f, point.getX());
 	ASSERT_EQ(0.0f, point.getY());
 }
 
-TEST(PointTest, Constructor_SetValues) {
+TEST(Point, Constructor_SetValues) {
 	Point<int> point(1, 2);
 
 	ASSERT_EQ(1, point.getX());
 	ASSERT_EQ(2, point.getY());
 }
 
-TEST(PointTest, Constructor_SetGetX) {
+TEST(Point, Constructor_SetGetX) {
 	Point<int> point(1);
 
 	point.setX(5);
 	ASSERT_EQ(5, point.getX());
 }
 
-TEST(PointTest, Constructor_SetGetY) {
+TEST(Point, Constructor_SetGetY) {
 	Point<int> point(1);
 
 	point.setY(5);
 	ASSERT_EQ(5, point.getY());
 }
 
-TEST(PointTest, Constructor_CmpEqualOperator) {
+TEST(Point, Constructor_CmpEqualOperator) {
 	Point<float> point0;
 	Point<float> point1(1, 1);
 
@@ -42,7 +42,7 @@ TEST(PointTest, Constructor_CmpEqualOperator) {
 	ASSERT_FALSE(point0 == point1);
 }
 
-TEST(PointTest, Constructor_AddAsignVectorOperator) {
+TEST(Point, Constructor_AddAsignVectorOperator) {
 	Point<int> point0;
 	Vector<int> vector1(1, 1);
 
@@ -50,21 +50,21 @@ TEST(PointTest, Constructor_AddAsignVectorOperator) {
 	ASSERT_EQ(Point<int>(1, 1), point0);
 }
 
-TEST(PointTest, Constructor_AddPointOperator) {
+TEST(Point, Constructor_AddPointOperator) {
 	Point<int> point0;
 	Point<int> point1(1, 1);
 
 	ASSERT_EQ(Point<int>(1, 1), point0 + point1);
 }
 
-TEST(PointTest, Constructor_AddVectorOperator) {
+TEST(Point, Constructor_AddVectorOperator) {
 	Point<int> point0;
 	Vector<int> vector1(1, 1);
 
 	ASSERT_EQ(Point<int>(1, 1), point0 + vector1);
 }
 
-TEST(PointTest, Constructor_SubtractPointOperator) {
+TEST(Point, Constructor_SubtractPointOperator) {
 	Point<int> point0;
 	Point<int> point1(1, 1);
 

@@ -7,7 +7,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Worktest", "msvc\Worktest.v
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{5D39157A-8684-49D4-8820-6CC72CD845D3}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GeometryTest", "test\GeometryTest\Geometry.vcxproj", "{79B70F17-57C3-421F-8C43-CC74B68B0181}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Geometry", "test\Geometry\Geometry.vcxproj", "{79B70F17-57C3-421F-8C43-CC74B68B0181}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
