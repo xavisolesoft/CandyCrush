@@ -1,8 +1,8 @@
 #include "RenderController.hpp"
 
-#include "../GameObject/IGameObject.hpp"
-#include "../Gem/GemRenderer.hpp"
-#include "../Render/IRenderer.hpp"
+#include "GameObject/IGameObject.hpp"
+#include "Gem/GemRenderer.hpp"
+#include "Render/IRenderer.hpp"
 
 using namespace GameObject;
 using namespace Render;

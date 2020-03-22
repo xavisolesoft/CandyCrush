@@ -2,8 +2,8 @@
 
 #include <king/Engine.h>
 
-#include "../Gem/GemObject.hpp"
-#include "../Render/IRenderer.hpp"
+#include "Gem/GemObject.hpp"
+#include "Render/IRenderer.hpp"
 
 namespace GameObject
 {

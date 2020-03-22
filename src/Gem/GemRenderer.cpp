@@ -1,4 +1,4 @@
-#include "../Gem/GemRenderer.hpp"
+#include "Gem/GemRenderer.hpp"
 
 #include <king/Engine.h>
 
@@ -6,11 +6,11 @@
 #include <glm/mat4x4.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
-#include "../Geometry/Point.hpp"
+#include "Geometry/Point.hpp"
 
-#include "../Gem/GemObject.hpp"
+#include "Gem/GemObject.hpp"
 
-#include "../Util/EngineDebug.hpp"
+#include "Util/EngineDebug.hpp"
 
 using namespace Gem;
 using namespace GameObject;

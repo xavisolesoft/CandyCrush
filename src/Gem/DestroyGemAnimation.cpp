@@ -1,6 +1,6 @@
 #include "DestroyGemAnimation.hpp"
 
-#include "../Gem/GemObject.hpp"
+#include "Gem/GemObject.hpp"
 
 using namespace Animation;
 using namespace Gem;

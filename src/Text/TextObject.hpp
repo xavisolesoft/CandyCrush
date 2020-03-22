@@ -2,7 +2,7 @@
 
 #include <string>
 
-#include "../GameObject/IGameObject.hpp"
+#include "GameObject/IGameObject.hpp"
 
 namespace Text {
 	class TextObject :

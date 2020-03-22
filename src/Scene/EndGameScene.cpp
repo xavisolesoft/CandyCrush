@@ -1,9 +1,9 @@
 #include "EndGameScene.hpp"
 
-#include "../Render/GUIRenderController.hpp"
+#include "Render/GUIRenderController.hpp"
 
-#include "../Text/TextObject.hpp"
-#include "../Text/TextRenderer.hpp"
+#include "Text/TextObject.hpp"
+#include "Text/TextRenderer.hpp"
 
 using namespace Scene;
 using namespace Geometry;

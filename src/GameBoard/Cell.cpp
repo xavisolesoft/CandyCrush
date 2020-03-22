@@ -1,6 +1,6 @@
 #include "Cell.hpp"
 
-#include "../Gem/GemObject.hpp"
+#include "Gem/GemObject.hpp"
 
 using namespace GameBoard;
 using namespace Gem;

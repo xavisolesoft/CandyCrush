@@ -1,13 +1,13 @@
 #pragma once
 
-#include "../Scene/IScene.hpp"
-#include "../GameLogic/LineRemover.hpp"
-#include "../GameLogic/PlayerActions.hpp"
-#include "../GameLogic/GameTimeController.hpp"
-#include "../GameLogic/GemAnimationUpdater.hpp"
-#include "../GameLogic/SpawnGemGenerator.hpp"
-#include "../GameLogic/GemGravityShifter.hpp"
-#include "../GameLogic/ScoreCounter.hpp"
+#include "Scene/IScene.hpp"
+#include "GameLogic/LineRemover.hpp"
+#include "GameLogic/PlayerActions.hpp"
+#include "GameLogic/GameTimeController.hpp"
+#include "GameLogic/GemAnimationUpdater.hpp"
+#include "GameLogic/SpawnGemGenerator.hpp"
+#include "GameLogic/GemGravityShifter.hpp"
+#include "GameLogic/ScoreCounter.hpp"
 
 namespace GameBoard
 {

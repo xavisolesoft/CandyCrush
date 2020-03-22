@@ -1,13 +1,13 @@
 #include "GemGravityShifter.hpp"
 
-#include "../GameBoard/Board.hpp"
+#include "GameBoard/Board.hpp"
 
-#include "../Gem/GemObject.hpp"
-#include "../Gem/MoveGemAnimation.hpp"
+#include "Gem/GemObject.hpp"
+#include "Gem/MoveGemAnimation.hpp"
 
-#include "../Geometry/Point.hpp"
+#include "Geometry/Point.hpp"
 
-#include "../Animation/ComposedSequentialAnimation.hpp"
+#include "Animation/ComposedSequentialAnimation.hpp"
 
 using namespace GameLogic;
 using namespace GameBoard;

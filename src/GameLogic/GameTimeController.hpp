@@ -5,7 +5,7 @@
 #include <ctime>
 #include <string>
 
-#include "../Text/TextObject.hpp"
+#include "Text/TextObject.hpp"
 
 
 namespace GameLogic {

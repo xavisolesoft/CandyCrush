@@ -5,7 +5,7 @@
 
 #include "RenderController.hpp"
 
-#include "../Util/Singleton.hpp"
+#include "Util/Singleton.hpp"
 
 namespace Render
 {

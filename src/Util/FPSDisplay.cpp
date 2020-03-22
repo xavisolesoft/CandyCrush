@@ -3,12 +3,12 @@
 #include <sstream>
 #include <string>
 
-#include "../Render/GameRenderController.hpp"
+#include "Render/GameRenderController.hpp"
 
-#include "../Text/TextObject.hpp"
-#include "../Text/TextRenderer.hpp"
+#include "Text/TextObject.hpp"
+#include "Text/TextRenderer.hpp"
 
-#include "../Geometry/Point.hpp"
+#include "Geometry/Point.hpp"
 
 using namespace Util;
 using namespace Geometry;

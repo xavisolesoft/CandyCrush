@@ -1,7 +1,7 @@
 #include "Board.hpp"
 
-#include "../Geometry/Point.hpp"
-#include "../Gem/GemObject.hpp"
+#include "Geometry/Point.hpp"
+#include "Gem/GemObject.hpp"
 
 using namespace GameBoard;
 using namespace Gem;

@@ -1,10 +1,10 @@
 #include "StarGameGemGenerator.hpp"
 
-#include "../GameBoard/Board.hpp"
+#include "GameBoard/Board.hpp"
 
-#include "../Gem/GemGenerator.hpp"
+#include "Gem/GemGenerator.hpp"
 
-#include "../GameLogic/LineMatcher.hpp"
+#include "GameLogic/LineMatcher.hpp"
 
 using namespace GameLogic;
 using namespace GameBoard;

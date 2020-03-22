@@ -4,11 +4,11 @@
 
 #include <cstdlib>
 
-#include "../Render/RenderController.hpp"
-#include "../Gem/GemRenderer.hpp"
-#include "../Gem/GemGenerator.hpp"
+#include "Render/RenderController.hpp"
+#include "Gem/GemRenderer.hpp"
+#include "Gem/GemGenerator.hpp"
 
-#include "../Util/Debug.hpp"
+#include "Util/Debug.hpp"
 
 using namespace Gem;
 using namespace Util;

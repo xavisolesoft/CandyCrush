@@ -2,7 +2,7 @@
 
 #include <king/Engine.h>
 
-#include "../Render/IRenderer.hpp"
+#include "Render/IRenderer.hpp"
 
 namespace GameObject
 {

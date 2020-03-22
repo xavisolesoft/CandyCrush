@@ -1,8 +1,8 @@
 #pragma once
 
-#include "../Scene/IScene.hpp"
+#include "Scene/IScene.hpp"
 
-#include "../Geometry/Point.hpp"
+#include "Geometry/Point.hpp"
 
 namespace Scene {
 	class EndGameScene :

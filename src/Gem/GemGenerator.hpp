@@ -4,7 +4,7 @@
 #include <atomic>
 
 #include "GemObject.hpp"
-#include "../Gem/GemRenderer.hpp"
+#include "Gem/GemRenderer.hpp"
 
 namespace Render
 {

@@ -1,10 +1,10 @@
-#include "../Text/TextRenderer.hpp"
+#include "Text/TextRenderer.hpp"
 
 #include <king/Engine.h>
 
-#include "../Geometry/Point.hpp"
+#include "Geometry/Point.hpp"
 
-#include "../Text/TextObject.hpp"
+#include "Text/TextObject.hpp"
 
 using namespace Text;
 using namespace GameObject;

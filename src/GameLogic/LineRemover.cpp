@@ -1,11 +1,11 @@
 #include "LineRemover.hpp"
 
-#include "../GameBoard/Board.hpp"
-#include "../Geometry/Point.hpp"
+#include "GameBoard/Board.hpp"
+#include "Geometry/Point.hpp"
 
-#include "../Gem/DestroyGemAnimation.hpp"
+#include "Gem/DestroyGemAnimation.hpp"
 
-#include "../Util/Debug.hpp"
+#include "Util/Debug.hpp"
 
 using namespace GameLogic;
 using namespace GameBoard;

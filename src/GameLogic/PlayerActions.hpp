@@ -2,7 +2,7 @@
 
 #include <memory>
 
-#include "../GameLogic/LineMatcher.hpp"
+#include "GameLogic/LineMatcher.hpp"
 
 namespace GameBoard
 {

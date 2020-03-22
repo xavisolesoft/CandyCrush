@@ -2,7 +2,7 @@
 
 #include <string>
 
-#include "../Scene/IScene.hpp"
+#include "Scene/IScene.hpp"
 
 namespace King
 {

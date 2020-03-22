@@ -4,8 +4,8 @@
 #include <ctime>
 #include <functional>
 
-#include "../Animation/IAnimation.hpp"
-#include "../Geometry/Point.hpp"
+#include "Animation/IAnimation.hpp"
+#include "Geometry/Point.hpp"
 
 namespace Gem
 {

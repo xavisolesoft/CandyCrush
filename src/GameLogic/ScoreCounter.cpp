@@ -3,14 +3,14 @@
 #include <string>
 #include <sstream>
 
-#include "../Gem/GemGenerator.hpp"
+#include "Gem/GemGenerator.hpp"
 
-#include "../Render/GameRenderController.hpp"
+#include "Render/GameRenderController.hpp"
 
-#include "../Text/TextObject.hpp"
-#include "../Text/TextRenderer.hpp"
+#include "Text/TextObject.hpp"
+#include "Text/TextRenderer.hpp"
 
-#include "../Geometry/Point.hpp"
+#include "Geometry/Point.hpp"
 
 using namespace GameLogic;
 using namespace Gem;

@@ -2,11 +2,11 @@
 
 #include <king/Engine.h>
 
-#include "../Render/GUIRenderController.hpp"
+#include "Render/GUIRenderController.hpp"
 
-#include "../GameLogic/StarGameGemGenerator.hpp"
+#include "GameLogic/StarGameGemGenerator.hpp"
 
-#include "../GameBoard/Board.hpp"
+#include "GameBoard/Board.hpp"
 
 using namespace Scene;
 

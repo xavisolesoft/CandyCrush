@@ -4,8 +4,8 @@
 #include <memory>
 
 #include "Cell.hpp"
-#include "../Geometry/BBox.hpp"
-#include "../Geometry/Point.hpp"
+#include "Geometry/BBox.hpp"
+#include "Geometry/Point.hpp"
 
 namespace Gem
 {

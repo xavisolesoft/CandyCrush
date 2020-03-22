@@ -1,11 +1,11 @@
 #include "StartGameScene.hpp"
 
-#include "../Render/GUIRenderController.hpp"
+#include "Render/GUIRenderController.hpp"
 
-#include "../Text/TextObject.hpp"
-#include "../Text/TextRenderer.hpp"
+#include "Text/TextObject.hpp"
+#include "Text/TextRenderer.hpp"
 
-#include "../Geometry/Point.hpp"
+#include "Geometry/Point.hpp"
 
 using namespace Scene;
 

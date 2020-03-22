@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../GameObject/IGameObject.hpp"
+#include "GameObject/IGameObject.hpp"
 
 namespace Gem {
 	enum class GemType

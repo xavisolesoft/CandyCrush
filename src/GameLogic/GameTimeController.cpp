@@ -2,10 +2,10 @@
 
 #include <sstream>
 
-#include "../Text/TextRenderer.hpp"
-#include "../Text/TextObject.hpp"
+#include "Text/TextRenderer.hpp"
+#include "Text/TextObject.hpp"
 
-#include "../Render/GUIRenderController.hpp"
+#include "Render/GUIRenderController.hpp"
 
 using namespace GameLogic;
 using namespace Text;

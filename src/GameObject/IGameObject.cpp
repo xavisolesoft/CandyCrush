@@ -1,6 +1,6 @@
 #include "IGameObject.hpp"
 
-#include "../Animation/IAnimation.hpp"
+#include "Animation/IAnimation.hpp"
 
 using namespace GameObject;
 using namespace Geometry;

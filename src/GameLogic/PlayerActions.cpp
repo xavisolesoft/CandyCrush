@@ -2,16 +2,16 @@
 
 #include <vector>
 
-#include "../Geometry/Point.hpp"
+#include "Geometry/Point.hpp"
 
-#include "../GameBoard/Board.hpp"
-#include "../GameBoard/Cell.hpp"
-#include "../Gem/GemObject.hpp"
+#include "GameBoard/Board.hpp"
+#include "GameBoard/Cell.hpp"
+#include "Gem/GemObject.hpp"
 
-#include "../Gem/MoveGemAnimation.hpp"
-#include "../Animation/ComposedSequentialAnimation.hpp"
+#include "Gem/MoveGemAnimation.hpp"
+#include "Animation/ComposedSequentialAnimation.hpp"
 
-#include "../Util/Debug.hpp"
+#include "Util/Debug.hpp"
 
 using namespace GameLogic;
 using namespace Geometry;
