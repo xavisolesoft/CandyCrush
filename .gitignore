@@ -40,3 +40,5 @@ external
 msvc/Debug
 msvc/Release
 *.sdf
+*.log
+*.tlog

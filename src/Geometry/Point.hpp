@@ -45,11 +45,11 @@ namespace Geometry {
 			return *this;
 		}
 
-		Point<T> operator+(const Point<T>& vector) const
+		Point<T> operator+(const Point<T>& point) const
 		{
 			Point<T> ret(*this);
-			ret.x += vector.x;
-			ret.y += vector.y;
+			ret.x += point.x;
+			ret.y += point.y;
 			return ret;
 		}
 
