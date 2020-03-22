@@ -6,6 +6,7 @@
 #include "../Text/TextRenderer.hpp"
 
 using namespace Scene;
+using namespace Geometry;
 
 EndGameScene::EndGameScene() :
 	isFirstUpdate(true)
@@ -19,7 +20,8 @@ EndGameScene::~EndGameScene()
 
 void EndGameScene::start()
 {
-	createTheEndTextObject();
+	createTheEndTextObject(Point<float>(450, 50));
+	createTheEndTextObject(Point<float>(450, 458));
 }
 
 void EndGameScene::update()
@@ -35,10 +37,10 @@ bool EndGameScene::haveEnd()
 	return false;
 }
 
-void EndGameScene::createTheEndTextObject() const
+void EndGameScene::createTheEndTextObject(const Point<float>& pos) const
 {
 	auto theEndTextObject = new Text::TextObject(0);
-	theEndTextObject->setWorldPos(Geometry::Point<float>(445, 48));
+	theEndTextObject->setWorldPos(pos);
 	theEndTextObject->setText("The End");
 
 	auto textRenderer = new Text::TextRenderer();

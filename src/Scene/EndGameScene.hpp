@@ -2,6 +2,8 @@
 
 #include "../Scene/IScene.hpp"
 
+#include "../Geometry/Point.hpp"
+
 namespace Scene {
 	class EndGameScene :
 		public IScene
@@ -15,7 +17,7 @@ namespace Scene {
 		bool haveEnd() override;
 
 	private:
-		void createTheEndTextObject() const;
+		void createTheEndTextObject(const Geometry::Point<float>& pos) const;
 
 		bool isFirstUpdate;
 	};
