@@ -17,23 +17,24 @@ namespace Gem {
 		MoveGemAnimation();
 		~MoveGemAnimation();
 		
-		void setStepTriggeredFunction(int stepNumber, std::function<void()> animationEndFunction);
+		void setStepTriggeredFunction(float distanceTrigger, std::function<void()> animationStepFunction);
+		void setStepEndFunction(std::function<void()> animationEndFunction);
 
-		void start(std::shared_ptr<Gem::GemObject> gem, const Geometry::Point<float>& origin, const Geometry::Point<float>& destination, int steps, float perideSeconds);
+		void start(std::shared_ptr<Gem::GemObject> gem, const Geometry::Point<float>& origin, const Geometry::Point<float>& destination, float speed);
 
 		bool update() override;
 
 	private:
 		std::shared_ptr<Gem::GemObject> gem;
 		Geometry::Point<float> origin;
+		Geometry::Point<float> destination;
 		Geometry::Vector<float> move;
 		std::clock_t lastUpdate;
 
-		int TOTAL_STEPS;
-		float PERIODE_SECONDS;
-		int currentStep;
-		int stepFunctionTrigger;
+		float speed;
+		float distanceTrigger;
 
+		std::function<void()> animationStepFunction;
 		std::function<void()> animationEndFunction;
 	};
 }

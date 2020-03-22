@@ -18,10 +18,5 @@ namespace GameLogic {
 		SpawnGemGenerator();
 
 		void update(GameBoard::Board& gameBoard, Gem::GemGenerator& gemGenerator);
-
-	private:
-		static const double SPAWN_PERIODE_SECS;
-
-		std::clock_t lastUpdate;
 	};
 }

@@ -1,5 +1,7 @@
 #pragma once
 
+#include <cmath>
+
 namespace Geometry {
 	template<class T>
 	class Vector
@@ -38,6 +40,18 @@ namespace Geometry {
 		void setY(T value)
 		{
 			y = value;
+		}
+
+		float norm() const
+		{
+			return sqrt(x*x + y*y);
+		}
+
+		Vector<float> normalized()
+		{
+			Vector<float> n(*this);
+			n /= norm();
+			return n;
 		}
 
 		bool operator==(const Vector<T>& other) const

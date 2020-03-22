@@ -102,8 +102,10 @@ void Board::swap(std::shared_ptr<GemObject> gem1, std::shared_ptr<GemObject> gem
 	const Point<float>& worldPos2 = gem2->getWorldPos();
 	const Cell* cell1 = getCellFromWorldPos(worldPos1.getX(), worldPos1.getY());
 	const Cell* cell2 = getCellFromWorldPos(worldPos2.getX(), worldPos2.getY());
-	setGemToCell(cell1->getXCell(), cell1->getYCell(), gem2);
-	setGemToCell(cell2->getXCell(), cell2->getYCell(), gem1);
+	if (cell1 && cell2) {
+		setGemToCell(cell1->getXCell(), cell1->getYCell(), gem2);
+		setGemToCell(cell2->getXCell(), cell2->getYCell(), gem1);
+	}
 }
 
 void Board::swap(int xCell1, int yCell1, int xCell2, int yCell2)
@@ -202,8 +204,8 @@ void Board::calculateCellBox(int i, int j)
 								topLeft.getY() + j * cellHeight);
 
 		bBox.setStartPoint(cellTopLeft);
-		bBox.expand(Point<float>(cellTopLeft.getX() + cellWidth,
-								cellTopLeft.getY() + cellHeight));
+		bBox.expand(Point<float>(cellTopLeft.getX() + cellWidth - 0.001,
+								cellTopLeft.getY() + cellHeight - 0.001));
 
 		cells[i][j].setBBox(bBox);
 	}

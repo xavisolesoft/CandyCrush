@@ -7,8 +7,7 @@ using namespace Geometry;
 using namespace Gem;
 
 MoveGemAnimation::MoveGemAnimation() :
-	lastUpdate(0),
-	stepFunctionTrigger(-1)
+	lastUpdate(0)
 {
 
 }
@@ -17,37 +16,61 @@ MoveGemAnimation::~MoveGemAnimation()
 {
 }
 
-void MoveGemAnimation::setStepTriggeredFunction(int stepNumber, std::function<void()> animationEndFunction)
+void MoveGemAnimation::setStepTriggeredFunction(float distanceTrigger, std::function<void()> animationStepFunction)
 {
-	stepFunctionTrigger = stepNumber;
+	this->distanceTrigger = distanceTrigger;
+	this->animationStepFunction = animationStepFunction;
+}
+
+void MoveGemAnimation::setStepEndFunction(std::function<void()> animationEndFunction)
+{
 	this->animationEndFunction = animationEndFunction;
 }
 
-void MoveGemAnimation::start(std::shared_ptr<GemObject> gem, const Point<float>& origin, const Point<float>& destination, int steps, float perideSeconds)
+void MoveGemAnimation::start(std::shared_ptr<GemObject> gem, const Point<float>& origin, const Point<float>& destination, float speed)
 {
 	this->gem = gem;
 	this->origin = origin;
+	this->destination = destination;
 	this->move = destination - origin;
-	TOTAL_STEPS = steps;
-	PERIODE_SECONDS = perideSeconds;
-	lastUpdate = 0;
-
-	currentStep = 0;
+	this->speed = speed;
+	this->lastUpdate = 0;
 }
 
 bool MoveGemAnimation::update()
 {
-	if (currentStep < TOTAL_STEPS && (std::clock() - lastUpdate) / (double)CLOCKS_PER_SEC >= PERIODE_SECONDS) {
-		++currentStep;
-		gem->setWorldPos(origin + (move/(float)TOTAL_STEPS)*(float)currentStep);
-		
+	if (lastUpdate == 0) {
 		lastUpdate = std::clock();
 	}
 
-	bool end = currentStep >= TOTAL_STEPS;
-	if (currentStep == stepFunctionTrigger && animationEndFunction) {
-		animationEndFunction();
+	bool finished = false;
+	float stepDuration = (std::clock() - lastUpdate)/(float)CLOCKS_PER_SEC;
+	float stepDistance = speed*stepDuration;
+	Vector<float> toEndMoveVector = destination - gem->getWorldPos();
+	float distanceToDestination = toEndMoveVector.norm();
+	
+	if (distanceToDestination > stepDistance) {
+		Vector<float> stepMoveVector = move.normalized()*stepDistance;
+		gem->setWorldPos(gem->getWorldPos() + stepMoveVector);
+	}
+	else {
+		gem->setWorldPos(destination);
+		finished = true;
+		lastUpdate = 0;
 	}
 
-	return end;
+	float distanceFromOrigin = Vector<float>(gem->getWorldPos() - origin).norm();
+	if (animationStepFunction && distanceFromOrigin > distanceTrigger) {
+		animationStepFunction();
+		animationStepFunction == nullptr;
+	}
+
+	if (finished && animationEndFunction) {
+		animationEndFunction();
+	}
+	
+	lastUpdate = std::clock();
+
+	return finished;
 }
+
