@@ -6,7 +6,7 @@ The package contains the next folders:
 
 - Project: Source code and project.
 - Game: Final game version (please use this for test). 
-- Game_with_debug_log: Game compiled with debug logs (just to show it).
+- Game_with_logs: Game compiled with debug logs (just to show it).
 - Snapshots: images for this document.
 
 ## Tools & Frameworks decisions
@@ -86,6 +86,6 @@ The application have an FPS display at the top left corner to verify the correct
 
 If the project is compiled with DEBUG_LOG macro defined, the resulting application will print a trace on the output and show gem ids in the game window. Debug compilation mode have this option activated by default.
 
-Find a compiler version with DEBUG_LOG enabled in Game_with_debug_log folder.
+Find a compiler version with DEBUG_LOG enabled in Game_with_logs folder.
 
 ![DEBUG_LOG_Macro](Snapshots\DEBUG_LOG_Macro.png)
