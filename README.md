@@ -74,7 +74,7 @@ The player can see the score in the top left of the mine door. Each Gem is 1 poi
 
 ![ScoreDisplay](Snapshots\ScoreDisplay.png)
 
-##Debug Tools
+##Test and Debug Tools
 
 ###FPS Display (additional feature)
 
@@ -89,3 +89,7 @@ If the project is compiled with DEBUG_LOG macro defined, the resulting applicati
 Find a compiler version with DEBUG_LOG enabled in Game_with_logs folder.
 
 ![DEBUG_LOG_Macro](Snapshots\DEBUG_LOG_Macro.png)
+
+### Unit Tests
+
+Unit test implementation was discarded for this project due the deadline was one weak and the priority was finish the product code without functional bugs.  Anyway, the system architecture allows adding easily unit tests in the future, because is based SOLID principles and the the most stable classes have not few dependencies.
