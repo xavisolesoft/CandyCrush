@@ -76,7 +76,7 @@ The player can see the score in the top left of the mine door. Each Gem is 1 poi
 
 ##Debug Tools
 
-###FPS Display  (additional feature)
+###FPS Display (additional feature)
 
 The application have an FPS display at the top left corner to verify the correct performance of frame generation.
 
