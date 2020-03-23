@@ -5,9 +5,11 @@
 The package contains the next folders:
 
 - Project: Source code and project.
-- Game: Final game version (please use this for test). 
-- Game_with_logs: Game compiled with debug logs (just to show it).
+- Game: Final game version for Windows (please use this for test). 
+- Game_with_logs: Game compiled for Windows with debug logs (just to show it).
 - Snapshots: images for this document.
+
+Game and Game_with_logs folders include Visual Studio 11.0 libraries to be able to run without Visual C++ 11.0 Redistributable installed.
 
 ## Tools & Frameworks decisions
 
