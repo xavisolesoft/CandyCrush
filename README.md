@@ -62,7 +62,7 @@ Drop the gem to a valid swap position.
 
 A Gem can be selected by clicking it, the selected Gem will be scaled up to indicate that is selected. I'm aware that Gem sprites are not ready for scale, but I used this technique because no selection sprites where provided.
 
-![SelectedGem](Snapshots\SelectedGem.png)
+![](Snapshots\SelectedGem.png)
 
 ###Timer (additional feature)
 
