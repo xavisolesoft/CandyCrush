@@ -68,13 +68,13 @@ A Gem can be selected by clicking it, the selected Gem will be scaled up to indi
 
 The timer indicates player the remaining time to game end. The game duration is 1 minute as indicated in the instructions of this project.
 
-![Timer](Snapshots\Timer.png)
+![Timer](Snapshots/Timer.png)
 
 ### Score Display (additional feature)
 
 The player can see the score in the top left of the mine door. Each Gem is 1 point as was not requested in the project instructions a score system design/implementation.
 
-![ScoreDisplay](Snapshots\ScoreDisplay.png)
+![ScoreDisplay](Snapshots/ScoreDisplay.png)
 
 ##Test and Debug Tools
 
@@ -82,7 +82,7 @@ The player can see the score in the top left of the mine door. Each Gem is 1 poi
 
 The application have an FPS display at the top left corner to verify the correct performance of frame generation.
 
-![FPS_Display](Snapshots\FPS_Display.png)
+![FPS_Display](Snapshots/FPS_Display.png)
 
 ###DEBUG_LOG Macro (additional feature)
 
@@ -90,7 +90,7 @@ If the project is compiled with DEBUG_LOG macro defined, the resulting applicati
 
 Find a compiler version with DEBUG_LOG enabled in Game_with_logs folder.
 
-![DEBUG_LOG_Macro](Snapshots\DEBUG_LOG_Macro.png)
+![DEBUG_LOG_Macro](Snapshots/DEBUG_LOG_Macro.png)
 
 ### Unit Tests
 
