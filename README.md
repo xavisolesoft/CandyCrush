@@ -1,4 +1,4 @@
-# King_test
+# CandyCrush
 
 ## Package contents
 
