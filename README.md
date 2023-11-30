@@ -54,7 +54,7 @@ The source code is divided in the next subfolders:
 
 ## Controls
 
-###Drag and drop
+### Drag and drop
 
 Drop the gem to a valid swap position.
 
@@ -64,7 +64,7 @@ A Gem can be selected by clicking it, the selected Gem will be scaled up to indi
 
 ![Selected Gem](Snapshots/SelectedGem.png)
 
-###Timer (additional feature)
+### Timer (additional feature)
 
 The timer indicates player the remaining time to game end. The game duration is 1 minute as indicated in the instructions of this project.
 
@@ -76,15 +76,15 @@ The player can see the score in the top left of the mine door. Each Gem is 1 poi
 
 ![ScoreDisplay](Snapshots/ScoreDisplay.png)
 
-##Test and Debug Tools
+## Test and Debug Tools
 
-###FPS Display (additional feature)
+### FPS Display (additional feature)
 
 The application have an FPS display at the top left corner to verify the correct performance of frame generation.
 
 ![FPS_Display](Snapshots/FPS_Display.png)
 
-###DEBUG_LOG Macro (additional feature)
+### DEBUG_LOG Macro (additional feature)
 
 If the project is compiled with DEBUG_LOG macro defined, the resulting application will print a trace on the output and show gem ids in the game window. Debug compilation mode have this option activated by default.
 
